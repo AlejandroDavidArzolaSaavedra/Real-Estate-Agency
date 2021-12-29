@@ -5,4 +5,4 @@ import java.util.List;
 
 public class CatalogoAnuncios {
     List<Anuncio> anuncios = new ArrayList<>(); 
-}
+} asdf
