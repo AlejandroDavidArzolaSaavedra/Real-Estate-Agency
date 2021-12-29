@@ -12,12 +12,5 @@ public class Direccion {
         this.piso = piso;
         this.ciudad = ciudad;
         this.numero = numero;
-    }
-    
-    
-    
-    
-    
-    
-    
+    } 
 }
