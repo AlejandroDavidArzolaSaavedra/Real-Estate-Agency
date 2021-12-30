@@ -1,7 +1,7 @@
-
 package model;
 
 public class Direccion {
+
     private final String calle;
     private final String piso;
     private final String ciudad;
@@ -12,5 +12,5 @@ public class Direccion {
         this.piso = piso;
         this.ciudad = ciudad;
         this.numero = numero;
-    } 
+    }
 }

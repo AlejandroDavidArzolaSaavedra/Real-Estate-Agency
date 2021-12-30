@@ -1,13 +1,20 @@
-
 package model;
 
-
 public class Inmueble {
+
     private final Direccion direccion;
     private TipologiaInmueble tipoInmueble;
     private Double superficie;
     private int numeroHabitaciones;
     private String ubicacion;
+
+    public Inmueble(TipologiaInmueble tipoInmueble, Double superficie, int numeroHabitaciones, String ubicacion, Direccion direccion) {
+        this.tipoInmueble = tipoInmueble;
+        this.superficie = superficie;
+        this.numeroHabitaciones = numeroHabitaciones;
+        this.ubicacion = ubicacion;
+        this.direccion = direccion;
+    }
 
     public TipologiaInmueble getTipoInmueble() {
         return tipoInmueble;
@@ -40,14 +47,4 @@ public class Inmueble {
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
-    
-    // Constructor
-    public Inmueble(TipologiaInmueble tipoInmueble, Double superficie, int numeroHabitaciones, String ubicacion, Direccion direccion) {
-        this.tipoInmueble = tipoInmueble;
-        this.superficie = superficie;
-        this.numeroHabitaciones = numeroHabitaciones;
-        this.ubicacion = ubicacion;
-        this.direccion = direccion;
-    }
-    
 }

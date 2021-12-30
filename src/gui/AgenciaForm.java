@@ -39,9 +39,9 @@ public class AgenciaForm extends javax.swing.JFrame {
         txtCorreo = new java.awt.TextField();
         jLabel8 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        btnIniciarSesion1 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
         btnIniciarSesion = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        btnRegistrarse = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -53,7 +53,7 @@ public class AgenciaForm extends javax.swing.JFrame {
         jPanel.setForeground(new java.awt.Color(255, 255, 255));
 
         lblAgencia.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        lblAgencia.setForeground(new java.awt.Color(1, 111, 158));
+        lblAgencia.setForeground(new java.awt.Color(53, 121, 56));
         lblAgencia.setText("AGENCIA INMOBILIARIA");
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo.png"))); // NOI18N
@@ -61,7 +61,7 @@ public class AgenciaForm extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel1.setText("Anuncios recomendados:");
 
-        jPanel1.setBackground(new java.awt.Color(9, 101, 163));
+        jPanel1.setBackground(new java.awt.Color(53, 121, 56));
 
         jLabel4.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -79,13 +79,13 @@ public class AgenciaForm extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel8.setText("Contraseña:");
 
-        btnIniciarSesion1.setBackground(new java.awt.Color(9, 101, 163));
-        btnIniciarSesion1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        btnIniciarSesion1.setForeground(new java.awt.Color(255, 255, 255));
-        btnIniciarSesion1.setText("Iniciar sesión");
-        btnIniciarSesion1.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciarSesion.setBackground(new java.awt.Color(53, 121, 56));
+        btnIniciarSesion.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciarSesion.setText("Iniciar sesión");
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesion1ActionPerformed(evt);
+                btnIniciarSesionActionPerformed(evt);
             }
         });
 
@@ -108,7 +108,7 @@ public class AgenciaForm extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnIniciarSesion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
@@ -123,7 +123,7 @@ public class AgenciaForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnIniciarSesion1)
+                .addComponent(btnIniciarSesion)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
@@ -131,13 +131,13 @@ public class AgenciaForm extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Inicie sesión para poder continuar.");
 
-        btnIniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
-        btnIniciarSesion.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(9, 101, 163));
-        btnIniciarSesion.setText("Registrarse");
-        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarse.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistrarse.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        btnRegistrarse.setForeground(new java.awt.Color(53, 121, 56));
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesionActionPerformed(evt);
+                btnRegistrarseActionPerformed(evt);
             }
         });
 
@@ -154,7 +154,7 @@ public class AgenciaForm extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnIniciarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 22, Short.MAX_VALUE))))
         );
@@ -170,7 +170,7 @@ public class AgenciaForm extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnIniciarSesion)
+                .addComponent(btnRegistrarse)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -223,13 +223,15 @@ public class AgenciaForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
+        RegistrarseForm registrarseForm=new RegistrarseForm();
+        registrarseForm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
+
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
-
-    private void btnIniciarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,7 +270,7 @@ public class AgenciaForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;
-    private javax.swing.JButton btnIniciarSesion1;
+    private javax.swing.JButton btnRegistrarse;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;

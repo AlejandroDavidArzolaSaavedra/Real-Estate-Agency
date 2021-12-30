@@ -8,5 +8,4 @@ public class InmobiliariaApp {
         AgenciaForm agenciaForm=new AgenciaForm();
         agenciaForm.setVisible(true);
     }
-    
 }
