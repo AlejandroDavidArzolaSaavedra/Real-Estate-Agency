@@ -223,16 +223,21 @@ public class RegistrarseForm extends javax.swing.JFrame {
         if (!txtPassword.getText().equals(txtRepetirPassword.getText())) {
             txtError.setText("Las contraseñas no coinciden.");
         } else {
-            txtError.setText("Registro correcto");
             Cliente client = new Cliente(txtNombre.getText(), txtApellidos.getText(), txtCorreo.getText(), txtPassword.getText());
-            // si el cliente no está registrado se registra
-            if (!inmobiliaria.getClientes().contains(client)) {
-                // añado el nuevo usuario
-                inmobiliaria.addCliente(client);
-                // guardo en el fichero los clientes registrados
-                file.saveToFile(inmobiliaria);
-            } else {
-                txtError.setText("Ese correo electrónico ya está registrado.");
+            if (txtNombre.getText().contains(":") || txtApellidos.getText().contains(":") || txtCorreo.getText().contains(":") || txtPassword.getText().contains(":")) {
+                txtError.setText("Hay un caracter no permitido"); // el caracter ":" se usa como delimitador de datos en el fichero de texto
+            } 
+            else if (!txtCorreo.getText().contains("@") || txtCorreo.getText().contains(" ")) {
+                txtError.setText("El correo electrónico no es un correo válido.");
+            }
+            else {
+                if (!inmobiliaria.getClientes().contains(client)) { // si el cliente no está registrado se registra
+                    inmobiliaria.addCliente(client); // añado el nuevo usuario
+                    file.saveToFile(inmobiliaria); // guardo en el fichero los clientes registrados
+                    txtError.setText("Registro correcto");
+                } else {
+                    txtError.setText("Ese correo electrónico ya está registrado.");
+                }
             }
         }
     }//GEN-LAST:event_btnRegistrarseActionPerformed

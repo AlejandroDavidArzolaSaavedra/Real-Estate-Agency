@@ -32,15 +32,17 @@ public class AgenciaForm extends javax.swing.JFrame {
         btnIniciarSesion = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JButton();
+        txtError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
-        setSize(new java.awt.Dimension(600, 600));
+        setSize(new java.awt.Dimension(963, 575));
 
         jPanel.setBackground(new java.awt.Color(255, 255, 255));
         jPanel.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel.setMaximumSize(new java.awt.Dimension(963, 575));
 
         lblAgencia.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lblAgencia.setForeground(new java.awt.Color(53, 121, 56));
@@ -131,6 +133,9 @@ public class AgenciaForm extends javax.swing.JFrame {
             }
         });
 
+        txtError.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        txtError.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -141,6 +146,7 @@ public class AgenciaForm extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtError)
                             .addComponent(jLabel6)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -157,7 +163,9 @@ public class AgenciaForm extends javax.swing.JFrame {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
+                .addComponent(txtError)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRegistrarse)
@@ -226,6 +234,26 @@ public class AgenciaForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        System.out.println(inmobiliaria.getClientes());
+        boolean encontrado = false;
+        //busco el usuario que tenga ese correo y contraseña
+        for (int i = 0; i < inmobiliaria.getClientes().size(); i++) {
+            //si el correo y la contraseña es correcto ingresa en la aplicación del cliente
+            if (inmobiliaria.getClientes().get(i).getCorreo().equals(txtCorreo.getText()) && inmobiliaria.getClientes().get(i).getPassword().equals(txtPassword.getText())) {
+                encontrado = true;
+                ClienteForm clienteForm = new ClienteForm();
+                clienteForm.setLocationRelativeTo(null);
+                clienteForm.setVisible(true);
+                this.setVisible(false);
+                //pasa el fichero y la inmobiliaria al formulario de registro
+                clienteForm.file = file;
+                clienteForm.inmobiliaria = inmobiliaria;
+                //guardo los datos del cliente que ha iniciado sesión
+                clienteForm.cliente = inmobiliaria.getClientes().get(i);
+            }
+        if(!encontrado)
+            txtError.setText("No se puede iniciar sesión con esos datos.");
+        }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     public static void main(String args[]) {
@@ -253,6 +281,7 @@ public class AgenciaForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogo;
     private javax.swing.JScrollPane panelAnuncios;
     private java.awt.TextField txtCorreo;
+    private javax.swing.JLabel txtError;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }
