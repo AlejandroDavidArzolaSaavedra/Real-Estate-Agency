@@ -11,6 +11,7 @@ public class InmobiliariaApp {
 
         AgenciaForm agenciaForm = new AgenciaForm();
 
+        agenciaForm.setLocationRelativeTo(null);
         agenciaForm.setVisible(true);
         agenciaForm.inmobiliaria = inmobiliaria;
 

@@ -216,6 +216,7 @@ public class AgenciaForm extends javax.swing.JFrame {
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         //abre el formulario de registro
         RegistrarseForm registrarseForm = new RegistrarseForm();
+        registrarseForm.setLocationRelativeTo(null);
         registrarseForm.setVisible(true);
         //pasa el fichero y la inmobiliaria al formulario de registro
         registrarseForm.file = file;
