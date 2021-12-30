@@ -212,6 +212,9 @@ public class RegistrarseForm extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         AgenciaForm agenciaForm = new AgenciaForm();
+        agenciaForm.inmobiliaria = inmobiliaria;
+        agenciaForm.file = file;
+        agenciaForm.setLocationRelativeTo(null);
         agenciaForm.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
