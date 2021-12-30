@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Cliente {
 
     private String nombre;
@@ -12,11 +14,6 @@ public class Cliente {
         this.apellido = apellido;
         this.correo = correo;
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", apellido=" + apellido + '}';
     }
 
     public String getNombre() {
@@ -50,4 +47,28 @@ public class Cliente {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (!Objects.equals(this.correo, other.correo)) {
+            return false;
+        }
+        return true;
+    }
+
 }
