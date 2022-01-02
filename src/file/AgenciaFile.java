@@ -25,8 +25,8 @@ public class AgenciaFile {
             for (c = 0; c < inmobiliaria.getClientes().size(); c++) {
                 if (inmobiliaria.getClientes().get(c) instanceof Cliente) {
                     client = (Cliente) inmobiliaria.getClientes().get(c);
-                    // se utilzará como separador el carácter | para cada dato del fichero
-                    pw.write(client.getNombre() + "|" + client.getApellido() + "|" + client.getCorreo() + "|" + client.getPassword() + "|\n");
+                    // se utilzará como separador el carácter / para cada dato del fichero
+                    pw.write(client.getNombre() + "/" + client.getApellido() + "/" + client.getCorreo() + "/" + client.getPassword() + "/\n");
                 }
             }
         } catch (Exception e) {
@@ -47,7 +47,7 @@ public class AgenciaFile {
             Scanner s = new Scanner(new File("Agencia.txt"));
             int i, k, c, n = s.nextInt();
             s.nextLine();
-            s.useDelimiter("|");
+            s.useDelimiter("/");
             for (i = 0; i < n; i++) {
                 inmobiliaria.addCliente(s.next(), s.next(), s.next(), s.next());
                 s.nextLine();

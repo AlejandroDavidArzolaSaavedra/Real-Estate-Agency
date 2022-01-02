@@ -33,7 +33,7 @@ public class RegistrarseForm extends javax.swing.JFrame {
         txtApellidos = new javax.swing.JTextField();
         lblApellidos = new javax.swing.JLabel();
         btnRegistrarse = new javax.swing.JButton();
-        txtError = new javax.swing.JLabel();
+        lblError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -59,23 +59,23 @@ public class RegistrarseForm extends javax.swing.JFrame {
         lblInfo.setForeground(new java.awt.Color(255, 255, 255));
         lblInfo.setText("Ingresa los datos requeridos para registrarte en la aplicacion.");
 
-        lblNombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblNombre.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Nombre:");
 
-        lblCorreo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblCorreo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblCorreo.setForeground(new java.awt.Color(255, 255, 255));
         lblCorreo.setText("Correo electronico:");
 
-        lblPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblPassword.setText("Contraseña:");
 
-        lblRepetirPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblRepetirPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblRepetirPassword.setForeground(new java.awt.Color(255, 255, 255));
         lblRepetirPassword.setText("Repite la contraseña");
 
-        lblApellidos.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblApellidos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblApellidos.setForeground(new java.awt.Color(255, 255, 255));
         lblApellidos.setText("Apellidos:");
 
@@ -158,7 +158,8 @@ public class RegistrarseForm extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        txtError.setForeground(new java.awt.Color(255, 0, 51));
+        lblError.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        lblError.setForeground(new java.awt.Color(53, 121, 56));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -177,7 +178,7 @@ public class RegistrarseForm extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(lblError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -190,7 +191,7 @@ public class RegistrarseForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtError)
+                .addComponent(lblError)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -221,20 +222,20 @@ public class RegistrarseForm extends javax.swing.JFrame {
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         if (!txtPassword.getText().equals(txtRepetirPassword.getText())) {
-            txtError.setText("Las contraseñas no coinciden.");
+            lblError.setText("Las contraseñas no coinciden.");
         } else {
             Cliente client = new Cliente(txtNombre.getText(), txtApellidos.getText(), txtCorreo.getText(), txtPassword.getText());
-            if (txtNombre.getText().contains("|") || txtApellidos.getText().contains("|") || txtCorreo.getText().contains("|") || txtPassword.getText().contains("|")) {
-                txtError.setText("Hay un caracter no permitido"); // el caracter "|" se usa como separador de datos en el fichero de texto
+            if (txtNombre.getText().contains("/") || txtApellidos.getText().contains("/") || txtCorreo.getText().contains("/") || txtPassword.getText().contains("|")) {
+                lblError.setText("Hay un caracter no permitido"); // el caracter "|" se usa como separador de datos en el fichero de texto
             } else if (!txtCorreo.getText().contains("@") || txtCorreo.getText().contains(" ")) {
-                txtError.setText("El correo electrónico no es un correo válido.");
+                lblError.setText("El correo electrónico no es un correo válido.");
             } else {
                 if (!inmobiliaria.getClientes().contains(client)) { // si el cliente no está registrado se registra
                     inmobiliaria.addCliente(client); // añado el nuevo usuario
                     file.saveToFile(inmobiliaria); // guardo en el fichero los clientes registrados
-                    txtError.setText("Registro correcto");
+                    lblError.setText("Registro correcto");
                 } else {
-                    txtError.setText("Ese correo electrónico ya está registrado.");
+                    lblError.setText("Ese correo electrónico ya está registrado.");
                 }
             }
         }
@@ -255,6 +256,7 @@ public class RegistrarseForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblError;
     private javax.swing.JLabel lblFormularioRegistro;
     private javax.swing.JLabel lblInfo;
     private javax.swing.JLabel lblNombre;
@@ -262,7 +264,6 @@ public class RegistrarseForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblRepetirPassword;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JLabel txtError;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JPasswordField txtRepetirPassword;
