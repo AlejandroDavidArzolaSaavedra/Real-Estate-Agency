@@ -224,13 +224,11 @@ public class RegistrarseForm extends javax.swing.JFrame {
             txtError.setText("Las contraseñas no coinciden.");
         } else {
             Cliente client = new Cliente(txtNombre.getText(), txtApellidos.getText(), txtCorreo.getText(), txtPassword.getText());
-            if (txtNombre.getText().contains(":") || txtApellidos.getText().contains(":") || txtCorreo.getText().contains(":") || txtPassword.getText().contains(":")) {
-                txtError.setText("Hay un caracter no permitido"); // el caracter ":" se usa como delimitador de datos en el fichero de texto
-            } 
-            else if (!txtCorreo.getText().contains("@") || txtCorreo.getText().contains(" ")) {
+            if (txtNombre.getText().contains("|") || txtApellidos.getText().contains("|") || txtCorreo.getText().contains("|") || txtPassword.getText().contains("|")) {
+                txtError.setText("Hay un caracter no permitido"); // el caracter "|" se usa como separador de datos en el fichero de texto
+            } else if (!txtCorreo.getText().contains("@") || txtCorreo.getText().contains(" ")) {
                 txtError.setText("El correo electrónico no es un correo válido.");
-            }
-            else {
+            } else {
                 if (!inmobiliaria.getClientes().contains(client)) { // si el cliente no está registrado se registra
                     inmobiliaria.addCliente(client); // añado el nuevo usuario
                     file.saveToFile(inmobiliaria); // guardo en el fichero los clientes registrados

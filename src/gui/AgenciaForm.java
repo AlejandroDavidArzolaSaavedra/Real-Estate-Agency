@@ -251,8 +251,9 @@ public class AgenciaForm extends javax.swing.JFrame {
                 //guardo los datos del cliente que ha iniciado sesión
                 clienteForm.cliente = inmobiliaria.getClientes().get(i);
             }
-        if(!encontrado)
-            txtError.setText("No se puede iniciar sesión con esos datos.");
+            if (!encontrado) {
+                txtError.setText("No se puede iniciar sesión con esos datos.");
+            }
         }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 

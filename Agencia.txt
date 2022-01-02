@@ -1,3 +1,2 @@
-2
-Juan:Alcalde:juan@gmail.com:1234:
-Sergio:Gallardo:serg@gmail.com:1234:
+1
+Juan C.|Alcalde|juancarlosalcd@gmail.com|1234|

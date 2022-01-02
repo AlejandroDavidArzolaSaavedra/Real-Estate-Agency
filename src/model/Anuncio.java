@@ -2,5 +2,5 @@ package model;
 
 public class Anuncio {
 
-    Inmueble innueble;
+    Inmueble inmueble;
 }
