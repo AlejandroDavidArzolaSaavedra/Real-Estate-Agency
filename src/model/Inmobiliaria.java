@@ -1,13 +1,21 @@
 package model;
 
 import java.util.ArrayList;
+import model.CatalogoAnunciosComposite.CatalogoAnuncios;
+import model.CatalogoAnunciosComposite.CatalogoAnunciosComposite;
 
 public class Inmobiliaria {
 
     private ArrayList<Cliente> clientes;
+    private CatalogoAnunciosComposite catalogo;
 
     public Inmobiliaria() {
-        clientes = new ArrayList<Cliente>();
+        this.clientes = new ArrayList<Cliente>();
+        this.catalogo = new CatalogoAnunciosComposite();
+    }
+    
+    public CatalogoAnunciosComposite getCatalogo() {
+        return catalogo;
     }
 
     public ArrayList<Cliente> getClientes() {

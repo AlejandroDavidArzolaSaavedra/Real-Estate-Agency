@@ -1,28 +1,10 @@
-27
-pepe@gmail.com/Sanchez/pepe@gmail.com/123/
-Luis/Rodriguez/luisa@gmail.com/123/
-Carmen/Lu/carmen@gmail.com/123/
-Vanesa/Ro/vanesa@gmail.com/123/
-Jorge/Silva/jorge@gmail.com/123/
-Penelope/Pom/penelope@gmail.com/123/
-Ibai/Lusa/ibai@gmail.com/123/
-Kike/Risa/kike@gmail.com/123/
-Julian/Norman/julian@gmail.com/123/
-Beto/Norman/beto@gmail.com/123/
-Sara/Norman/sara@gmail.com/123/
-ana@gmail.com/Norman/ana@gmail.com/123/
-Marisa/Norman/marisa@gmail.com/123/
-Monica/Norman/monica@gmail.com/123/
-Melanie/Norman/melanie@gmail.com/123/
-Guillermo/Norman/guillermo@gmail.com/123/
-Rosa/Norman/rosa@gmail.com/123/
-Leticia/Norman/leticia@gmail.com/123/
-Javier/Norman/javier@gmail.com/123/
-Alexis/Norman/alexis@gmail.com/123/
-Roman/Norman/roman@gmail.com/123/
-Pili/Norman/pili@gmail.com/123/
-Kiko/Norman/kiko@gmail.com/123/
-Lujo/Norman/lujo@gmail.com/123/
-Alcalde/Diaz/alcalde@gmail.com/123/
-oli/ver/oli@gmail.com/123/
-Ji/ju/ji@gmail.com/123/
+3
+Ana/Alcalde/ana@gmail.com/123/
+2
+PISO/500.0/2/Mesa y López/50/Las Palmas de Gran Canaria/50/50000/Alquiler/500/img/
+CASA/500.0/2/Mesa y López/52/Las Palmas de Gran Canaria/50/50000/Alquiler/500/img/
+Pablo/Guerrero/pablog@gmail.com/1234/
+1
+PISO/500.0/2/Mesa y López/50/Las Palmas de Gran Canaria/50/50000/Alquiler/500/img/
+Pedro/Jiménez/pedrojim@gmail.com/1234/
+0

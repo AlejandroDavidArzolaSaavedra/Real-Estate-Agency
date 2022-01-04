@@ -10,48 +10,47 @@ import model.CatalogoAnunciosComposite.CatalogoAnunciosComposite;
 import model.Cliente;
 import model.Inmobiliaria;
 import model.Inmueble;
+import model.TipologiaInmueble;
+import model.Direccion;
+import model.Precio;
+import model.PrecioAlquiler;
+import model.PrecioVenta;
 
 public class ClienteForm extends javax.swing.JFrame {
 
     public Inmobiliaria inmobiliaria;
     public Cliente cliente;
     public AgenciaFile file;
-    public CatalogoAnunciosComposite anuncios;
 
     public ClienteForm() {
         initComponents();
         ImageIcon imagen = new ImageIcon(getClass().getResource("/imagenes/iconoSALIR.png"));
         Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(salirIIcon.getWidth(), salirIIcon.getHeight(), Image.SCALE_DEFAULT));
         ImageIcon imagenSesion = new ImageIcon(getClass().getResource("/imagenes/iconoSESION.PNG"));
-        Icon fondoSesion = new ImageIcon(imagenSesion.getImage().getScaledInstance(sesionIcon.getWidth(), sesionIcon.getHeight(),Image.SCALE_DEFAULT ));
+        Icon fondoSesion = new ImageIcon(imagenSesion.getImage().getScaledInstance(sesionIcon.getWidth(), sesionIcon.getHeight(), Image.SCALE_DEFAULT));
         salirIIcon.setIcon(fondo);
         sesionIcon.setIcon(fondoSesion);
         this.repaint();
         contratarButton.setEnabled(false);
         realizarBusquedaButton.setEnabled(false);
         contactarButton.setEnabled(false);
-        publicarAnuncioToggleButton.setEnabled(false);
-        anuncios = CatalogoAnunciosComposite.getInstance();// Declarar solo 1 instancia de catalogo
-        
-        
-        
+        //btnPublicarAnuncio.setEnabled(false);
     }
-    
-    void showInmuebleDetails(Inmueble i){
+
+    void showInmuebleDetails(Inmueble i) {
         inmueblesEncontradosList.removeAll();
         inmueblesEncontradosList.add(i.getTipoInmueble().toString());
         inmueblesEncontradosList.add(i.getSuperficie().toString());
         inmueblesEncontradosList.add(Integer.toString(i.getNumeroHabitaciones()));
     }
-    
-    void showAnunciosList(){
+
+    void showAnunciosList() {
         int i;
         inmueblesEncontradosList.removeAll();
-        for(i=0;i<anuncios.getAnunciosList().size();i++){}
-           // inmueblesEncontradosList.add(anuncios.getAnunciosList().get(i).getInmueble());
+        //for (i = 0; i < anuncios.getAnunciosList().size(); i++) {}
+        // inmueblesEncontradosList.add(anuncios.getAnunciosList().get(i).getInmueble());
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -59,17 +58,17 @@ public class ClienteForm extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel17 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         inmuebleParaButtonGroup = new javax.swing.ButtonGroup();
         filtrosButtonGroup = new javax.swing.ButtonGroup();
+        precioButtonGroup = new javax.swing.ButtonGroup();
         jPanel = new javax.swing.JPanel();
         lblAgencia = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
         tabEditarPerfil = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        panelBuscarInmueble = new javax.swing.JPanel();
         buscarInmueblePanel = new javax.swing.JPanel();
         municipioRadioButton = new javax.swing.JRadioButton();
         filtrosBusquedaLabel = new javax.swing.JLabel();
@@ -93,36 +92,36 @@ public class ClienteForm extends javax.swing.JFrame {
         infoBuscarInmuebleLabel = new javax.swing.JLabel();
         informacionDelInmuebleLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jPanel10 = new javax.swing.JPanel();
-        tipoInmuebleLabel = new javax.swing.JLabel();
-        calleLabel = new javax.swing.JLabel();
-        numeroHabitacionesLabel = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        tipoInmuebleComboBox = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel18 = new javax.swing.JLabel();
-        numeroInmuebleLabel = new javax.swing.JLabel();
+        panelAñadirAnuncio = new javax.swing.JPanel();
+        lblTipoInmueble = new javax.swing.JLabel();
+        lblNumeroHabitaciones = new javax.swing.JLabel();
+        lblSuperficie = new javax.swing.JLabel();
+        cbtipoInmueble = new javax.swing.JComboBox<>();
+        cbNumHabitaciones = new javax.swing.JComboBox<>();
+        lblPrecio = new javax.swing.JLabel();
+        btnAdjuntarImagen = new javax.swing.JButton();
+        txtSuperficie = new java.awt.TextField();
+        txtPrecio = new java.awt.TextField();
+        lblFoto = new javax.swing.JLabel();
+        lblFotoInmueble = new javax.swing.JLabel();
+        txtFotoInmueble = new javax.swing.JTextField();
+        btnPublicarAnuncio = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lblMunicipio = new javax.swing.JLabel();
+        cbMunicipio = new javax.swing.JComboBox<>();
+        lblCalle = new javax.swing.JLabel();
+        txtCalle = new javax.swing.JTextField();
+        lblCodigoPostal = new javax.swing.JLabel();
+        txCodigoPostal = new javax.swing.JTextField();
+        lblNumeroInmueble = new javax.swing.JLabel();
+        txtNumero = new javax.swing.JTextField();
         pIsoLabel = new javax.swing.JLabel();
-        codigoPostalLabel = new javax.swing.JLabel();
-        añadirAnuncioSeparador = new javax.swing.JSeparator();
-        txtCorreo4 = new javax.swing.JTextField();
-        buscarButton = new javax.swing.JButton();
-        superficieTextField = new java.awt.TextField();
-        precioTextField = new java.awt.TextField();
-        fotoInmuebleLabel = new javax.swing.JLabel();
-        municipioComboBox = new javax.swing.JComboBox<>();
-        jLabel19 = new javax.swing.JLabel();
-        numeroInmuebleTextField = new javax.swing.JTextField();
-        infoAñadirInmuebleLabel = new javax.swing.JLabel();
-        LocalizacionLabel = new javax.swing.JLabel();
-        municipioAñadirAnuncioTextField = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        publicarAnuncioToggleButton = new javax.swing.JToggleButton();
-        anuncioParaVentaRadioButton = new javax.swing.JRadioButton();
+        txtPiso = new javax.swing.JTextField();
+        rbPrecioMensual = new javax.swing.JRadioButton();
+        rbPrecioTotal = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
         infoBuscarFotoErorr = new javax.swing.JLabel();
+        infoAñadirInmuebleLabel = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         editarPerfilPanel = new javax.swing.JPanel();
@@ -338,17 +337,9 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
                                 .addGap(52, 52, 52)
-                                .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(precioHastaLabel)
-                                    .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
-                                            .addComponent(municipioRadioButton)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(municipioLabel))
-                                        .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
-                                            .addComponent(precioRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(precioDesdeLabel))))
+                                .addComponent(municipioRadioButton)
+                                .addGap(27, 27, 27)
+                                .addComponent(municipioLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buscarInmueblePanelLayout.createSequentialGroup()
                                 .addContainerGap()
@@ -358,13 +349,22 @@ public class ClienteForm extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)))
                         .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(alquilerRadioButton)
-                            .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(municipiosTextField)
-                                .addComponent(precioDesdeTextField)
-                                .addComponent(precioHastaTextField))))
+                            .addComponent(municipiosTextField)))
                     .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
                         .addGap(96, 96, 96)
-                        .addComponent(filtrosBusquedaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(filtrosBusquedaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(precioHastaLabel)
+                            .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
+                                .addComponent(precioRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(precioDesdeLabel)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(precioDesdeTextField)
+                            .addComponent(precioHastaTextField))))
                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -398,7 +398,7 @@ public class ClienteForm extends javax.swing.JFrame {
                                     .addComponent(municipioRadioButton)
                                     .addComponent(municipioLabel)
                                     .addComponent(municipiosTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(11, 11, 11)
                                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(precioRadioButton)
                                     .addComponent(precioDesdeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -407,7 +407,7 @@ public class ClienteForm extends javax.swing.JFrame {
                                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(precioHastaLabel)
                                     .addComponent(precioHastaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
+                                .addGap(18, 18, 18)
                                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(compraRadioButton)
                                     .addComponent(alquilerRadioButton)
@@ -422,7 +422,7 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addComponent(infoInmuebleList1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fotoInmuebleScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         infoBuscarInmuebleLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -432,335 +432,339 @@ public class ClienteForm extends javax.swing.JFrame {
         informacionDelInmuebleLabel.setForeground(new java.awt.Color(255, 255, 255));
         informacionDelInmuebleLabel.setText("Informacion del inmueble");
 
+        javax.swing.GroupLayout panelBuscarInmuebleLayout = new javax.swing.GroupLayout(panelBuscarInmueble);
+        panelBuscarInmueble.setLayout(panelBuscarInmuebleLayout);
+        panelBuscarInmuebleLayout.setHorizontalGroup(
+            panelBuscarInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscarInmuebleLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(infoBuscarInmuebleLabel)
+                .addContainerGap(338, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBuscarInmuebleLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(informacionDelInmuebleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92))
+            .addGroup(panelBuscarInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelBuscarInmuebleLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(buscarInmueblePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 912, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        panelBuscarInmuebleLayout.setVerticalGroup(
+            panelBuscarInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscarInmuebleLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(infoBuscarInmuebleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(informacionDelInmuebleLabel)
+                .addContainerGap(397, Short.MAX_VALUE))
+            .addGroup(panelBuscarInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelBuscarInmuebleLayout.createSequentialGroup()
+                    .addGap(75, 75, 75)
+                    .addComponent(buscarInmueblePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(110, Short.MAX_VALUE)))
+        );
+
+        tabEditarPerfil.addTab("Buscar Inmueble", panelBuscarInmueble);
+
+        panelAñadirAnuncio.setBackground(new java.awt.Color(53, 121, 56));
+        panelAñadirAnuncio.setForeground(new java.awt.Color(255, 255, 255));
+
+        lblTipoInmueble.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblTipoInmueble.setForeground(new java.awt.Color(255, 255, 255));
+        lblTipoInmueble.setText("Tipo de Inmueble : ");
+
+        lblNumeroHabitaciones.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblNumeroHabitaciones.setForeground(new java.awt.Color(255, 255, 255));
+        lblNumeroHabitaciones.setText("Número de habitaciones : ");
+
+        lblSuperficie.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblSuperficie.setForeground(new java.awt.Color(255, 255, 255));
+        lblSuperficie.setText("Superficie m2 :");
+
+        cbtipoInmueble.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Piso", "Casa", "Chalet", "Apartamento" }));
+
+        cbNumHabitaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
+
+        lblPrecio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        lblPrecio.setText("Precio :");
+
+        btnAdjuntarImagen.setText("adjuntar imagen");
+        btnAdjuntarImagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdjuntarImagenActionPerformed(evt);
+            }
+        });
+
+        txtSuperficie.setForeground(new java.awt.Color(102, 102, 102));
+        txtSuperficie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSuperficieActionPerformed(evt);
+            }
+        });
+
+        txtPrecio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtPrecio.setForeground(new java.awt.Color(102, 102, 102));
+
+        lblFoto.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblFoto.setText(" ");
+
+        lblFotoInmueble.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblFotoInmueble.setForeground(new java.awt.Color(255, 255, 255));
+        lblFotoInmueble.setText("Foto del Inmueble : ");
+
+        btnPublicarAnuncio.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        btnPublicarAnuncio.setText("Publicar anuncio");
+        btnPublicarAnuncio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPublicarAnuncioActionPerformed(evt);
+            }
+        });
+
+        lblMunicipio.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblMunicipio.setText("Municipio:");
+
+        cbMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Las Palmas de Gran Canaria", "Telde", "Agaete", "Aguimes", "Artenara", "Arucas", "Firgas", "Galdar", "Ingenio", "La Aldea de San Nicolas", "Mogán", "Moya", "San Bartolomé de Tirajana", "Santa Brigida", "Santa Lucía de Tirajana", "Santa Maria de Guía", "Tejeda", "Teror", "Valleseco", "Valsequillo de Gran Canaria", "Vega San Mateo" }));
+
+        lblCalle.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblCalle.setText("Calle :");
+
+        txtCalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCalleActionPerformed(evt);
+            }
+        });
+
+        lblCodigoPostal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblCodigoPostal.setText("Codigo Postal:");
+
+        lblNumeroInmueble.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lblNumeroInmueble.setText("Numero : ");
+
+        pIsoLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        pIsoLabel.setText("Piso :");
+
+        txtPiso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPisoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(infoBuscarInmuebleLabel)
-                .addContainerGap(348, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(informacionDelInmuebleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(buscarInmueblePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(7, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(pIsoLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPiso, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblCodigoPostal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(lblNumeroInmueble)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblMunicipio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbMunicipio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(14, 14, 14))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblCalle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addComponent(txtCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(184, 184, 184))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(infoBuscarInmuebleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(informacionDelInmuebleLabel)
-                .addContainerGap(451, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(75, 75, 75)
-                    .addComponent(buscarInmueblePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(232, Short.MAX_VALUE)))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMunicipio))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCalle)
+                    .addComponent(txtCalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigoPostal)
+                    .addComponent(txCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNumeroInmueble)
+                    .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pIsoLabel))
+                .addGap(32, 32, 32))
         );
 
-        tabEditarPerfil.addTab("Buscar Inmueble", jPanel2);
-
-        jRadioButton1.setBackground(new java.awt.Color(53, 121, 56));
-        buttonGroup2.add(jRadioButton1);
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Anuncio para Alquiler");
-
-        jPanel10.setBackground(new java.awt.Color(53, 121, 56));
-        jPanel10.setForeground(new java.awt.Color(255, 255, 255));
-
-        tipoInmuebleLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tipoInmuebleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        tipoInmuebleLabel.setText("Tipo de Inmueble : ");
-
-        calleLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        calleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        calleLabel.setText("Calle :");
-
-        numeroHabitacionesLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        numeroHabitacionesLabel.setForeground(new java.awt.Color(255, 255, 255));
-        numeroHabitacionesLabel.setText("numero Habitaciones : ");
-
-        jLabel16.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Superficie m2 :");
-
-        tipoInmuebleComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Piso", "Casa", "Chalet", "Apartamento" }));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
-
-        jLabel18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Precio :");
-
-        numeroInmuebleLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        numeroInmuebleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        numeroInmuebleLabel.setText("Numero : ");
-
-        pIsoLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        pIsoLabel.setForeground(new java.awt.Color(255, 255, 255));
-        pIsoLabel.setText("Piso :");
-
-        codigoPostalLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        codigoPostalLabel.setForeground(new java.awt.Color(255, 255, 255));
-        codigoPostalLabel.setText("Codigo Postal:");
-
-        añadirAnuncioSeparador.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        txtCorreo4.addActionListener(new java.awt.event.ActionListener() {
+        rbPrecioMensual.setBackground(new java.awt.Color(53, 121, 56));
+        precioButtonGroup.add(rbPrecioMensual);
+        rbPrecioMensual.setForeground(new java.awt.Color(255, 255, 255));
+        rbPrecioMensual.setText("Mensual");
+        rbPrecioMensual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCorreo4ActionPerformed(evt);
+                rbPrecioMensualActionPerformed(evt);
             }
         });
 
-        buscarButton.setText("Buscar");
-        buscarButton.addActionListener(new java.awt.event.ActionListener() {
+        rbPrecioTotal.setBackground(new java.awt.Color(53, 121, 56));
+        precioButtonGroup.add(rbPrecioTotal);
+        rbPrecioTotal.setForeground(new java.awt.Color(255, 255, 255));
+        rbPrecioTotal.setText("Total");
+        rbPrecioTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarButtonActionPerformed(evt);
+                rbPrecioTotalActionPerformed(evt);
             }
         });
 
-        superficieTextField.setForeground(new java.awt.Color(102, 102, 102));
-        superficieTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                superficieTextFieldActionPerformed(evt);
-            }
-        });
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Seleccione el tipo de precio:");
 
-        precioTextField.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        precioTextField.setForeground(new java.awt.Color(102, 102, 102));
-
-        fotoInmuebleLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        fotoInmuebleLabel.setText(" ");
-
-        municipioComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Las palmas de gc", "telde", "agaete", "aguimes", "artenara", "arucas", "firgas", "galdar", "ingenio", "la aldea de san nicolas", "mogan", "moya", "san bartolome de tirajana", "santa brigida", "santa lucia de tirajana", "santa maria de guia ", "tejeda", "teror", "valleseco", "valsequillo de gc", "vega san mateo" }));
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(tipoInmuebleLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelAñadirAnuncioLayout = new javax.swing.GroupLayout(panelAñadirAnuncio);
+        panelAñadirAnuncio.setLayout(panelAñadirAnuncioLayout);
+        panelAñadirAnuncioLayout.setHorizontalGroup(
+            panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNumeroHabitaciones)
+                            .addComponent(lblSuperficie, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblTipoInmueble, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbtipoInmueble, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtSuperficie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbNumHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                        .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(txtFotoInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAñadirAnuncioLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(numeroHabitacionesLabel)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tipoInmuebleComboBox, 0, 231, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, 231, Short.MAX_VALUE)
-                            .addComponent(superficieTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(municipioComboBox, 0, 231, Short.MAX_VALUE)))
-                    .addComponent(buscarButton))
-                .addGap(49, 49, 49)
-                .addComponent(añadirAnuncioSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(111, 111, 111)
-                                .addComponent(pIsoLabel))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(codigoPostalLabel)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCorreo4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(calleLabel)
-                            .addComponent(numeroInmuebleLabel))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(precioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(231, 231, 231))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(fotoInmuebleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(añadirAnuncioSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tipoInmuebleLabel)
-                            .addComponent(tipoInmuebleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel16))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(calleLabel)
-                                    .addComponent(pIsoLabel)
-                                    .addComponent(txtCorreo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(superficieTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(numeroHabitacionesLabel)
-                            .addComponent(codigoPostalLabel)
-                            .addComponent(numeroInmuebleLabel))
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(lblFotoInmueble)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(municipioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(104, 104, 104)
-                                .addComponent(buscarButton))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(81, 81, 81)
-                                .addComponent(fotoInmuebleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(precioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(btnAdjuntarImagen)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAñadirAnuncioLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(rbPrecioMensual, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(btnPublicarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(rbPrecioTotal)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        panelAñadirAnuncioLayout.setVerticalGroup(
+            panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                        .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTipoInmueble)
+                            .addComponent(cbtipoInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblSuperficie)
+                            .addComponent(txtSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbNumHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNumeroHabitaciones)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAñadirAnuncioLayout.createSequentialGroup()
+                                .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPrecio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addComponent(btnPublicarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
+                                    .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(lblFotoInmueble)
+                                        .addComponent(btnAdjuntarImagen))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtFotoInmueble, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(29, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAñadirAnuncioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbPrecioMensual)
+                        .addGap(5, 5, 5)
+                        .addComponent(rbPrecioTotal)
+                        .addGap(54, 54, 54))))
+        );
 
-        jLabel19.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Municipio :");
+        infoBuscarFotoErorr.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         infoAñadirInmuebleLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         infoAñadirInmuebleLabel.setText("Ingrese todos los datos para poder publicar un anuncio: ");
-
-        LocalizacionLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        LocalizacionLabel.setForeground(new java.awt.Color(255, 255, 255));
-        LocalizacionLabel.setText("Localizacion");
-
-        jLabel20.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Foto del Inmueble : ");
-
-        publicarAnuncioToggleButton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        publicarAnuncioToggleButton.setText("PUBLICAR ANUNCIO");
-        publicarAnuncioToggleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                publicarAnuncioToggleButtonActionPerformed(evt);
-            }
-        });
-
-        anuncioParaVentaRadioButton.setBackground(new java.awt.Color(53, 121, 56));
-        buttonGroup2.add(anuncioParaVentaRadioButton);
-        anuncioParaVentaRadioButton.setForeground(new java.awt.Color(255, 255, 255));
-        anuncioParaVentaRadioButton.setText("Anuncio para Venta");
-        anuncioParaVentaRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                anuncioParaVentaRadioButtonActionPerformed(evt);
-            }
-        });
-
-        infoBuscarFotoErorr.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(581, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(LocalizacionLabel)
-                        .addGap(207, 207, 207))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numeroInmuebleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(45, 45, 45))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(infoAñadirInmuebleLabel)
-                .addContainerGap(517, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel19))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(municipioAñadirAnuncioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(anuncioParaVentaRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(60, 60, 60))
+                                .addGap(314, 314, 314)
+                                .addComponent(infoBuscarFotoErorr, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addComponent(publicarAnuncioToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(infoBuscarFotoErorr, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 930, Short.MAX_VALUE)
-                    .addContainerGap()))
+                                .addContainerGap()
+                                .addComponent(infoAñadirInmuebleLabel)))
+                        .addGap(0, 271, Short.MAX_VALUE))
+                    .addComponent(panelAñadirAnuncio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(38, 38, 38)
                 .addComponent(infoAñadirInmuebleLabel)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(273, 273, 273)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(municipioAñadirAnuncioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(LocalizacionLabel)
-                        .addGap(20, 20, 20)
-                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(numeroInmuebleTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jLabel19))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(anuncioParaVentaRadioButton)
-                        .addGap(46, 46, 46)
-                        .addComponent(publicarAnuncioToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(40, 40, 40)
+                .addGap(27, 27, 27)
+                .addComponent(panelAñadirAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(infoBuscarFotoErorr, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(99, 99, 99)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(150, Short.MAX_VALUE)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         tabEditarPerfil.addTab("Añadir Anuncio", jPanel1);
@@ -815,7 +819,7 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addComponent(apellidosLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(editarPerfilPanelLayout.createSequentialGroup()
-                        .addComponent(txtRepetirPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                        .addComponent(txtRepetirPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
                         .addGap(112, 112, 112)))
                 .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137))
@@ -902,7 +906,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addComponent(infoEditarPerfilLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(editarPerfilPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 99, Short.MAX_VALUE)
+                .addGap(18, 80, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(infoIngreseContraseñaLabel)
                     .addComponent(txtPasswordActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -915,7 +919,7 @@ public class ClienteForm extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(btnRealizarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         tabEditarPerfil.addTab("Editar perfil", jPanel3);
@@ -982,7 +986,7 @@ public class ClienteForm extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
+                .addContainerGap(141, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cvvLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(caducidadLabel, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -1008,7 +1012,7 @@ public class ClienteForm extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(nombreTarjetaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addComponent(contratarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64))))
         );
@@ -1054,7 +1058,7 @@ public class ClienteForm extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addComponent(errorTarjetaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 639, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addContainerGap()
@@ -1066,14 +1070,14 @@ public class ClienteForm extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
                 .addComponent(tipoTarjetaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
                 .addComponent(errorTarjetaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(168, 168, 168))
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addGap(99, 99, 99)
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(265, Short.MAX_VALUE)))
+                    .addContainerGap(217, Short.MAX_VALUE)))
         );
 
         tabEditarPerfil.addTab("Contratar Recomendacion", jPanel6);
@@ -1099,7 +1103,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addGap(122, 122, 122)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(cargarHistorialButton, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                .addComponent(cargarHistorialButton, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(157, 157, 157))
@@ -1140,7 +1144,7 @@ public class ClienteForm extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(150, 150, 150)
                 .addComponent(personasInteresadasLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
                 .addComponent(datosContactoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(166, 166, 166))
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1158,12 +1162,12 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(personasInteresadasLabel)
                     .addComponent(datosContactoLabel))
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addContainerGap(382, Short.MAX_VALUE))
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel7Layout.createSequentialGroup()
                     .addGap(99, 99, 99)
                     .addComponent(historialMensajesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(278, Short.MAX_VALUE)))
+                    .addContainerGap(224, Short.MAX_VALUE)))
         );
 
         tabEditarPerfil.addTab("Historial de Mensajes", jPanel7);
@@ -1209,7 +1213,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tabEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addComponent(tabEditarPerfil))
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(salirButton)
@@ -1225,7 +1229,7 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addComponent(lblAgencia, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblLogo)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1247,7 +1251,7 @@ public class ClienteForm extends javax.swing.JFrame {
                             .addComponent(salirIIcon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tabEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(101, 101, 101))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1258,7 +1262,9 @@ public class ClienteForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 740, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1319,21 +1325,13 @@ public class ClienteForm extends javax.swing.JFrame {
         file.saveToFile(inmobiliaria);
     }//GEN-LAST:event_btnRealizarCambiosActionPerformed
 
-    private void anuncioParaVentaRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anuncioParaVentaRadioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_anuncioParaVentaRadioButtonActionPerformed
-
     private void compraRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compraRadioButtonActionPerformed
-     
+
     }//GEN-LAST:event_compraRadioButtonActionPerformed
 
     private void alquilerRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alquilerRadioButtonActionPerformed
-        
-    }//GEN-LAST:event_alquilerRadioButtonActionPerformed
 
-    private void publicarAnuncioToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_publicarAnuncioToggleButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_publicarAnuncioToggleButtonActionPerformed
+    }//GEN-LAST:event_alquilerRadioButtonActionPerformed
 
     private void municipioRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_municipioRadioButtonActionPerformed
         precioDesdeTextField.setEnabled(false);
@@ -1341,31 +1339,27 @@ public class ClienteForm extends javax.swing.JFrame {
         precioDesdeTextField.setText("");
         precioHastaTextField.setText("");
         municipiosTextField.setEnabled(true);
-        
+
     }//GEN-LAST:event_municipioRadioButtonActionPerformed
 
     private void salirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_salirButtonActionPerformed
 
-    private void txtCorreo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreo4ActionPerformed
-        
-    }//GEN-LAST:event_txtCorreo4ActionPerformed
-
     private void precioRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioRadioButtonActionPerformed
         precioDesdeTextField.setEnabled(true);
         precioHastaTextField.setEnabled(true);
         municipiosTextField.setEnabled(false);
         municipiosTextField.setText("");
-        
+
     }//GEN-LAST:event_precioRadioButtonActionPerformed
 
     private void realizarBusquedaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarBusquedaButtonActionPerformed
-        if(compraRadioButton.isSelected() || alquilerRadioButton.isSelected()) {
-           System.out.println();
-           if(municipioRadioButton.isSelected() || precioRadioButton.isSelected()){
-               
-           }
+        if (compraRadioButton.isSelected() || alquilerRadioButton.isSelected()) {
+            System.out.println();
+            if (municipioRadioButton.isSelected() || precioRadioButton.isSelected()) {
+
+            }
         }
     }//GEN-LAST:event_realizarBusquedaButtonActionPerformed
 
@@ -1377,51 +1371,28 @@ public class ClienteForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inmueblesEncontradosListActionPerformed
 
-    private void superficieTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_superficieTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_superficieTextFieldActionPerformed
-
     private void txtPasswordActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActualActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActualActionPerformed
 
     private void contratarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratarButtonActionPerformed
         int contadorErorres = 0;
-        if(!cvvTextField.getText().matches("\\d\\d\\d")){
+        if (!cvvTextField.getText().matches("\\d\\d\\d")) {
             contadorErorres++;
             errorTarjetaLabel.setText("Debes introducir cvv valido, Vuelva a intentarlo");
         }
-        if(!nombreTarjetaTextField.getText().matches("[a-zA-Z]+\\.?")){
+        if (!nombreTarjetaTextField.getText().matches("[a-zA-Z]+\\.?")) {
             contadorErorres++;
             errorTarjetaLabel.setText("Debes introducir un nombre valido, Vuelva a intentarlo");
         }
-        if(!numeroTarjetaTextField.getText().matches("\\d{16}")){
+        if (!numeroTarjetaTextField.getText().matches("\\d{16}")) {
             contadorErorres++;
             errorTarjetaLabel.setText("Debes introducir un numero de tarjeta valido, Vuelva a intentarlo");
         }
-        if( contadorErorres > 1) {
+        if (contadorErorres > 1) {
             errorTarjetaLabel.setText("Varios errores en los campos necesarios, Vuelva a intentarlo");
-        } 
-    }//GEN-LAST:event_contratarButtonActionPerformed
-
-    private void buscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarButtonActionPerformed
-        
-        JFileChooser jf = new JFileChooser();
-        jf.setMultiSelectionEnabled(false);
-        if(jf.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
-            if(!jf.getSelectedFile().toString().substring(jf.getSelectedFile().toString().length()-4).equals(".png")){
-                rsdragdropfiles.RSDragDropFiles.setCopiar(jf.getSelectedFile().toString(), "src/imagenes/clientes/inmueble_trabajador2.png");
-                municipioAñadirAnuncioTextField.setText("imagenes/clientes/inmueble_trabajador2.png");
-                ImageIcon imagen = new ImageIcon(jf.getSelectedFile().toString());
-                Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(fotoInmuebleLabel.getWidth(), fotoInmuebleLabel.getHeight(), Image.SCALE_DEFAULT));
-                fotoInmuebleLabel.setIcon(fondo);
-                this.repaint();
-                infoBuscarFotoErorr.setText("");
-           }else{
-            infoBuscarFotoErorr.setText("La foto debe ser formato .png");
-            }
         }
-    }//GEN-LAST:event_buscarButtonActionPerformed
+    }//GEN-LAST:event_contratarButtonActionPerformed
 
     private void cvvTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cvvTextFieldKeyReleased
         habilitarBotonContratarRecomendacion();
@@ -1454,7 +1425,7 @@ public class ClienteForm extends javax.swing.JFrame {
         agenciaForm.setLocationRelativeTo(null);
         agenciaForm.setVisible(true);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_salirSesionLabelMouseClicked
 
     private void salirIIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirIIconMouseClicked
@@ -1467,33 +1438,33 @@ public class ClienteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_salirIIconMouseClicked
 
     private void municipiosTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_municipiosTextFieldKeyReleased
-           if(municipiosTextField.getText().matches("[a-z].*")){
+        if (municipiosTextField.getText().matches("[a-z].*")) {
             habilitarBotonRealizarBusqueda();
-        }else{
-               realizarBusquedaButton.setEnabled(false);
-           }
-        
+        } else {
+            realizarBusquedaButton.setEnabled(false);
+        }
+
     }//GEN-LAST:event_municipiosTextFieldKeyReleased
 
     private void precioDesdeTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioDesdeTextFieldKeyReleased
-        if(precioDesdeTextField.getText().equals("")){
-             realizarBusquedaButton.setEnabled(false);
-        }else{
-            if(precioDesdeTextField.getText().matches("\\d*") & precioHastaTextField.getText().matches("\\d*")){
+        if (precioDesdeTextField.getText().equals("")) {
+            realizarBusquedaButton.setEnabled(false);
+        } else {
+            if (precioDesdeTextField.getText().matches("\\d*") & precioHastaTextField.getText().matches("\\d*")) {
                 habilitarBotonRealizarBusqueda();
-            }else{
-               realizarBusquedaButton.setEnabled(false);
-           }
+            } else {
+                realizarBusquedaButton.setEnabled(false);
+            }
         }
     }//GEN-LAST:event_precioDesdeTextFieldKeyReleased
 
     private void precioHastaTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioHastaTextFieldKeyReleased
-        if(precioDesdeTextField.getText().equals("")){
+        if (precioDesdeTextField.getText().equals("")) {
             realizarBusquedaButton.setEnabled(false);
-        }else{
-            if(precioHastaTextField.getText().matches("\\d*") & precioDesdeTextField.getText().matches("\\d*")){
+        } else {
+            if (precioHastaTextField.getText().matches("\\d*") & precioDesdeTextField.getText().matches("\\d*")) {
                 habilitarBotonRealizarBusqueda();
-            }else{
+            } else {
                 realizarBusquedaButton.setEnabled(false);
             }
         }
@@ -1504,7 +1475,7 @@ public class ClienteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_municipiosTextFieldActionPerformed
 
     private void precioDesdeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioDesdeTextFieldActionPerformed
-        
+
     }//GEN-LAST:event_precioDesdeTextFieldActionPerformed
 
     private void municipiosTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_municipiosTextFieldKeyPressed
@@ -1512,16 +1483,85 @@ public class ClienteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_municipiosTextFieldKeyPressed
 
     private void precioHastaTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioHastaTextFieldKeyPressed
-        if(precioDesdeTextField.getText().equals("")){
+        if (precioDesdeTextField.getText().equals("")) {
             realizarBusquedaButton.setEnabled(false);
         }
     }//GEN-LAST:event_precioHastaTextFieldKeyPressed
 
     private void precioDesdeTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioDesdeTextFieldKeyPressed
-        if(precioDesdeTextField.getText().equals("")){
+        if (precioDesdeTextField.getText().equals("")) {
             realizarBusquedaButton.setEnabled(false);
         }
     }//GEN-LAST:event_precioDesdeTextFieldKeyPressed
+
+    private void txtSuperficieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSuperficieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSuperficieActionPerformed
+
+    private void btnAdjuntarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjuntarImagenActionPerformed
+
+        JFileChooser jf = new JFileChooser();
+        jf.setMultiSelectionEnabled(false);
+        if (jf.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            if (jf.getSelectedFile().toString().substring(jf.getSelectedFile().toString().length() - 4).equals(".png")) {
+                rsdragdropfiles.RSDragDropFiles.setCopiar(jf.getSelectedFile().toString(), "src/imagenes/clientes/inmueble_trabajador2.png");
+                txtFotoInmueble.setText("imagenes/clientes/inmueble_trabajador2.png");
+                ImageIcon imagen = new ImageIcon(jf.getSelectedFile().toString());
+                Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(lblFoto.getWidth(), lblFoto.getHeight(), Image.SCALE_DEFAULT));
+                lblFoto.setIcon(fondo);
+                this.repaint();
+                infoBuscarFotoErorr.setText("");
+            } else {
+                infoBuscarFotoErorr.setText("La foto debe ser formato .png");
+            }
+        }
+    }//GEN-LAST:event_btnAdjuntarImagenActionPerformed
+
+    private void btnPublicarAnuncioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublicarAnuncioActionPerformed
+        for (int i = 0; i < inmobiliaria.getClientes().size(); i++) {
+            if (inmobiliaria.getClientes().get(i).getCorreo().equals(cliente.getCorreo())) {
+                Inmueble inmueble = null;
+                if (cbtipoInmueble.getSelectedItem().toString().equals("Piso")) {
+                    inmueble = new Inmueble(TipologiaInmueble.PISO, Double.parseDouble(txtSuperficie.getText()), Integer.parseInt(cbNumHabitaciones.getSelectedItem().toString()));
+                } else if (cbtipoInmueble.getSelectedItem().toString().equals("Casa")) {
+                    inmueble = new Inmueble(TipologiaInmueble.CASA, Double.parseDouble(txtSuperficie.getText()), Integer.parseInt(cbNumHabitaciones.getSelectedItem().toString()));
+                } else if (cbtipoInmueble.getSelectedItem().toString().equals("Chalet")) {
+                    inmueble = new Inmueble(TipologiaInmueble.CHALET, Double.parseDouble(txtSuperficie.getText()), Integer.parseInt(cbNumHabitaciones.getSelectedItem().toString()));
+                } else if (cbtipoInmueble.getSelectedItem().toString().equals("Apartamento")) {
+                    inmueble = new Inmueble(TipologiaInmueble.APARTAMENTO, Double.parseDouble(txtSuperficie.getText()), Integer.parseInt(cbNumHabitaciones.getSelectedItem().toString()));
+                }
+
+                Direccion d = new Direccion(txtCalle.getText(), txtPiso.getText(), cbMunicipio.getSelectedItem().toString(), Integer.parseInt(txtNumero.getText()), Integer.parseInt(txCodigoPostal.getText()));
+
+                Precio p = null;
+                if (rbPrecioMensual.isSelected()) {
+                    p = new PrecioAlquiler(Integer.parseInt(txtPrecio.getText()));
+                } else {
+                    p = new PrecioVenta(Integer.parseInt(txtPrecio.getText()));
+                }
+
+                inmobiliaria.getClientes().get(i).getAnuncios().addAnuncios(inmueble, d, p, txtFotoInmueble.getText());
+                
+                file.saveToFile(inmobiliaria);
+            }
+        }
+    }//GEN-LAST:event_btnPublicarAnuncioActionPerformed
+
+    private void txtCalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCalleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCalleActionPerformed
+
+    private void txtPisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPisoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPisoActionPerformed
+
+    private void rbPrecioMensualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPrecioMensualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbPrecioMensualActionPerformed
+
+    private void rbPrecioTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPrecioTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbPrecioTotalActionPerformed
 
     public static void main(String args[]) {
 
@@ -1540,52 +1580,48 @@ public class ClienteForm extends javax.swing.JFrame {
         txtRepetirPassword.setText(cliente.getPassword());
         correoSesionLabel.setText(cliente.getCorreo());
     }
-    
-    public void habilitarBotonRealizarBusqueda(){
-        if( municipioRadioButton.isSelected() ^ precioRadioButton.isSelected()){
-           if(compraRadioButton.isSelected() ^ alquilerRadioButton.isSelected()){
-                 if(precioDesdeTextField.getText().matches("\\d*") & precioHastaTextField.getText().matches("\\d*")
-                         & precioDesdeTextField.getText().length() != 0 & precioHastaTextField.getText().length() != 0){
-                            realizarBusquedaButton.setEnabled(true);
-                 }else{
-                     realizarBusquedaButton.setEnabled(false);
-                 }
-           }else{
-               realizarBusquedaButton.setEnabled(false);
-           }
-        }else{
+
+    public void habilitarBotonRealizarBusqueda() {
+        if (municipioRadioButton.isSelected() ^ precioRadioButton.isSelected()) {
+            if (compraRadioButton.isSelected() ^ alquilerRadioButton.isSelected()) {
+                if (precioDesdeTextField.getText().matches("\\d*") & precioHastaTextField.getText().matches("\\d*")
+                        & precioDesdeTextField.getText().length() != 0 & precioHastaTextField.getText().length() != 0) {
+                    realizarBusquedaButton.setEnabled(true);
+                } else {
+                    realizarBusquedaButton.setEnabled(false);
+                }
+            } else {
+                realizarBusquedaButton.setEnabled(false);
+            }
+        } else {
             realizarBusquedaButton.setEnabled(false);
         }
     }
-    
-    
-    
-    public void habilitarBotonContratarRecomendacion(){
+
+    public void habilitarBotonContratarRecomendacion() {
         if (!cvvTextField.getText().isEmpty() & !caducidadTextField.getText().isEmpty()
                 & !nombreTarjetaTextField.getText().isEmpty() & !numeroTarjetaTextField.getText().isEmpty()) {
             contratarButton.setEnabled(true);
         } else {
             contratarButton.setEnabled(false);
-        }       
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel InmueblesEncontradosLabel;
-    private javax.swing.JLabel LocalizacionLabel;
     private javax.swing.JRadioButton alquilerRadioButton;
-    private javax.swing.JRadioButton anuncioParaVentaRadioButton;
     private javax.swing.JLabel apellidosLabel;
-    private javax.swing.JSeparator añadirAnuncioSeparador;
+    private javax.swing.JButton btnAdjuntarImagen;
+    private javax.swing.JButton btnPublicarAnuncio;
     private javax.swing.JButton btnRealizarCambios;
-    private javax.swing.JButton buscarButton;
     private javax.swing.JPanel buscarInmueblePanel;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel caducidadLabel;
     private javax.swing.JTextField caducidadTextField;
-    private javax.swing.JLabel calleLabel;
     private javax.swing.JButton cargarHistorialButton;
-    private javax.swing.JLabel codigoPostalLabel;
+    private javax.swing.JComboBox<String> cbMunicipio;
+    private javax.swing.JComboBox<String> cbNumHabitaciones;
+    private javax.swing.JComboBox<String> cbtipoInmueble;
     private javax.swing.JRadioButton compraRadioButton;
     private javax.swing.JButton contactarButton;
     private javax.swing.JLabel contraseñaNuevaLabel;
@@ -1598,7 +1634,6 @@ public class ClienteForm extends javax.swing.JFrame {
     private javax.swing.JLabel errorTarjetaLabel;
     private javax.swing.JLabel filtrosBusquedaLabel;
     private javax.swing.ButtonGroup filtrosButtonGroup;
-    private javax.swing.JLabel fotoInmuebleLabel;
     private javax.swing.JScrollPane fotoInmuebleScrollPane;
     private javax.swing.JTextArea fotoInmuebleTextArea;
     private javax.swing.JPanel historialMensajesPanel;
@@ -1615,73 +1650,76 @@ public class ClienteForm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup inmuebleParaButtonGroup;
     private javax.swing.JLabel inmuebleparaLabel;
     private java.awt.List inmueblesEncontradosList;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lblAgencia;
+    private javax.swing.JLabel lblCalle;
+    private javax.swing.JLabel lblCodigoPostal;
     private javax.swing.JLabel lblError;
+    private javax.swing.JLabel lblFoto;
+    private javax.swing.JLabel lblFotoInmueble;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JTextField municipioAñadirAnuncioTextField;
-    private javax.swing.JComboBox<String> municipioComboBox;
+    private javax.swing.JLabel lblMunicipio;
+    private javax.swing.JLabel lblNumeroHabitaciones;
+    private javax.swing.JLabel lblNumeroInmueble;
+    private javax.swing.JLabel lblPrecio;
+    private javax.swing.JLabel lblSuperficie;
+    private javax.swing.JLabel lblTipoInmueble;
     private javax.swing.JLabel municipioLabel;
     private javax.swing.JRadioButton municipioRadioButton;
     private javax.swing.JTextField municipiosTextField;
     private javax.swing.JLabel nombreLabel;
     private javax.swing.JLabel nombreTarjetaLabel;
     private javax.swing.JTextField nombreTarjetaTextField;
-    private javax.swing.JLabel numeroHabitacionesLabel;
-    private javax.swing.JLabel numeroInmuebleLabel;
-    private javax.swing.JTextField numeroInmuebleTextField;
     private javax.swing.JLabel numeroTarjetaLabel;
     private javax.swing.JTextField numeroTarjetaTextField;
     private javax.swing.JLabel pIsoLabel;
+    private javax.swing.JPanel panelAñadirAnuncio;
+    private javax.swing.JPanel panelBuscarInmueble;
     private javax.swing.JLabel personasInteresadasLabel;
+    private javax.swing.ButtonGroup precioButtonGroup;
     private javax.swing.JLabel precioDesdeLabel;
     private javax.swing.JTextField precioDesdeTextField;
     private javax.swing.JLabel precioHastaLabel;
     private javax.swing.JTextField precioHastaTextField;
     private javax.swing.JRadioButton precioRadioButton;
-    private java.awt.TextField precioTextField;
-    private javax.swing.JToggleButton publicarAnuncioToggleButton;
+    private javax.swing.JRadioButton rbPrecioMensual;
+    private javax.swing.JRadioButton rbPrecioTotal;
     private javax.swing.JButton realizarBusquedaButton;
     private javax.swing.JLabel repetirContraseñaLabel;
     private javax.swing.JButton salirButton;
     private javax.swing.JLabel salirIIcon;
     private javax.swing.JLabel salirSesionLabel;
     private javax.swing.JLabel sesionIcon;
-    private java.awt.TextField superficieTextField;
     private javax.swing.JTabbedPane tabEditarPerfil;
-    private javax.swing.JComboBox<String> tipoInmuebleComboBox;
-    private javax.swing.JLabel tipoInmuebleLabel;
     private javax.swing.JLabel tipoTarjetaLabel;
+    private javax.swing.JTextField txCodigoPostal;
     private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtCalle;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtCorreo4;
+    private javax.swing.JTextField txtFotoInmueble;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNumero;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JPasswordField txtPasswordActual;
+    private javax.swing.JTextField txtPiso;
+    private java.awt.TextField txtPrecio;
     private javax.swing.JPasswordField txtRepetirPassword;
+    private java.awt.TextField txtSuperficie;
     // End of variables declaration//GEN-END:variables
 }

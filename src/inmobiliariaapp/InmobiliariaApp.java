@@ -8,7 +8,7 @@ import model.Inmobiliaria;
 public class InmobiliariaApp {
 
     public static void main(String[] args) {
-        
+
         Inmobiliaria inmobiliaria = new Inmobiliaria();
 
         AgenciaForm agenciaForm = new AgenciaForm();
@@ -21,15 +21,16 @@ public class InmobiliariaApp {
         //cargo los datos del fichero de clientes 
         file.loadFromFile(inmobiliaria);
         agenciaForm.file = file;
+
+        /*
         // cargo en bd de clientes
         ClienteBd cl = new ClienteBd();
         cl.selectAll();
         cl.leerBdClientes();
-        
-        
+         */
     }
     /**
-    public class InitialData {
-        public static void init() {
-     }*/
-    }
+     * public class InitialData { public static void init() {
+     }
+     */
+}

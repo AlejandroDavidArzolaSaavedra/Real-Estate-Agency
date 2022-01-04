@@ -237,10 +237,7 @@ public class RegistrarseForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-        
-        
-        
-        
+
         // Tratamiento excepcion no mismas contraseñas
         if (!txtPassword.getText().equals(txtRepetirPassword.getText())) {
             lblError.setText("Las contraseñas no coinciden.");
@@ -248,13 +245,13 @@ public class RegistrarseForm extends javax.swing.JFrame {
             Cliente client = new Cliente(txtNombre.getText(), txtApellidos.getText(), txtCorreo.getText(), txtPassword.getText());
             // Tratamiento excepcion  caracter "/" no valido
             if (txtNombre.getText().contains("/") || txtApellidos.getText().contains("/") || txtCorreo.getText().contains("/") || txtPassword.getText().contains("|")) {
-                lblError.setText("Hay un caracter no permitido"); 
-            // Tratamiento excepcion no introducir nigun valor    
-            }else if(txtPassword.getText().equals("") || txtCorreo.getText().equals("")
-                        ^ txtRepetirPassword.getText().equals("") || 
-                            txtNombre.getText().equals("") || txtApellidos.getText().equals("")){
-                                lblError.setText("Faltan campos por introducir, Vuelva a intentarlo");
-            // Tratamiento excepcion  caracter "@" no introducido en el correo
+                lblError.setText("Hay un caracter no permitido");
+                // Tratamiento excepcion no introducir nigun valor    
+            } else if (txtPassword.getText().equals("") || txtCorreo.getText().equals("")
+                    ^ txtRepetirPassword.getText().equals("")
+                    || txtNombre.getText().equals("") || txtApellidos.getText().equals("")) {
+                lblError.setText("Faltan campos por introducir, Vuelva a intentarlo");
+                // Tratamiento excepcion  caracter "@" no introducido en el correo
             } else if (!txtCorreo.getText().contains("@") || txtCorreo.getText().contains(" ")) {
                 lblError.setText("El correo electrónico no es un correo válido.");
             } else {
@@ -263,14 +260,15 @@ public class RegistrarseForm extends javax.swing.JFrame {
                     // Añadirlo al documento de texto
                     inmobiliaria.addCliente(client); // añado el nuevo usuario
                     file.saveToFile(inmobiliaria); // guardo en el fichero los clientes registrados
+
                     // Añadirlo a la bd
-                    InsertarClienteBd icbd = new InsertarClienteBd();
+                    /*InsertarClienteBd icbd = new InsertarClienteBd();
                     System.out.println(client.getNombre()+client.getApellido()+client.getCorreo()+client.getPassword());
                     icbd.insert(client.getNombre(),client.getApellido(),client.getCorreo(),client.getPassword());
-
+                     */
                     lblError.setText("Registro correcto");
                 } else {
-                        lblError.setText("Ese correo electrónico ya está registrado.");
+                    lblError.setText("Ese correo electrónico ya está registrado.");
                 }
             }
         }

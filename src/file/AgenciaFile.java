@@ -4,29 +4,47 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import model.AnuncioFacade.Anuncio;
 import model.Cliente;
 import model.Inmobiliaria;
+import model.Inmueble;
+import model.TipologiaInmueble;
+import model.Direccion;
+import model.Precio;
+import model.PrecioAlquiler;
+import model.PrecioVenta;
 
 public class AgenciaFile {
 
     String name = "Agencia.txt";
 
     public void saveToFile(Inmobiliaria inmobiliaria) {
-        int i;
         FileWriter fichero = null;
         PrintWriter pw = null;
         try {
             fichero = new FileWriter(name);
             pw = new PrintWriter(fichero);
-            int c;
+            int j, k;
             pw.write(inmobiliaria.getClientes().size() + "\n");
-            Cliente client;
+            Cliente client = null;
 
-            for (c = 0; c < inmobiliaria.getClientes().size(); c++) {
-                if (inmobiliaria.getClientes().get(c) instanceof Cliente) {
-                    client = (Cliente) inmobiliaria.getClientes().get(c);
+            for (j = 0; j < inmobiliaria.getClientes().size(); j++) {
+                if (inmobiliaria.getClientes().get(j) instanceof Cliente) {
+                    client = (Cliente) inmobiliaria.getClientes().get(j);
                     // se utilzará como separador el carácter / para cada dato del fichero
                     pw.write(client.getNombre() + "/" + client.getApellido() + "/" + client.getCorreo() + "/" + client.getPassword() + "/\n");
+
+                    Anuncio anuncio = null;
+                    pw.write(inmobiliaria.getClientes().get(j).getAnuncios().getAnunciosList().size() + "\n");
+
+                    for (k = 0; k < inmobiliaria.getClientes().get(j).getAnuncios().getAnunciosList().size(); k++) {
+                        if (inmobiliaria.getClientes().get(j).getAnuncios().getAnunciosList().get(k) instanceof Anuncio) {
+                            anuncio = (Anuncio) inmobiliaria.getClientes().get(j).getAnuncios().getAnunciosList().get(k);
+                            pw.write(anuncio.getInmueble().getTipoInmueble() + "/" + anuncio.getInmueble().getSuperficie() + "/" + anuncio.getInmueble().getNumeroHabitaciones()
+                                    + "/" + anuncio.getDireccion().getCalle() + "/" + anuncio.getDireccion().getPiso() + "/" + anuncio.getDireccion().getMunicipio() + "/" + anuncio.getDireccion().getNumero() + "/" + anuncio.getDireccion().getZipCode()
+                                    + "/" + anuncio.getPrecio().getTipo() + "/" + anuncio.getPrecio().getPrecio() + "/" + anuncio.getFoto() + "/\n");
+                        }
+                    }
                 }
             }
         } catch (Exception e) {
@@ -44,13 +62,43 @@ public class AgenciaFile {
 
     public void loadFromFile(Inmobiliaria inmobiliaria) {
         try {
-            Scanner s = new Scanner(new File("C:\\Users\\Lab-DIS\\Documents\\NetBeansProjects\\AgenciaInmobiliariaClonada\\Agencia.txt"));
+            Scanner s = new Scanner(new File("Agencia.txt"));
             int i, k, c, n = s.nextInt();
-            s.nextLine();
-            s.useDelimiter("/");
             for (i = 0; i < n; i++) {
-                inmobiliaria.addCliente(s.next(), s.next(), s.next(), s.next());
                 s.nextLine();
+                s.useDelimiter("/");
+                Cliente cliente = new Cliente(s.next(), s.next(), s.next(), s.next());
+
+                s.nextLine();
+                s.useDelimiter("");
+                int j, m = s.nextInt();
+                Inmueble inmueble = null;
+                for (j = 0; j < m; j++) {
+                    s.nextLine();
+                    s.useDelimiter("/");
+                    String tipo = s.next();
+                    if (tipo.equals("PISO")) {
+                        inmueble = new Inmueble(TipologiaInmueble.PISO, Double.parseDouble(s.next()), Integer.parseInt(s.next()));
+                    } else if (tipo.equals("CASA")) {
+                        inmueble = new Inmueble(TipologiaInmueble.CASA, Double.parseDouble(s.next()), Integer.parseInt(s.next()));
+                    } else if (tipo.equals("CHALET")) {
+                        inmueble = new Inmueble(TipologiaInmueble.CHALET, Double.parseDouble(s.next()), Integer.parseInt(s.next()));
+                    } else if (tipo.equals("APARTAMENTO")) {
+                        inmueble = new Inmueble(TipologiaInmueble.APARTAMENTO, Double.parseDouble(s.next()), Integer.parseInt(s.next()));
+                    }
+                    Direccion direccion = new Direccion(s.next(), s.next(), s.next(), Integer.parseInt(s.next()), Integer.parseInt(s.next()));
+                    Precio precio = null;
+                    if (s.next().equals("Alquiler")) {
+                        precio = new PrecioAlquiler(Integer.parseInt(s.next()));
+
+                    } else {
+                        precio = new PrecioVenta(Integer.parseInt(s.next()));
+                    }
+                    cliente.getAnuncios().addAnuncios(inmueble, direccion, precio, s.next());
+                    s.useDelimiter("");
+                }
+                inmobiliaria.addCliente(cliente);
+                System.out.println(cliente.getAnuncios().getAnunciosList());
             }
         } catch (Exception e) {
             e.printStackTrace();
