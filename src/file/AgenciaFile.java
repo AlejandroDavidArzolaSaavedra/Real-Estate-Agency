@@ -147,7 +147,6 @@ public class AgenciaFile {
                 Cliente cliente = inmobiliaria.getClientes().get(i);
                 t.useDelimiter("");
                 if (cliente.getCorreo().equals(t.nextLine())) {
-                    System.out.println(cliente.getCorreo());
                     int n = t.nextInt();
                     t.nextLine();
                     for (j = 0; j < n; j++) {
@@ -156,7 +155,6 @@ public class AgenciaFile {
                         Mensajeria m = new Mensajeria(c, t.next());
                         cliente.enviarMensaje(m);
                         t.nextLine();
-                        System.out.println(m);
                     }
                 }
 
