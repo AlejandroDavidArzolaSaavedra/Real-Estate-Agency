@@ -19,6 +19,7 @@ import model.Direccion;
 import model.Precio;
 import model.PrecioAlquiler;
 import model.PrecioVenta;
+import model.Mensajeria;
 
 public class ClienteForm extends javax.swing.JFrame {
 
@@ -39,7 +40,7 @@ public class ClienteForm extends javax.swing.JFrame {
         btnRealizarCambios.setEnabled(false);
         btnPublicarAnuncio.setEnabled(false);
         lblFecha.setText("Inicio de Sesion: " + fechaUsuario());
-        
+
     }
 
     void showInmuebleDetails(Inmueble i) {
@@ -55,38 +56,30 @@ public class ClienteForm extends javax.swing.JFrame {
         //for (i = 0; i < anuncios.getAnunciosList().size(); i++) {}
         // inmueblesEncontradosList.add(anuncios.getAnunciosList().get(i).getInmueble());
     }
-    
-    
-    
-    void comprobarPublicarAnuncio(){
-        
+
+    void comprobarPublicarAnuncio() {
+
         if (txCodigoPostal.getText().equals("") ^ txtNumero.getText().equals("")) {
             btnPublicarAnuncio.setEnabled(false);
         } else {
             if (txCodigoPostal.getText().matches("\\d{5,}") & txtNumero.getText().matches("\\d*")
                     & txtPiso.getText().matches("\\d*") & txtSuperficie.getText().matches("\\d*")
                     & cbNumHabitaciones.getSelectedItem().toString().matches("\\d")) {
-                        btnPublicarAnuncio.setEnabled(true);
+                btnPublicarAnuncio.setEnabled(true);
             } else {
                 realizarBusquedaButton.setEnabled(false);
             }
-        
+
         }
-        
+
     }
-    
-    private String fechaUsuario(){
+
+    private String fechaUsuario() {
         Calendar fecha = new GregorianCalendar();
         String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
         return timeStamp;
     }
-    
-    
-    
-    
-    
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -128,6 +121,9 @@ public class ClienteForm extends javax.swing.JFrame {
         infoInmuebleList1 = new java.awt.List();
         lblPreferencias = new javax.swing.JLabel();
         informacionDelInmuebleLabel = new javax.swing.JLabel();
+        lblMensaje = new javax.swing.JLabel();
+        txtMensaje = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         infoBuscarInmuebleLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         panelAñadirAnuncio = new javax.swing.JPanel();
@@ -381,6 +377,16 @@ public class ClienteForm extends javax.swing.JFrame {
         informacionDelInmuebleLabel.setForeground(new java.awt.Color(255, 255, 255));
         informacionDelInmuebleLabel.setText("Informacion del inmueble");
 
+        lblMensaje.setForeground(new java.awt.Color(255, 255, 255));
+        lblMensaje.setText("Mensaje:");
+
+        jButton1.setText("Enviar mensaje");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout buscarInmueblePanelLayout = new javax.swing.GroupLayout(buscarInmueblePanel);
         buscarInmueblePanel.setLayout(buscarInmueblePanelLayout);
         buscarInmueblePanelLayout.setHorizontalGroup(
@@ -390,42 +396,52 @@ public class ClienteForm extends javax.swing.JFrame {
                     .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
                         .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
-                                .addGap(8, 8, 8)
                                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(precioHastaLabel)
-                                        .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
-                                            .addComponent(precioRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(precioDesdeLabel)))
                                     .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
-                                        .addComponent(municipioRadioButton)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(municipioLabel))))
-                            .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(lblPreferencias)))
-                        .addGap(18, 18, 18)
-                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(precioHastaTextField)
-                            .addComponent(municipiosTextField)
-                            .addComponent(precioDesdeTextField)
-                            .addComponent(filtrosBusquedaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
-                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGap(8, 8, 8)
+                                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(precioHastaLabel)
+                                                .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
+                                                    .addComponent(precioRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(precioDesdeLabel)))
+                                            .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
+                                                .addComponent(municipioRadioButton)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(municipioLabel))))
+                                    .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
+                                        .addGap(62, 62, 62)
+                                        .addComponent(lblPreferencias)))
+                                .addGap(18, 18, 18)
+                                .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(precioHastaTextField)
+                                    .addComponent(municipiosTextField)
+                                    .addComponent(precioDesdeTextField)
+                                    .addComponent(filtrosBusquedaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
                                 .addGap(58, 58, 58)
-                                .addComponent(realizarBusquedaButton))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buscarInmueblePanelLayout.createSequentialGroup()
-                                .addComponent(inmuebleparaLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(compraRadioButton)))
+                                .addComponent(realizarBusquedaButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(contactarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(25, 25, 25))
+                    .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblMensaje)
                         .addGap(18, 18, 18)
-                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(alquilerRadioButton)
-                            .addComponent(contactarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(25, 25, 25)
+                        .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buscarInmueblePanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(inmuebleparaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(compraRadioButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(alquilerRadioButton)
+                        .addGap(98, 98, 98)))
                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
                         .addComponent(inmueblesEncontradosList, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -457,6 +473,7 @@ public class ClienteForm extends javax.swing.JFrame {
                                 .addComponent(lblPreferencias)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(inmueblesEncontradosList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
                                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(municipioRadioButton)
@@ -471,17 +488,23 @@ public class ClienteForm extends javax.swing.JFrame {
                                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(precioHastaLabel)
                                     .addComponent(precioHastaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(22, 22, 22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(alquilerRadioButton)
                                     .addComponent(compraRadioButton)
                                     .addComponent(inmuebleparaLabel))
                                 .addGap(18, 18, 18)
+                                .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buscarInmueblePanelLayout.createSequentialGroup()
+                                        .addComponent(lblMensaje)
+                                        .addGap(12, 12, 12))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(txtMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jButton1)))
+                                .addGap(18, 18, 18)
                                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(contactarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(realizarBusquedaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 45, Short.MAX_VALUE))
-                            .addComponent(inmueblesEncontradosList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(realizarBusquedaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(infoInmuebleList1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -511,7 +534,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addComponent(infoBuscarInmuebleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buscarInmueblePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         tabEditarPerfil.addTab("Buscar Inmueble", panelBuscarInmueble);
@@ -676,7 +699,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addGroup(panelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoPostal)
                     .addComponent(txCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(panelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumeroInmueble)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -822,7 +845,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblInfoDireccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbPrecioMensual)
@@ -983,7 +1006,7 @@ public class ClienteForm extends javax.swing.JFrame {
                     .addComponent(infoIngreseContraseñaLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRealizarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelEditarPerfilLayout.createSequentialGroup()
                     .addGap(266, 266, 266)
@@ -1367,7 +1390,7 @@ public class ClienteForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 970, Short.MAX_VALUE)
+            .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 970, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1644,7 +1667,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 }
 
                 inmobiliaria.getClientes().get(i).getAnuncios().addAnuncios(inmueble, d, p, txtFotoInmueble.getText());
-                
+
                 file.saveToFile(inmobiliaria);
             }
         }
@@ -1683,7 +1706,11 @@ public class ClienteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActualKeyReleased
 
     private void cargarHistorialButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarHistorialButtonActionPerformed
-        // TODO add your handling code here:
+        String clientesInteresados = "";
+        for (int i = 0; i < cliente.getFrom().size(); i++) {
+            clientesInteresados += cliente.getFrom().get(i).getFrom().getCorreo() + "\n";
+        }
+        historialMensajesTextArea.setText(clientesInteresados);
     }//GEN-LAST:event_cargarHistorialButtonActionPerformed
 
     private void txtCalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCalleKeyReleased
@@ -1717,6 +1744,17 @@ public class ClienteForm extends javax.swing.JFrame {
     private void rbPrecioTotalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rbPrecioTotalKeyPressed
         comprobarPublicarAnuncio();
     }//GEN-LAST:event_rbPrecioTotalKeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Mensajeria m = new Mensajeria(cliente, txtMensaje.getText());
+        // añadir mensaje al destinatario
+        for (int i = 0; i < inmobiliaria.getClientes().size(); i++) {
+            if (inmobiliaria.getClientes().get(i).getCorreo().equals("ana@gmail.com")) {
+                inmobiliaria.getClientes().get(i).enviarMensaje(m);
+                file.saveToFileMensaje(inmobiliaria);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
 
@@ -1805,6 +1843,7 @@ public class ClienteForm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup inmuebleParaButtonGroup;
     private javax.swing.JLabel inmuebleparaLabel;
     private java.awt.List inmueblesEncontradosList;
+    private javax.swing.JButton jButton1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
@@ -1830,6 +1869,7 @@ public class ClienteForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblInfoDelInmu;
     private javax.swing.JLabel lblInfoDireccion;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblMunicipio;
     private javax.swing.JLabel lblNumeroHabitaciones;
     private javax.swing.JLabel lblNumeroInmueble;
@@ -1872,6 +1912,7 @@ public class ClienteForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtCalle;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtFotoInmueble;
+    private javax.swing.JTextField txtMensaje;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumero;
     private javax.swing.JPasswordField txtPassword;

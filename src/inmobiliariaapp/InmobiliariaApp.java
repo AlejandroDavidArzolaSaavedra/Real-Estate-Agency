@@ -2,7 +2,6 @@ package inmobiliariaapp;
 
 import file.AgenciaFile;
 import gui.AgenciaForm;
-import model.ClienteBd.ClienteBd;
 import model.Inmobiliaria;
 
 public class InmobiliariaApp {
@@ -22,15 +21,5 @@ public class InmobiliariaApp {
         file.loadFromFile(inmobiliaria);
         agenciaForm.file = file;
 
-        /*
-        // cargo en bd de clientes
-        ClienteBd cl = new ClienteBd();
-        cl.selectAll();
-        cl.leerBdClientes();
-         */
     }
-    /**
-     * public class InitialData { public static void init() {
-     }
-     */
 }

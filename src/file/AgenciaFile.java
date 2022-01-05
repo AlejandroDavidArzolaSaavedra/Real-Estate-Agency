@@ -3,6 +3,7 @@ package file;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.List;
 import java.util.Scanner;
 import model.AnuncioFacade.Anuncio;
 import model.CatalogoAnunciosComposite.CatalogoAnunciosComposite;
@@ -11,6 +12,7 @@ import model.Inmobiliaria;
 import model.Inmueble;
 import model.TipologiaInmueble;
 import model.Direccion;
+import model.Mensajeria;
 import model.Precio;
 import model.PrecioAlquiler;
 import model.PrecioVenta;
@@ -18,6 +20,7 @@ import model.PrecioVenta;
 public class AgenciaFile {
 
     String name = "Agencia.txt";
+    String mensajes = "Mensajes.txt";
 
     public void saveToFile(Inmobiliaria inmobiliaria) {
         FileWriter fichero = null;
@@ -61,9 +64,39 @@ public class AgenciaFile {
         }
     }
 
+    public void saveToFileMensaje(Inmobiliaria inmobiliaria) {
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try {
+            fichero = new FileWriter(mensajes);
+            pw = new PrintWriter(fichero);
+            int j, k;
+            Cliente client = null;
+            for (j = 0; j < inmobiliaria.getClientes().size(); j++) {
+                client = inmobiliaria.getClientes().get(j);
+                pw.write(client.getCorreo() + "\n");
+                List<Mensajeria> mensajes = client.getFrom();
+                pw.write(mensajes.size() + "\n");
+                for (k = 0; k < mensajes.size(); k++) {
+                    Mensajeria mensaje = mensajes.get(k);
+                    pw.write(mensaje.getFrom().getNombre() + "/" + mensaje.getFrom().getApellido() + "/" + mensaje.getFrom().getCorreo() + "/" + mensaje.getMensaje() + "/\n");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero) {
+                    fichero.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
     public void loadFromFile(Inmobiliaria inmobiliaria) {
         try {
-            
             CatalogoAnunciosComposite catalogo = new CatalogoAnunciosComposite();
             Scanner s = new Scanner(new File("Agencia.txt"));
             int i, k, c, n = s.nextInt();
@@ -101,9 +134,32 @@ public class AgenciaFile {
                     s.useDelimiter("");
                 }
                 inmobiliaria.addCliente(cliente);
-               for(Anuncio anuncios :cliente.getAnuncios().getAnunciosList()){
-                   catalogo.addAnuncios(anuncios);
-               } 
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Scanner t = new Scanner(new File("Mensajes.txt"));
+            int i, j;
+
+            for (i = 0; i < inmobiliaria.getClientes().size(); i++) {
+                Cliente cliente = inmobiliaria.getClientes().get(i);
+                t.useDelimiter("");
+                if (cliente.getCorreo().equals(t.nextLine())) {
+                    System.out.println(cliente.getCorreo());
+                    int n = t.nextInt();
+                    t.nextLine();
+                    for (j = 0; j < n; j++) {
+                        t.useDelimiter("/");
+                        Cliente c = new Cliente(t.next(), t.next(), t.next());
+                        Mensajeria m = new Mensajeria(c, t.next());
+                        cliente.enviarMensaje(m);
+                        t.nextLine();
+                        System.out.println(m);
+                    }
+                }
+
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -6,30 +6,31 @@ import model.AnuncioFacade.Anuncio;
 import model.CatalogoAnunciosComposite.CatalogoAnunciosComposite;
 
 public class Cliente {
-
     private String nombre;
     private String apellido;
     private String correo;
     private String password;
     private CatalogoAnunciosComposite anuncios = new CatalogoAnunciosComposite();
     private List<Mensajeria> from = new ArrayList<Mensajeria>();// mensajes recibidos
-    private List<Mensajeria> to = new ArrayList<Mensajeria>();;// Enviar mensaje
+    private List<Mensajeria> to = new ArrayList<Mensajeria>();
+
+    ;// Enviar mensaje
     
     
-    public void imprimirMensajesRecibidos(){
-        for( Mensajeria mensajesFrom : from) {
+    public void imprimirMensajesRecibidos() {
+        for (Mensajeria mensajesFrom : from) {
             System.out.println(mensajesFrom);
         }
     }
-   
-    public void elimimnarMensajesRecibidos(Mensajeria mensaje){
+
+    public void elimimnarMensajesRecibidos(Mensajeria mensaje) {
         from.remove(mensaje);
     }
-    
-    public void enviarMensaje(Mensajeria mensaje){
-        to.add(mensaje);
+
+    public void enviarMensaje(Mensajeria mensaje) {
+        from.add(mensaje);
     }
-    
+
     public Cliente(String nombre, String apellido, String correo, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -37,13 +38,23 @@ public class Cliente {
         this.password = password;
         CatalogoAnunciosComposite anuncios = new CatalogoAnunciosComposite();
     }
-    
-        public Cliente(String nombre, String apellido, String correo, String password, CatalogoAnunciosComposite anuncios) {
+
+    public Cliente(String nombre, String apellido, String correo, String password, CatalogoAnunciosComposite anuncios) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.password = password;
         this.anuncios = anuncios;
+    }
+    
+    public Cliente(String nombre, String apellido, String correo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.password = "";
+        this.anuncios = null;
+        this.from = null;
+        this.to = null;
     }
 
     @Override
@@ -90,5 +101,23 @@ public class Cliente {
     public void setAnuncios(CatalogoAnunciosComposite anuncios) {
         this.anuncios = anuncios;
     }
+
+    public List<Mensajeria> getFrom() {
+        return from;
+    }
+
+    public void setFrom(List<Mensajeria> from) {
+        this.from = from;
+    }
+
+    public List<Mensajeria> getTo() {
+        return to;
+    }
+
+    public void setTo(List<Mensajeria> to) {
+        this.to = to;
+    }
+    
+    
 
 }

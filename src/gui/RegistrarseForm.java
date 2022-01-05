@@ -2,7 +2,6 @@ package gui;
 
 import file.AgenciaFile;
 import model.Cliente;
-import model.ClienteBd.InsertarClienteBd;
 import model.Inmobiliaria;
 
 public class RegistrarseForm extends javax.swing.JFrame {
@@ -261,11 +260,6 @@ public class RegistrarseForm extends javax.swing.JFrame {
                     inmobiliaria.addCliente(client); // añado el nuevo usuario
                     file.saveToFile(inmobiliaria); // guardo en el fichero los clientes registrados
 
-                    // Añadirlo a la bd
-                    /*InsertarClienteBd icbd = new InsertarClienteBd();
-                    System.out.println(client.getNombre()+client.getApellido()+client.getCorreo()+client.getPassword());
-                    icbd.insert(client.getNombre(),client.getApellido(),client.getCorreo(),client.getPassword());
-                     */
                     lblError.setText("Registro correcto");
                 } else {
                     lblError.setText("Ese correo electrónico ya está registrado.");

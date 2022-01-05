@@ -446,9 +446,6 @@ public class AgenciaForm extends javax.swing.JFrame {
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         boolean encontrado = false;
-        for(Cliente clientes:inmobiliaria.getClientes()){
-            inmobiliaria.getCatalogo().getAnunciosList(clientes);
-        }
         
         //busco el usuario que tenga ese correo y contraseña
         for (int i = 0; i < inmobiliaria.getClientes().size(); i++) {
