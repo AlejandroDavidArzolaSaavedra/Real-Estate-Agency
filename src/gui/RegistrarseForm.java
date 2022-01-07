@@ -253,7 +253,6 @@ public class RegistrarseForm extends javax.swing.JFrame {
                     || !txtCorreo.getText().matches("[^@]+@[^@]+\\.[a-zA-Z]{2,}")) {
                 lblError.setText("El correo electrónico no es un correo válido.");
             } else {
-
                 // Tratamiento excepcion  cliente registrado previvamente
                 if (!inmobiliaria.getClientes().contains(client)) { // si el cliente no está registrado se registra
                     // Añadirlo al documento de texto

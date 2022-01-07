@@ -1,6 +1,7 @@
 package model;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 /**
  * Clase para representar los clientes de la inmobiliaria
  */
@@ -169,4 +170,24 @@ public class Cliente {
     public String toString() {
         return nombre +" "+ apellido + ", esta interesado";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cliente other = (Cliente) obj;
+        if (!Objects.equals(this.correo, other.correo)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }
