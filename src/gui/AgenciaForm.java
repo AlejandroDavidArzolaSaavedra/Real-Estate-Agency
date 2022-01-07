@@ -21,9 +21,6 @@ public class AgenciaForm extends javax.swing.JFrame {
 
     public AgenciaForm() {
         initComponents();
-        
-        txtCorreo.setText("ana@gmail.com");
-        txtPassword.setText("123");
         carruselImagenes();
         ImageIcon imagen = new ImageIcon(getClass().getResource("/imagenes/github.png"));
         Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(lblGitAlejandro.getWidth(), lblGitAlejandro.getHeight(), Image.SCALE_DEFAULT));
@@ -32,25 +29,7 @@ public class AgenciaForm extends javax.swing.JFrame {
         lblGitJuan.setIcon(fondoJuan);
         this.repaint();
         //inmobiliaria.getCatalogo().getAnuncios();
-     }
-    
-    
-    
-    public void metodo(){
-        int contadorNumClientes;
-        int contador = 0;
-        int contadorTopeAnuncionesCliente=10;// Cantidad de anuncios que  tiene el cliente
-        while(contador < contadorTopeAnuncionesCliente){
-            String nombreCliente="";
-            ImageIcon imagenes = new ImageIcon(getClass().getResource("/imagenes/clientes/inmueble_" + nombreCliente + contador + ".png"));
-            Icon fondo = new ImageIcon(imagenes.getImage().getScaledInstance(lblFotos.getWidth(), lblFotos.getHeight(), Image.SCALE_DEFAULT));
-            lblFotos.setIcon(fondo);
-            this.repaint();
-        }
-            contador = 0;
     }
-    
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -382,32 +361,32 @@ public class AgenciaForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     int contador = 0;
     int contador_tope = 0;
-    
-    public void longitud(){
+
+    public void longitud() {
         contador_tope = 0;
         inmobiliaria.getClientes().forEach((clientes) -> {
             clientes.getAnuncios().getAnunciosList().forEach((_item) -> {
-                contador_tope++;});
+                contador_tope++;
+            });
         });
     }
-    
-    
-    public void carruselImagenes(){
-        ImageIcon imagenes = new ImageIcon(getClass().getResource("/imagenes/clientes/inmueble_cliente_"+ contador + ".png"));
+
+    public void carruselImagenes() {
+        ImageIcon imagenes = new ImageIcon(getClass().getResource("/imagenes/clientes/inmueble_cliente_" + contador + ".png"));
         Icon fondo = new ImageIcon(imagenes.getImage().getScaledInstance(lblFotos.getWidth(), lblFotos.getHeight(), Image.SCALE_DEFAULT));
-        lblFotos.setIcon(fondo);   
+        lblFotos.setIcon(fondo);
         this.repaint();
     }
-    
-    
+
+
     private void btnderechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnderechaActionPerformed
         longitud();
-        if(contador >= contador_tope){
+        if (contador >= contador_tope) {
             contador = 0;
-        }else{
+        } else {
             contador++;
         }
         carruselImagenes();
@@ -415,9 +394,9 @@ public class AgenciaForm extends javax.swing.JFrame {
 
     private void btnIzquierdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzquierdaActionPerformed
         longitud();
-        if(contador <= 0){
+        if (contador <= 0) {
             contador = contador_tope;
-        }else{
+        } else {
             contador--;
         }
         carruselImagenes();
@@ -433,8 +412,8 @@ public class AgenciaForm extends javax.swing.JFrame {
 
     private void lblGitAlejandroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGitAlejandroMouseClicked
         Desktop desktop = Desktop.getDesktop();
-        if(desktop.isSupported(Desktop.Action.BROWSE)){
-            try{
+        if (desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
                 java.net.URI url = new java.net.URI("https://github.com/AlejandroDavidArzolaSaavedra");
                 desktop.browse(url);
 
@@ -454,18 +433,17 @@ public class AgenciaForm extends javax.swing.JFrame {
         //pasa el fichero y la inmobiliaria al formulario de registro
         registrarseForm.file = file;
         registrarseForm.inmobiliaria = inmobiliaria;
-  
+
         //cierra la ventana actual
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         boolean encontrado = false;
-        
+
         //busco el usuario que tenga ese correo y contraseña
         for (int i = 0; i < inmobiliaria.getClientes().size(); i++) {
-            
-            
+
             //si el correo y la contraseña es correcto ingresa en la aplicación del cliente
             if (inmobiliaria.getClientes().get(i).getCorreo().equals(txtCorreo.getText()) && inmobiliaria.getClientes().get(i).getPassword().equals(txtPassword.getText())) {
                 encontrado = true;
@@ -487,8 +465,8 @@ public class AgenciaForm extends javax.swing.JFrame {
 
     private void lblGitJuanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblGitJuanMouseClicked
         Desktop desktop = Desktop.getDesktop();
-        if(desktop.isSupported(Desktop.Action.BROWSE)){
-            try{
+        if (desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
                 java.net.URI url = new java.net.URI("https://github.com/juancad");
                 desktop.browse(url);
 
@@ -508,7 +486,7 @@ public class AgenciaForm extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AgenciaForm().setVisible(true);
-                
+
             }
         });
     }
