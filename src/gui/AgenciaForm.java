@@ -21,7 +21,9 @@ public class AgenciaForm extends javax.swing.JFrame {
 
     public AgenciaForm() {
         initComponents();
-        carruselImagenes();
+        if (contador_tope > 0) {
+            carruselImagenes();
+        }
         ImageIcon imagen = new ImageIcon(getClass().getResource("/imagenes/github.png"));
         Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(lblGitAlejandro.getWidth(), lblGitAlejandro.getHeight(), Image.SCALE_DEFAULT));
         lblGitAlejandro.setIcon(fondo);

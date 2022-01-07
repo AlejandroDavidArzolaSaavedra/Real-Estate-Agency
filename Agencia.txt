@@ -1,0 +1,6 @@
+1
+cliente/cliente/cliente@gmail.com/1234/
+3
+PISO/100.0/5/Mesa y López/50/Las Palmas de Gran Canaria/50/12345/Alquiler/500/imagenes/
+PISO/200.0/6/Calle/20/Las Palmas de Gran Canaria/10/12345/Alquiler/500/imagenes/
+CASA/200.0/5/Calle/20/Telde/10/12345/Alquiler/200/imagenes/clientes/inmueble_cliente_2.png/
