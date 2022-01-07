@@ -33,7 +33,7 @@ public class ClienteForm extends javax.swing.JFrame {
 
     public ClienteForm() {
         initComponents();
-        
+
         //file.loadFromFile(inmobiliaria);
         ImageIcon imagen = new ImageIcon(getClass().getResource("/imagenes/iconoSALIR.png"));
         Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(salirIIcon.getWidth(), salirIIcon.getHeight(), Image.SCALE_DEFAULT));
@@ -48,74 +48,74 @@ public class ClienteForm extends javax.swing.JFrame {
         lblFecha.setText("Inicio de Sesion: " + fechaUsuario());
 
     }
-    
-    List<Anuncio> getListAnunciosAlquilados( List<Anuncio> inmuebles){
+
+    List<Anuncio> getListAnunciosAlquilados(List<Anuncio> inmuebles) {
         List<Anuncio> anunciosPorPrecio = new ArrayList<>();
-       
+
         inmuebles.stream().filter((anuncios) -> (anuncios.getPrecio().getTipo().equals("Alquiler"))).forEachOrdered((anuncios) -> {
             anunciosPorPrecio.add(anuncios);
         });
         return anunciosPorPrecio;
     }
-    
-    List<Anuncio> getListAnunciosVendidos( List<Anuncio> inmuebles){
+
+    List<Anuncio> getListAnunciosVendidos(List<Anuncio> inmuebles) {
         List<Anuncio> anunciosPorPrecio = new ArrayList<>();
-       
+
         inmuebles.stream().filter((anuncios) -> (anuncios.getPrecio().getTipo().equals("Venta"))).forEachOrdered((anuncios) -> {
             anunciosPorPrecio.add(anuncios);
             System.out.println("Good");
         });
         return anunciosPorPrecio;
     }
-    
-    List<Anuncio> getListAnunciosEntrePrecio(int precioDesde, int precioHasta){
+
+    List<Anuncio> getListAnunciosEntrePrecio(int precioDesde, int precioHasta) {
         List<Anuncio> anunciosPorPrecio = new ArrayList<>();
-       
-        listaAnunciosTotales().stream().filter((anuncios) -> (anuncios.getPrecio().getPrecio()>= precioDesde
-                && anuncios.getPrecio().getPrecio()>= precioHasta)).forEachOrdered((anuncios) -> {
-                    anunciosPorPrecio.add(anuncios);
+
+        listaAnunciosTotales().stream().filter((anuncios) -> (anuncios.getPrecio().getPrecio() >= precioDesde
+                && anuncios.getPrecio().getPrecio() >= precioHasta)).forEachOrdered((anuncios) -> {
+            anunciosPorPrecio.add(anuncios);
         });
         return anunciosPorPrecio;
     }
-    
-    List<Anuncio> getListAnunciosPorMunicipio(String municipio){
+
+    List<Anuncio> getListAnunciosPorMunicipio(String municipio) {
         List<Anuncio> anunciosPorMunicipio = new ArrayList<>();
-       
+
         listaAnunciosTotales().stream().filter((anuncios) -> (anuncios.getDireccion().getMunicipio().equals(municipio))).forEachOrdered((anuncios) -> {
             anunciosPorMunicipio.add(anuncios);
         });
         return anunciosPorMunicipio;
     }
-   
-    void showClient(String c){
-        String mensaje="";
+
+    void showClient(String c) {
+        String mensaje = "";
         infoContactoTextArea.removeAll();
-        for(Mensajeria mensajes: cliente.getFrom()){
-            if(mensajes.getFrom().toString().equals(c))
-                mensaje += mensajes.getMensaje()+"\n----\n";
+        for (Mensajeria mensajes : cliente.getFrom()) {
+            if (mensajes.getFrom().toString().equals(c)) {
+                mensaje += mensajes.getMensaje() + "\n----\n";
+            }
         }
         infoContactoTextArea.setText(mensaje);
     }
-    
-    ArrayList<Anuncio> listaAnunciosTotales(){
+
+    ArrayList<Anuncio> listaAnunciosTotales() {
         ArrayList<Anuncio> anunciosTotales = new ArrayList<Anuncio>();
-        for(Cliente clientes: inmobiliaria.getClientes()){
-            for(Anuncio anuncios: clientes.getAnuncios().getAnunciosList()){
+        for (Cliente clientes : inmobiliaria.getClientes()) {
+            for (Anuncio anuncios : clientes.getAnuncios().getAnunciosList()) {
                 anunciosTotales.add(anuncios);
             }
         }
         return anunciosTotales;
     }
-    
-    
+
     void showInmueble(Anuncio i) {
         infoInmuebleList1.removeAll();
-        infoInmuebleList1.setText(i.getInmueble().getTipoInmueble().toString()+"\n"
-                +"Superficie: "+i.getInmueble().getSuperficie().toString() + 
-                "\n" +"Numero habitaciones:" + Integer.toString(i.getInmueble().getNumeroHabitaciones())
-                +"\n"+"Precio: " + i.getPrecio().getPrecio());
-    } 
-    
+        infoInmuebleList1.setText(i.getInmueble().getTipoInmueble().toString() + "\n"
+                + "Superficie: " + i.getInmueble().getSuperficie().toString()
+                + "\n" + "Numero habitaciones:" + Integer.toString(i.getInmueble().getNumeroHabitaciones())
+                + "\n" + "Precio: " + i.getPrecio().getPrecio());
+    }
+
     void showAnunciosList() {
         int i;
         inmueblesEncontradosList.removeAll();
@@ -237,7 +237,6 @@ public class ClienteForm extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         panelEditarPerfil = new javax.swing.JPanel();
-        lblError = new javax.swing.JLabel();
         nombreLabel = new javax.swing.JLabel();
         apellidosLabel = new javax.swing.JLabel();
         txtApellidos = new javax.swing.JTextField();
@@ -252,6 +251,7 @@ public class ClienteForm extends javax.swing.JFrame {
         infoIngreseContraseñaLabel = new javax.swing.JLabel();
         btnRealizarCambios = new javax.swing.JButton();
         infoEditarPerfilLabel = new javax.swing.JLabel();
+        lblError = new javax.swing.JLabel();
         correoSesionLabel = new javax.swing.JLabel();
         salirSesionLabel = new javax.swing.JLabel();
         salirIIcon = new javax.swing.JLabel();
@@ -560,11 +560,11 @@ public class ClienteForm extends javax.swing.JFrame {
         panelBuscarInmuebleLayout.setHorizontalGroup(
             panelBuscarInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBuscarInmuebleLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(panelBuscarInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buscarInmueblePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(infoBuscarInmuebleLabel))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         panelBuscarInmuebleLayout.setVerticalGroup(
             panelBuscarInmuebleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1058,12 +1058,12 @@ public class ClienteForm extends javax.swing.JFrame {
                     .addGroup(panelHistorialLayout.createSequentialGroup()
                         .addGap(187, 187, 187)
                         .addComponent(personasInteresadasLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
                         .addComponent(datosContactoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(202, 202, 202))
             .addGroup(panelHistorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHistorialLayout.createSequentialGroup()
-                    .addContainerGap(21, Short.MAX_VALUE)
+                    .addContainerGap(56, Short.MAX_VALUE)
                     .addComponent(historialMensajesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(33, 33, 33)))
         );
@@ -1085,21 +1085,18 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addComponent(historialMensajesTextArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(26, 26, 26)
                 .addComponent(cargarHistorialButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
             .addGroup(panelHistorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelHistorialLayout.createSequentialGroup()
                     .addGap(72, 72, 72)
                     .addComponent(historialMensajesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(19, Short.MAX_VALUE)))
+                    .addContainerGap(35, Short.MAX_VALUE)))
         );
 
         tabEditarPerfil.addTab("Historial de Mensajes", panelHistorial);
 
         panelEditarPerfil.setBackground(new java.awt.Color(53, 121, 56));
         panelEditarPerfil.setForeground(new java.awt.Color(255, 255, 255));
-
-        lblError.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lblError.setForeground(new java.awt.Color(53, 121, 56));
 
         nombreLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         nombreLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -1112,6 +1109,12 @@ public class ClienteForm extends javax.swing.JFrame {
         contraseñaNuevaLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         contraseñaNuevaLabel.setForeground(new java.awt.Color(255, 255, 255));
         contraseñaNuevaLabel.setText("Contraseña nueva:");
+
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
 
         repetirContraseñaLabel.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         repetirContraseñaLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -1140,7 +1143,7 @@ public class ClienteForm extends javax.swing.JFrame {
 
         infoIngreseContraseñaLabel.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         infoIngreseContraseñaLabel.setForeground(new java.awt.Color(255, 255, 255));
-        infoIngreseContraseñaLabel.setText("Ingrese la nueva contraseña para realizar los cambios:");
+        infoIngreseContraseñaLabel.setText("Ingrese tu contraseña para realizar los cambios:");
 
         btnRealizarCambios.setBackground(new java.awt.Color(255, 255, 255));
         btnRealizarCambios.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
@@ -1174,12 +1177,7 @@ public class ClienteForm extends javax.swing.JFrame {
                     .addComponent(txtPassword)
                     .addComponent(txtRepetirPassword)
                     .addComponent(txtPasswordActual))
-                .addContainerGap(298, Short.MAX_VALUE))
-            .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                    .addGap(123, 123, 123)
-                    .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(525, Short.MAX_VALUE)))
+                .addContainerGap(338, Short.MAX_VALUE))
         );
         panelEditarPerfilLayout.setVerticalGroup(
             panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1211,15 +1209,13 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRealizarCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
-            .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                    .addGap(266, 266, 266)
-                    .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(35, Short.MAX_VALUE)))
         );
 
         infoEditarPerfilLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         infoEditarPerfilLabel.setText("Ingrese los datos que deseas modificar a continuación");
+
+        lblError.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lblError.setForeground(new java.awt.Color(53, 121, 56));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1228,26 +1224,28 @@ public class ClienteForm extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(infoEditarPerfilLabel)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(panelEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)))
-                .addGap(16, 16, 16))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(392, 392, 392)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(infoEditarPerfilLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(392, 392, 392)
+                .addComponent(jLabel4)
+                .addContainerGap(42, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(infoEditarPerfilLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         tabEditarPerfil.addTab("Editar perfil", jPanel3);
@@ -1333,8 +1331,8 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblLogo)))
                 .addGap(11, 11, 11)
-                .addComponent(tabEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
+                .addComponent(tabEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1358,12 +1356,12 @@ public class ClienteForm extends javax.swing.JFrame {
                 if (txtCorreo.getText().contains("/") || txtApellidos.getText().contains("/") || txtCorreo.getText().contains("/") || txtPasswordActual.getText().contains("/")) {
                     lblError.setText("Hay un caracter no permitido");
                 } else {
-                    if (!inmobiliaria.getClientes().get(i).getPassword().equals(txtRepetirPassword.getText())) {
+                    if (!inmobiliaria.getClientes().get(i).getPassword().equals(txtPasswordActual.getText())) {
                         lblError.setText("La contraseña no es correcta");
                     } else {
-                        //modifico los datos del cliente
-                        if (txtCorreo.getText() != "" && txtCorreo.getText().length() != 0) {
-                            inmobiliaria.getClientes().get(i).setNombre(txtCorreo.getText());
+//modifico los datos del cliente
+                        if (txtNombre.getText() != "" && txtNombre.getText().length() != 0) {
+                            inmobiliaria.getClientes().get(i).setNombre(txtNombre.getText());
                         } else {
                             lblError.setText("El nombre no puede estar vacío");
                             realizado = false;
@@ -1385,9 +1383,9 @@ public class ClienteForm extends javax.swing.JFrame {
                             lblError.setText("El correo no es correcto.");
                             realizado = false;
                         }
-                        if (txtPasswordActual.getText().equals(txtPasswordActual.getText())) {
+                        if (txtPassword.getText().equals(txtRepetirPassword.getText())) {
                             if (txtPasswordActual.getText() != "" && txtPasswordActual.getText().length() != 0) {
-                                inmobiliaria.getClientes().get(i).setPassword(txtPasswordActual.getText());
+                                inmobiliaria.getClientes().get(i).setPassword(txtPassword.getText());
                             } else {
                                 lblError.setText("La contraseña nueva no puede estar vacía.");
                                 realizado = false;
@@ -1430,55 +1428,55 @@ public class ClienteForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_precioRadioButtonActionPerformed
 
-    void showInmuebleList(){
+    void showInmuebleList() {
         int i;
         inmueblesEncontradosList.removeAll();
-        for(i=0;i<inmobiliaria.getCatalogo().getAnunciosList().size();i++)
+        for (i = 0; i < inmobiliaria.getCatalogo().getAnunciosList().size(); i++) {
             inmueblesEncontradosList.add(inmobiliaria.getCatalogo().getAnunciosList().get(i).toString());
+        }
     }
-    
+
     private void realizarBusquedaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarBusquedaButtonActionPerformed
-        List<Anuncio> anunciosFiltro= new ArrayList<>();
+        List<Anuncio> anunciosFiltro = new ArrayList<>();
         // Seleccion por municipio
         inmueblesEncontradosList.removeAll();
-        if(municipioRadioButton.isSelected()){
+        if (municipioRadioButton.isSelected()) {
             // Inmuebles de compra
-            if(alquilerRadioButton.isSelected()){
+            if (alquilerRadioButton.isSelected()) {
                 anunciosFiltro = getListAnunciosAlquilados(getListAnunciosPorMunicipio(municipiosTextField.getSelectedItem().toString()));
-            // Inmuebles de alquiler
-            }else{
+                // Inmuebles de alquiler
+            } else {
                 anunciosFiltro = getListAnunciosVendidos(getListAnunciosPorMunicipio(municipiosTextField.getSelectedItem().toString()));
             }
         }
-        
+
         // Seleccion por precio
-        if(precioRadioButton.isSelected()){
+        if (precioRadioButton.isSelected()) {
             // Inmuebles de compra    
-            if(alquilerRadioButton.isSelected()){
+            if (alquilerRadioButton.isSelected()) {
                 anunciosFiltro = getListAnunciosAlquilados(getListAnunciosPorMunicipio(municipiosTextField.getSelectedItem().toString()));
-            // Inmuebles de alquiler
-            }else{
+                // Inmuebles de alquiler
+            } else {
                 anunciosFiltro = getListAnunciosVendidos(getListAnunciosPorMunicipio(municipiosTextField.getSelectedItem().toString()));
             }
         }
-        for(Anuncio anuncios: anunciosFiltro){
+        for (Anuncio anuncios : anunciosFiltro) {
             inmueblesEncontradosList.add(anuncios.toString());
         }
     }//GEN-LAST:event_realizarBusquedaButtonActionPerformed
 
-    
-    public Cliente busquedadCliente(String cadena){
+    public Cliente busquedadCliente(String cadena) {
         Cliente clienteBuscado = null;
         for (Cliente clientes : inmobiliaria.getClientes()) {
-            for(Anuncio anuncios: clientes.getAnuncios().getAnunciosList()){
-                if (anuncios.toString().equals(cadena)){
-                        clienteBuscado = clientes;
+            for (Anuncio anuncios : clientes.getAnuncios().getAnunciosList()) {
+                if (anuncios.toString().equals(cadena)) {
+                    clienteBuscado = clientes;
                 }
             }
         }
-         return clienteBuscado;   
+        return clienteBuscado;
     }
-    
+
     private void contactarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactarButtonActionPerformed
         Mensajeria m = new Mensajeria(cliente, txtMensaje.getText());
         // añadir mensaje al destinatario inmueblesEncontradosList
@@ -1559,60 +1557,60 @@ public class ClienteForm extends javax.swing.JFrame {
     private void txtSuperficieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSuperficieActionPerformed
         comprobarPublicarAnuncio();
     }//GEN-LAST:event_txtSuperficieActionPerformed
-    
-    public String obtenerCantidadImagenesCliente(){
+
+    public String obtenerCantidadImagenesCliente() {
         int i = 0;// La cantidad de anuncios que tengo como cliente
-        for(int j = 0; j < inmobiliaria.getClientes().size();j++){
-            if(inmobiliaria.getClientes().get(j).getCorreo().equals(cliente.getCorreo()))
-                    i = inmobiliaria.getClientes().get(j).getAnuncios().getAnunciosList().size();
-            
-           
+        for (int j = 0; j < inmobiliaria.getClientes().size(); j++) {
+            if (inmobiliaria.getClientes().get(j).getCorreo().equals(cliente.getCorreo())) {
+                i = inmobiliaria.getClientes().get(j).getAnuncios().getAnunciosList().size();
+            }
+
         }
         return String.valueOf(i);
     }
-    
+
     int contador_tope = 0;
-    
-    public void longitud(){
+
+    public void longitud() {
         contador_tope = 0;
-        for(Cliente clientes:inmobiliaria.getClientes()){
-            for(Anuncio anuncios: clientes.getAnuncios().getAnunciosList()){
+        for (Cliente clientes : inmobiliaria.getClientes()) {
+            for (Anuncio anuncios : clientes.getAnuncios().getAnunciosList()) {
                 contador_tope++;
             }
         }
         //contador_tope++;
     }
-    
+
     private void btnAdjuntarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjuntarImagenActionPerformed
         longitud();
         JFileChooser jf = new JFileChooser();
         jf.setMultiSelectionEnabled(false);//obtenerCantidadImagenesCliente()
         if (jf.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             if (!jf.getSelectedFile().toString().substring(jf.getSelectedFile().toString().length() - 4).equals(".png")) {
-                rsdragdropfiles.RSDragDropFiles.setCopiar(jf.getSelectedFile().toString(), "src/imagenes/clientes/inmueble_cliente"+"_" + contador_tope+".png");
-                txtFotoInmueble.setText("imagenes/clientes/inmueble_cliente" + "_" +contador_tope+".png");
-      
-                 infoBuscarFotoErorr.setText("foto añadida correctamente");
+                rsdragdropfiles.RSDragDropFiles.setCopiar(jf.getSelectedFile().toString(), "src/imagenes/clientes/inmueble_cliente" + "_" + contador_tope + ".png");
+                txtFotoInmueble.setText("imagenes/clientes/inmueble_cliente" + "_" + contador_tope + ".png");
+
+                infoBuscarFotoErorr.setText("foto añadida correctamente");
             } else {
                 infoBuscarFotoErorr.setText("La foto debe ser formato .png");
             }
         }
     }//GEN-LAST:event_btnAdjuntarImagenActionPerformed
 
-    
     public boolean comprobar(Anuncio anuncioNuevo) {
         for (Cliente clientes : inmobiliaria.getClientes()) {
-            for(Anuncio anuncios: clientes.getAnuncios().getAnunciosList()){
+            for (Anuncio anuncios : clientes.getAnuncios().getAnunciosList()) {
                 if (anuncios.getDireccion().getCalle().equals(anuncioNuevo.getDireccion().getCalle())
-                    & anuncios.getDireccion().getNumero() == anuncioNuevo.getDireccion().getNumero()
-                    & anuncios.getDireccion().getZipCode() == anuncioNuevo.getDireccion().getZipCode()
-                    & anuncios.getDireccion().getMunicipio().equals(anuncioNuevo.getDireccion().getMunicipio())){
-                        return false;          
-           }}
+                        & anuncios.getDireccion().getNumero() == anuncioNuevo.getDireccion().getNumero()
+                        & anuncios.getDireccion().getZipCode() == anuncioNuevo.getDireccion().getZipCode()
+                        & anuncios.getDireccion().getMunicipio().equals(anuncioNuevo.getDireccion().getMunicipio())) {
+                    return false;
+                }
+            }
         }
         return true;
     }
-    
+
     private void btnPublicarAnuncioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPublicarAnuncioActionPerformed
         for (int i = 0; i < inmobiliaria.getClientes().size(); i++) {
             if (inmobiliaria.getClientes().get(i).getCorreo().equals(cliente.getCorreo())) {
@@ -1643,11 +1641,11 @@ public class ClienteForm extends javax.swing.JFrame {
                     p = new PrecioVenta(Integer.parseInt(txtPrecio.getText()));
                 }
                 Anuncio anuncio = new Anuncio(inmueble, d, p, txtFotoInmueble.getText());
-                if(comprobar(anuncio)){
+                if (comprobar(anuncio)) {
                     inmobiliaria.getClientes().get(i).getAnuncios().addAnuncios(anuncio);
                     lblErrorAñadirAnuncio.setForeground(Color.green);
                     lblErrorAñadirAnuncio.setText("Se ha añadido el anuncio");
-                }else{
+                } else {
                     lblErrorAñadirAnuncio.setForeground(Color.red);
                     lblErrorAñadirAnuncio.setText("Ya existe el anuncio");
                 }
@@ -1689,10 +1687,11 @@ public class ClienteForm extends javax.swing.JFrame {
         String clientesInteresados = "";
         historialMensajesTextArea.removeAll();
         List<String> cop = new ArrayList<>();
-        
-        for (int i = 0; i < cliente.getFrom().size(); i++)
+
+        for (int i = 0; i < cliente.getFrom().size(); i++) {
             cop.add(cliente.getFrom().get(i).getFrom().toString());
-        
+        }
+
         List<String> deDup = cop.stream().distinct().collect(Collectors.toList());
         deDup.forEach((dup) -> historialMensajesTextArea.add(dup));
     }//GEN-LAST:event_cargarHistorialButtonActionPerformed
@@ -1735,7 +1734,7 @@ public class ClienteForm extends javax.swing.JFrame {
 
     private void cbMunicipioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMunicipioActionPerformed
         comprobarPublicarAnuncio();
-        
+
     }//GEN-LAST:event_cbMunicipioActionPerformed
 
     private void txCodigoPostalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txCodigoPostalActionPerformed
@@ -1763,7 +1762,7 @@ public class ClienteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_rbPrecioMensualMouseClicked
 
     private void rbPrecioTotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbPrecioTotalMouseClicked
-       comprobarPublicarAnuncio();
+        comprobarPublicarAnuncio();
     }//GEN-LAST:event_rbPrecioTotalMouseClicked
 
     private void txtFotoInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFotoInmuebleActionPerformed
@@ -1776,8 +1775,12 @@ public class ClienteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_inmueblesEncontradosListActionPerformed
 
     private void municipiosTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_municipiosTextFieldActionPerformed
-       realizarBusquedaButton.setEnabled(true);
+        realizarBusquedaButton.setEnabled(true);
     }//GEN-LAST:event_municipiosTextFieldActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     public static void main(String args[]) {
 

@@ -1,5 +1,3 @@
 1
-Cliente/Cliente/cliente@gmail.com/1234/
-2
-PISO/200.0/7/Mesa y Lopez/10/Las Palmas de Gran Canaria/5/12345/Alquiler/1000/imagenes/clientes/inmueble_cliente_0.png/
-PISO/100.0/7/Mesa y Lopez/15/Las Palmas de Gran Canaria/10/12345/Alquiler/800/imagenes/clientes/inmueble_cliente_1.png/
+Cliente/Cliente/cliente@gmail.com/123/
+0
