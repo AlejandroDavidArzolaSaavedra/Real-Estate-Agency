@@ -40,7 +40,7 @@ public class ClienteForm extends javax.swing.JFrame {
     List<Anuncio> getListAnunciosAlquilados(List<Anuncio> inmuebles) {
         List<Anuncio> anunciosPorPrecio = new ArrayList<>();
 
-        inmuebles.stream().filter((anuncios) -> (anuncios.getTipoOperacion().equals("ALQUILER"))).forEachOrdered((anuncios) -> {
+        inmuebles.stream().filter((anuncios) -> (anuncios.getTipoOperacion().toString().equals("ALQUILER"))).forEachOrdered((anuncios) -> {
             anunciosPorPrecio.add(anuncios);
         });
         return anunciosPorPrecio;
@@ -49,9 +49,8 @@ public class ClienteForm extends javax.swing.JFrame {
     List<Anuncio> getListAnunciosVendidos(List<Anuncio> inmuebles) {
         List<Anuncio> anunciosPorPrecio = new ArrayList<>();
 
-        inmuebles.stream().filter((anuncios) -> (anuncios.getTipoOperacion().equals("VENTA"))).forEachOrdered((anuncios) -> {
+        inmuebles.stream().filter((anuncios) -> (anuncios.getTipoOperacion().toString().equals("VENTA"))).forEachOrdered((anuncios) -> {
             anunciosPorPrecio.add(anuncios);
-            System.out.println("Good");
         });
         return anunciosPorPrecio;
     }
@@ -60,9 +59,14 @@ public class ClienteForm extends javax.swing.JFrame {
         List<Anuncio> anunciosPorPrecio = new ArrayList<>();
 
         listaAnunciosTotales().stream().filter((anuncios) -> (anuncios.getPrecio() >= precioDesde
-                && anuncios.getPrecio() >= precioHasta)).forEachOrdered((anuncios) -> {
+                && anuncios.getPrecio() <= precioHasta)).forEachOrdered((anuncios) -> {
             anunciosPorPrecio.add(anuncios);
         });
+
+        for (Anuncio anuncio : anunciosPorPrecio) {
+            System.out.println(anuncio);
+        }
+
         return anunciosPorPrecio;
     }
 
@@ -80,7 +84,7 @@ public class ClienteForm extends javax.swing.JFrame {
         infoContactoTextArea.removeAll();
         for (Mensaje mensajes : cliente.getFrom()) {
             if (mensajes.getFrom().toString().equals(c)) {
-                mensaje += mensajes.getMensaje() + "\n----\n";
+                mensaje += mensajes.getMensaje() + "\n--------------------\n";
             }
         }
         infoContactoTextArea.setText(mensaje);
@@ -88,11 +92,14 @@ public class ClienteForm extends javax.swing.JFrame {
 
     ArrayList<Anuncio> listaAnunciosTotales() {
         ArrayList<Anuncio> anunciosTotales = new ArrayList<>();
-        inmobiliaria.getClientes().forEach((clientes) -> {
-            for (Anuncio anuncios : clientes.getAnuncios()) {
-                anunciosTotales.add(anuncios);
+
+        for (CatalogoAnuncios catalogo : inmobiliaria.getCatalogo()) {
+            if (catalogo.getTipoCatalogo().toString().equals("PUBLICADOS")) {
+                for (Anuncio anuncio : catalogo.getAnuncios()) {
+                    anunciosTotales.add(anuncio);
+                }
             }
-        });
+        }
         return anunciosTotales;
     }
 
@@ -101,7 +108,7 @@ public class ClienteForm extends javax.swing.JFrame {
         infoInmuebleList1.setText("Nombre: " + i.getTitulo()
                 + "\n" + "Descripción: " + i.getDescripcion()
                 + "\n" + "Precio: " + i.getPrecio()
-                + "\n" + "Tipo: " + i.getInmueble().getTipoInmueble().toString() 
+                + "\n" + "Tipo: " + i.getInmueble().getTipoInmueble().toString()
                 + "\n" + "Superficie: " + i.getInmueble().getSuperficie().toString()
                 + "\n" + "Numero habitaciones: " + Integer.toString(i.getInmueble().getNumeroHabitaciones())
                 + "\n" + "Número de cuartos de baño: " + i.getInmueble().getNumeroDeWc()
@@ -321,7 +328,7 @@ public class ClienteForm extends javax.swing.JFrame {
 
         InmueblesEncontradosLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         InmueblesEncontradosLabel.setForeground(new java.awt.Color(255, 255, 255));
-        InmueblesEncontradosLabel.setText("Anuncios Encontrados");
+        InmueblesEncontradosLabel.setText("Anuncios publicados");
 
         precioRadioButton.setBackground(new java.awt.Color(53, 121, 56));
         filtrosButtonGroup.add(precioRadioButton);
@@ -368,7 +375,7 @@ public class ClienteForm extends javax.swing.JFrame {
         compraRadioButton.setBackground(new java.awt.Color(53, 121, 56));
         inmuebleParaButtonGroup.add(compraRadioButton);
         compraRadioButton.setForeground(new java.awt.Color(255, 255, 255));
-        compraRadioButton.setText("Compra");
+        compraRadioButton.setText("Venta");
         compraRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 compraRadioButtonActionPerformed(evt);
@@ -1447,6 +1454,16 @@ public class ClienteForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void actualizarAnunciosPublicados() {
+        inmueblesEncontradosList.removeAll();
+        for (CatalogoAnuncios catalogo : inmobiliaria.getCatalogo()) {
+            if (catalogo.getTipoCatalogo().equals(TipoCatalogo.PUBLICADOS)) {
+                for (Anuncio a : catalogo.getAnuncios()) {
+                    inmueblesEncontradosList.add(a.toString());
+                }
+            }
+        }
+    }
     private void btnRealizarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarCambiosActionPerformed
         boolean realizado = true;
         for (int i = 0; i < inmobiliaria.getClientes().size(); i++) {
@@ -1502,6 +1519,18 @@ public class ClienteForm extends javax.swing.JFrame {
         file.saveToFileClientes(inmobiliaria);
     }//GEN-LAST:event_btnRealizarCambiosActionPerformed
 
+    public void showInfoInmueble(Anuncio i) {
+        infoInmuebleList1.setText("Nombre: " + i.getTitulo()
+                + "\n" + "Descripción: " + i.getDescripcion()
+                + "\n" + "Precio: " + i.getPrecio()
+                + "\n" + "Tipo: " + i.getInmueble().getTipoInmueble().toString()
+                + "\n" + "Superficie: " + i.getInmueble().getSuperficie().toString()
+                + "\n" + "Numero habitaciones: " + Integer.toString(i.getInmueble().getNumeroHabitaciones())
+                + "\n" + "Número de cuartos de baño: " + i.getInmueble().getNumeroDeWc()
+                + "\n" + "Estado inmueble: " + i.getInmueble().getTipoEstadoInmueble().toString()
+                + "\n" + "Direccion: " + i.getInmueble().getDireccion().toString());
+    }
+
     private void compraRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compraRadioButtonActionPerformed
 
     }//GEN-LAST:event_compraRadioButtonActionPerformed
@@ -1526,14 +1555,6 @@ public class ClienteForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_precioRadioButtonActionPerformed
 
-    void showInmuebleList() {
-        int i;
-        inmueblesEncontradosList.removeAll();
-        for (i = 0; i < inmobiliaria.getCatalogo().size(); i++) {
-            inmueblesEncontradosList.add(inmobiliaria.getCatalogo().get(i).toString());
-        }
-    }
-
     private void realizarBusquedaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarBusquedaButtonActionPerformed
         List<Anuncio> anunciosFiltro = new ArrayList<>();
         // Seleccion por municipio
@@ -1550,12 +1571,12 @@ public class ClienteForm extends javax.swing.JFrame {
 
         // Seleccion por precio
         if (precioRadioButton.isSelected()) {
-            // Inmuebles de compra    
+            // Inmuebles de compra
             if (alquilerRadioButton.isSelected()) {
-                anunciosFiltro = getListAnunciosAlquilados(getListAnunciosPorMunicipio(municipiosTextField.getSelectedItem().toString()));
+                anunciosFiltro = getListAnunciosAlquilados(getListAnunciosEntrePrecio(Integer.parseInt(precioDesdeTextField.getText()), Integer.parseInt(precioHastaTextField.getText())));
                 // Inmuebles de alquiler
             } else {
-                anunciosFiltro = getListAnunciosVendidos(getListAnunciosPorMunicipio(municipiosTextField.getSelectedItem().toString()));
+                anunciosFiltro = getListAnunciosVendidos(getListAnunciosEntrePrecio(Integer.parseInt(precioDesdeTextField.getText()), Integer.parseInt(precioHastaTextField.getText())));
             }
         }
         for (Anuncio anuncios : anunciosFiltro) {
@@ -1576,7 +1597,7 @@ public class ClienteForm extends javax.swing.JFrame {
     }
 
     private void contactarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactarButtonActionPerformed
-        Mensaje m = new Mensaje(cliente, txtMensaje.getText());
+        Mensaje m = new Mensaje(cliente, inmueblesEncontradosList.getSelectedItem().toString() + "\n" + txtMensaje.getText());
         // añadir mensaje al destinatario inmueblesEncontradosList
         // recorreindo el fichero y cuando encuentre a alguien con la misma direccion
         // signicia que se su correo y que lo puedo enviar
@@ -1899,7 +1920,18 @@ public class ClienteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFotoInmuebleActionPerformed
 
     private void inmueblesEncontradosListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inmueblesEncontradosListActionPerformed
-        showInmueble(listaAnunciosTotales().get(inmueblesEncontradosList.getSelectedIndex()));
+        Anuncio aux = null;
+        for (CatalogoAnuncios catalogo : inmobiliaria.getCatalogo()) {
+            for (Anuncio a : catalogo.getAnuncios()) {
+                if (a.toString().equals(inmueblesEncontradosList.getSelectedItem().toString())) {
+                    aux = a;
+                }
+            }
+        }
+
+        if (aux != null) {
+            showInfoInmueble(aux);
+        }
         contactarButton.setEnabled(true);
     }//GEN-LAST:event_inmueblesEncontradosListActionPerformed
 
@@ -1916,19 +1948,7 @@ public class ClienteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cbNumeroBañosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        List<Anuncio> anuncios = new ArrayList<>();
-
-        for (int j = 0; j < inmobiliaria.getCatalogo().size(); j++) {
-            if (inmobiliaria.getCatalogo().get(j).getTipoCatalogo().equals(TipoCatalogo.PENDIENTES)) {
-                anuncios = inmobiliaria.getCatalogo().get(j).getAnuncios();
-            }
-        }
-
-        inmueblesEncontradosList.removeAll();
-
-        for (Anuncio anuncio : anuncios) {
-            inmueblesEncontradosList.add(anuncio.toString());
-        }
+        actualizarAnunciosPublicados();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cbEstadoInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadoInmuebleActionPerformed

@@ -1,8 +1,8 @@
 2
-hola#hola#hola@gmail.com#hola#
+holaaerqewr#hola#hola@gmail.com#hola#
 3
 asdfasdf#sdf#imagenes/clientes/inmueble_cliente_1.png#2000000#VENTA#CHALET#1200.0#NUEVAOBRA#4#7#asdf#42#Telde#12#12345#Sin coordinador##
 Anuncio 1#Descripcion del anuncio#imagenes/clientes/inmueble_cliente_2.png#2000#ALQUILER#PISO#300.0#NUEVAOBRA#4#6#asdfasdf#6#Las Palmas de Gran Canaria#5#12345#Sin coordinador##
-asdfas#dfasdsdfsadf dasf asdf##200#ALQUILER#CASA#200.0#PENDIENTEREFORMAR#2#7#Ingenio#12#Ingenio#12#12345#Sin coordinador##
+Piso nuevo en la aldea#Piso en la aldea##500#ALQUILER#CASA#500.0#PENDIENTEREFORMAR#2#7#La Aldeaa#12#La Aldea de San Nicolas#12#12345#Sin coordinador##
 hola2#hola2#hola2@gmail.com#hola#
 0

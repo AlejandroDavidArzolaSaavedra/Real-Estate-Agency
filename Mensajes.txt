@@ -1,4 +1,8 @@
 hola@gmail.com
-0
+3
+hola#hola#hola@gmail.com#Hola#
+hola2#hola2#hola2@gmail.com#Estoy interesado en el anunciof#
+hola2#hola2#hola2@gmail.com#titulo=Anuncio 1, precio=2000, tipoOperacion=ALQUILER
+Estoy interesado#
 hola2@gmail.com
 0
