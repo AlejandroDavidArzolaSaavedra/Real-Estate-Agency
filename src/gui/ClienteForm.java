@@ -840,6 +840,7 @@ public class ClienteForm extends javax.swing.JFrame {
         jScrollPane6.setViewportView(txtAreaDescripcionAnuncio);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Descripcion del Anuncio");
 
         txtPrecio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -855,6 +856,7 @@ public class ClienteForm extends javax.swing.JFrame {
             }
         });
 
+        lblTituloAnuncio.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloAnuncio.setText("TItulo del Anuncio:");
 
         cbNumeroBaños.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
@@ -864,6 +866,7 @@ public class ClienteForm extends javax.swing.JFrame {
             }
         });
 
+        lblNumeroBaños.setForeground(new java.awt.Color(255, 255, 255));
         lblNumeroBaños.setText("Numero de baños:");
 
         cbEstadoInmueble.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Buen estado", "Pendiente a reformar", "Nueva obra", " " }));
@@ -873,6 +876,7 @@ public class ClienteForm extends javax.swing.JFrame {
             }
         });
 
+        lblEstadoInmueble.setForeground(new java.awt.Color(255, 255, 255));
         lblEstadoInmueble.setText("Estado del Inmueble:");
 
         javax.swing.GroupLayout panelAñadirAnuncioLayout = new javax.swing.GroupLayout(panelAñadirAnuncio);

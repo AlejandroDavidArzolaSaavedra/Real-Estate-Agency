@@ -134,13 +134,8 @@ public class AdminForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         panelEditarPerfil = new javax.swing.JPanel();
         btnMirarAnuncio = new javax.swing.JButton();
-        lblBuscarMunicipio = new javax.swing.JLabel();
         btnEliminarAnuncio = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtInfoAnuncio = new javax.swing.JTextArea();
-        btnInformacionAnuncio = new javax.swing.JButton();
         btnBuscarMunicipio = new javax.swing.JButton();
-        lstBuscarMunicipio = new javax.swing.JComboBox<>();
         btnModificarAnuncio = new javax.swing.JButton();
         lstAnuncios = new java.awt.List();
         lblOperarAnuncio = new javax.swing.JLabel();
@@ -568,6 +563,7 @@ public class AdminForm extends javax.swing.JFrame {
         panelEditarPerfil.setBackground(new java.awt.Color(53, 121, 56));
         panelEditarPerfil.setForeground(new java.awt.Color(255, 255, 255));
 
+        btnMirarAnuncio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnMirarAnuncio.setText("Mirar Anucios");
         btnMirarAnuncio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -575,8 +571,7 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
-        lblBuscarMunicipio.setText("Buscar por municipio: ");
-
+        btnEliminarAnuncio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnEliminarAnuncio.setText("Eliminar Anuncio");
         btnEliminarAnuncio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -584,21 +579,9 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
-        txtInfoAnuncio.setColumns(20);
-        txtInfoAnuncio.setRows(5);
-        jScrollPane3.setViewportView(txtInfoAnuncio);
-
-        btnInformacionAnuncio.setText("Informacion del Anuncio");
-        btnInformacionAnuncio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInformacionAnuncioActionPerformed(evt);
-            }
-        });
-
         btnBuscarMunicipio.setText("Buscar");
 
-        lstBuscarMunicipio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Las Palmas de Gran Canaria", "Telde", "Agaete", "Aguimes", "Artenara", "Arucas", "Firgas", "Galdar", "Ingenio", "La Aldea de San Nicolas", "Mogán", "Moya", "San Bartolomé de Tirajana", "Santa Brigida", "Santa Lucía de Tirajana", "Santa Maria de Guía", "Tejeda", "Teror", "Valleseco", "Valsequillo de Gran Canaria", "Vega San Mateo" }));
-
+        btnModificarAnuncio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnModificarAnuncio.setText("Modificar Anuncio");
         btnModificarAnuncio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -606,60 +589,47 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
+        lstAnuncios.setForeground(new java.awt.Color(51, 51, 51));
+
         javax.swing.GroupLayout panelEditarPerfilLayout = new javax.swing.GroupLayout(panelEditarPerfil);
         panelEditarPerfil.setLayout(panelEditarPerfilLayout);
         panelEditarPerfilLayout.setHorizontalGroup(
             panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEditarPerfilLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(lstAnuncios, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(lstAnuncios, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(btnMirarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(19, 19, 19)
-                .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnInformacionAnuncio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminarAnuncio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnModificarAnuncio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblBuscarMunicipio))
-                .addGap(18, 18, 18)
-                .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                        .addComponent(lstBuscarMunicipio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(270, 270, 270)
+                        .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnEliminarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnModificarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(72, 72, 72)
                         .addComponent(btnBuscarMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3))
-                .addContainerGap(89, Short.MAX_VALUE))
+                    .addGroup(panelEditarPerfilLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(btnMirarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelEditarPerfilLayout.setVerticalGroup(
             panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarPerfilLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                        .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnBuscarMunicipio)
-                            .addComponent(lblBuscarMunicipio)
-                            .addComponent(lstBuscarMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lstAnuncios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))
+                    .addGroup(panelEditarPerfilLayout.createSequentialGroup()
                         .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBuscarMunicipio)
                             .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEliminarAnuncio)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnInformacionAnuncio)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnModificarAnuncio))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarPerfilLayout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                        .addComponent(btnMirarAnuncio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lstAnuncios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(41, 41, 41))
+                                .addGap(12, 12, 12)
+                                .addComponent(btnModificarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(19, 19, 19)
+                        .addComponent(btnMirarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55))))
         );
 
         lblOperarAnuncio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -677,7 +647,7 @@ public class AdminForm extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panelEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(panelEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -942,19 +912,46 @@ public class AdminForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnunciosPublicadosActionPerformed
 
     private void btnMirarAnuncioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMirarAnuncioActionPerformed
-        lstAnuncios.removeAll();
-        for (CatalogoAnuncios catalogo : inmobiliaria.getCatalogo())
-            for(Anuncio a: catalogo.getAnuncios()) 
-                lstAnuncios.add(a.toString());
+        establecerAnuncios();
     }//GEN-LAST:event_btnMirarAnuncioActionPerformed
 
-    private void btnEliminarAnuncioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAnuncioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEliminarAnuncioActionPerformed
+    private void establecerAnuncios() {
+        lstAnuncios.removeAll();
+        for (CatalogoAnuncios catalogo : inmobiliaria.getCatalogo()) {
+            for (Anuncio a : catalogo.getAnuncios()) {
+                lstAnuncios.add(a.toString());
+            }
+        }
+    }
 
-    private void btnInformacionAnuncioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInformacionAnuncioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnInformacionAnuncioActionPerformed
+    private void btnEliminarAnuncioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAnuncioActionPerformed
+        if (lstAnuncios.getSelectedIndex() >= 0) {
+            Anuncio aux = null;
+            //elimino el anuncio del catalogo
+            for (CatalogoAnuncios catalogo : inmobiliaria.getCatalogo()) {
+                for (Anuncio anuncio : catalogo.getAnuncios()) {
+                    if (anuncio.toString().equals(lstAnuncios.getSelectedItem())) {
+                        aux = anuncio;
+                    }
+                }
+                catalogo.getAnuncios().remove(aux);
+            }
+
+            //elimino el anuncio del cliente
+            for (Cliente c : inmobiliaria.getClientes()) {
+                for (Anuncio anuncio : c.getAnuncios()) {
+                    if (anuncio.toString().equals(lstAnuncios.getSelectedItem())) {
+                        aux = anuncio;
+                    }
+                }
+                c.getAnuncios().remove(aux);
+            }
+
+            establecerAnuncios();
+            file.saveToFileClientes(inmobiliaria);
+            file.saveToFileCatalogo(inmobiliaria);
+        }
+    }//GEN-LAST:event_btnEliminarAnuncioActionPerformed
 
     private void btnModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarUsuarioActionPerformed
         if (lstUsuariosRegistrados.getSelectedIndex() >= 0) {
@@ -972,7 +969,7 @@ public class AdminForm extends javax.swing.JFrame {
                     c = cliente;
                 }
             }
-            
+
             modificarClienteForm.cliente = c;
             modificarClienteForm.establecerDatos();
 
@@ -986,7 +983,28 @@ public class AdminForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void btnModificarAnuncioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarAnuncioActionPerformed
-        // TODO add your handling code here:
+        if (lstAnuncios.getSelectedIndex() >= 0) {
+            ModificarAnuncioForm modificarAnuncioForm = new ModificarAnuncioForm();
+            modificarAnuncioForm.setLocationRelativeTo(null);
+            modificarAnuncioForm.setVisible(true);
+
+            modificarAnuncioForm.file = file;
+            modificarAnuncioForm.inmobiliaria = inmobiliaria;
+            modificarAnuncioForm.administrador = administrador;
+
+            //busco el anuncio del catálogo
+            Anuncio aux = null;
+            for (CatalogoAnuncios catalogo : inmobiliaria.getCatalogo()) {
+                for (Anuncio anuncio : catalogo.getAnuncios()) {
+                    if (anuncio.toString().equals(lstAnuncios.getSelectedItem())) {
+                        aux = anuncio;
+                    }
+                }
+            }
+
+            modificarAnuncioForm.anuncio = aux;
+            modificarAnuncioForm.establecerDatos();
+        }
     }//GEN-LAST:event_btnModificarAnuncioActionPerformed
 
     private void txtBuscarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarNombreActionPerformed
@@ -1077,25 +1095,27 @@ public class AdminForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarUsuariosActionPerformed
 
     private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
-        //Elimino sus anuncios del catálogo
-        Anuncio a = null;
-        for (int i = 0; i < inmobiliaria.getClientes().get(lstUsuariosRegistrados.getSelectedIndex()).getAnuncios().size(); i++) {
-            for (CatalogoAnuncios catalogos : inmobiliaria.getCatalogo()) {
-                for (int j = 0; j < catalogos.getAnuncios().size(); j++) {
-                    if (catalogos.getAnuncios().get(j).equals(inmobiliaria.getClientes().get(lstUsuariosRegistrados.getSelectedIndex()).getAnuncios().get(i))) {
-                        catalogos.removeAnuncio(j);
+        if (lstUsuariosRegistrados.getSelectedIndex() >= 0) {
+//Elimino sus anuncios del catálogo
+            Anuncio a = null;
+            for (int i = 0; i < inmobiliaria.getClientes().get(lstUsuariosRegistrados.getSelectedIndex()).getAnuncios().size(); i++) {
+                for (CatalogoAnuncios catalogos : inmobiliaria.getCatalogo()) {
+                    for (int j = 0; j < catalogos.getAnuncios().size(); j++) {
+                        if (catalogos.getAnuncios().get(j).equals(inmobiliaria.getClientes().get(lstUsuariosRegistrados.getSelectedIndex()).getAnuncios().get(i))) {
+                            catalogos.removeAnuncio(j);
+                        }
                     }
                 }
             }
-        }
 
-        inmobiliaria.getClientes().remove(lstUsuariosRegistrados.getSelectedIndex());
-        lstUsuariosRegistrados.removeAll();
-        for (Cliente cliente : inmobiliaria.getClientes()) {
-            lstUsuariosRegistrados.add(cliente.toString());
+            inmobiliaria.getClientes().remove(lstUsuariosRegistrados.getSelectedIndex());
+            lstUsuariosRegistrados.removeAll();
+            for (Cliente cliente : inmobiliaria.getClientes()) {
+                lstUsuariosRegistrados.add(cliente.toString());
+            }
+            file.saveToFileClientes(inmobiliaria);
+            file.saveToFileCatalogo(inmobiliaria);
         }
-        file.saveToFileClientes(inmobiliaria);
-        file.saveToFileCatalogo(inmobiliaria);
     }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
 
     public static void main(String args[]) {
@@ -1128,7 +1148,6 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JButton btnDenegarAnuncio;
     private javax.swing.JButton btnEliminarAnuncio;
     private javax.swing.JButton btnEliminarUsuario;
-    private javax.swing.JButton btnInformacionAnuncio;
     private javax.swing.JButton btnMirarAnuncio;
     private javax.swing.JButton btnMirarUsuarios;
     private javax.swing.JButton btnModificarAnuncio;
@@ -1152,7 +1171,6 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTextArea jTextArea1;
@@ -1160,7 +1178,6 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblAgencia;
     private javax.swing.JLabel lblAnuncioUsuario;
     private javax.swing.JLabel lblBuscarInmueble;
-    private javax.swing.JLabel lblBuscarMunicipio;
     private javax.swing.JLabel lblBuscarNombre;
     private javax.swing.JLabel lblError;
     private javax.swing.JLabel lblErrorAñadirAnuncio;
@@ -1174,7 +1191,6 @@ public class AdminForm extends javax.swing.JFrame {
     private java.awt.List lstAnuncios;
     private java.awt.List lstAnunciosPublicados;
     private java.awt.List lstAnunciosUsuario;
-    private javax.swing.JComboBox<String> lstBuscarMunicipio;
     private java.awt.List lstPublicacionesPendientes;
     private java.awt.List lstUsuarios;
     private java.awt.List lstUsuariosRegistrados;
@@ -1187,7 +1203,6 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JLabel salirSesionLabel;
     private javax.swing.JTabbedPane tabEditarPerfil;
     private javax.swing.JTextField txtBuscarNombre;
-    private javax.swing.JTextArea txtInfoAnuncio;
     private javax.swing.JTextArea txtInmuebleInformacion;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables

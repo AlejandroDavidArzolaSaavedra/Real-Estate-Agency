@@ -2,10 +2,9 @@
 PENDIENTES#
 0
 PUBLICADOS#
-3
-asdf#asdf#imagenes/clientes/inmueble_cliente_0.png#200#ALQUILER#PISO#200.0#PENDIENTEREFORMAR#1#1#asdf#12#Las Palmas de Gran Canaria#12#12345#Sin coordinador##
-sdfsadfasdlkj#asdfsadf#imagenes/clientes/inmueble_cliente_2.png#2000#ALQUILER#PISO#300.0#NUEVAOBRA#4#6#asdfasdf#6#Arucas#5#12345#admin#admin#
-asdfas#dfasdsdfsadf dasf asdf##200#ALQUILER#CASA#200.0#PENDIENTEREFORMAR#2#7#dasfas#12#Arucas#12#12345#admin#admin#
+2
+Anuncio 1#Descripcion del anuncio#imagenes/clientes/inmueble_cliente_2.png#2000#ALQUILER#PISO#300.0#NUEVAOBRA#4#6#asdfasdf#6#Las Palmas de Gran Canaria#5#12345#Sin coordinador##
+asdfas#dfasdsdfsadf dasf asdf##200#ALQUILER#CASA#200.0#PENDIENTEREFORMAR#2#7#Ingenio#12#Ingenio#12#12345#Sin coordinador##
 ELIMINADOS#
 1
 asdfasdf#sdf#imagenes/clientes/inmueble_cliente_1.png#2000000#VENTA#CHALET#1200.0#NUEVAOBRA#4#7#asdf#42#Telde#12#12345#Sin coordinador##

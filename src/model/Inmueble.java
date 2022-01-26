@@ -81,6 +81,26 @@ public class Inmueble {
         return direccion;
     }
 
+    public void setTipoInmueble(TipoInmueble tipoInmueble) {
+        this.tipoInmueble = tipoInmueble;
+    }
+
+    public void setSuperficie(Double superficie) {
+        this.superficie = superficie;
+    }
+
+    public void setTipoEstadoInmueble(TipoEstadoInmueble tipoEstadoInmueble) {
+        this.tipoEstadoInmueble = tipoEstadoInmueble;
+    }
+
+    public void setNumeroHabitaciones(int numeroHabitaciones) {
+        this.numeroHabitaciones = numeroHabitaciones;
+    }
+
+    public void setNumeroDeWc(int numeroDeWc) {
+        this.numeroDeWc = numeroDeWc;
+    }
+
     /**
      * Setter de la direccion entera
      *
@@ -89,11 +109,12 @@ public class Inmueble {
      * @param municipio municipio del inmueble
      * @param numero numero del inmueble
      */
-    public void setDireccion(String calle, String piso, String municipio, int numero) {
+    public void setDireccion(String calle, String piso, String municipio, int numero, int zipCode) {
         this.direccion.calle = calle;
         this.direccion.piso = piso;
         this.direccion.municipio = municipio;
         this.direccion.numero = numero;
+        this.direccion.zipCode = zipCode;
     }
 
     /**
