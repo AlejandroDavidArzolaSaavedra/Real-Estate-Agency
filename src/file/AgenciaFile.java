@@ -256,7 +256,6 @@ public class AgenciaFile {
                 s.nextLine();
                 s.useDelimiter("");
                 int j, m = s.nextInt();
-                System.out.println(m);
                 for (j = 0; j < m; j++) {
                     s.nextLine();
                     s.useDelimiter("#");
@@ -321,9 +320,8 @@ public class AgenciaFile {
                 s.nextLine();
                 s.useDelimiter("#");
                 Administrador administrador = new Administrador(s.next(), s.next());
-                s.nextLine();
-                s.useDelimiter("");
                 inmobiliaria.addAdministrador(administrador);
+                s.useDelimiter("");
             }
         } catch (Exception e) {
             e.printStackTrace();

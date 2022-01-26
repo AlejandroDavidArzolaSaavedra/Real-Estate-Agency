@@ -17,8 +17,6 @@ public class InmobiliariaApp {
         agenciaForm.setLocationRelativeTo(null);
         agenciaForm.setVisible(true);
         agenciaForm.inmobiliaria = inmobiliaria;
-
-        inmobiliaria.addAdministrador( new Administrador("admin", "admin"));
         
         AgenciaFile file = new AgenciaFile();
         file.loadFromFile(inmobiliaria);

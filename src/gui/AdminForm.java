@@ -142,8 +142,7 @@ public class AdminForm extends javax.swing.JFrame {
         btnBuscarMunicipio = new javax.swing.JButton();
         lstBuscarMunicipio = new javax.swing.JComboBox<>();
         btnModificarAnuncio = new javax.swing.JButton();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        lstAnuncios = new javax.swing.JList<>();
+        lstAnuncios = new java.awt.List();
         lblOperarAnuncio = new javax.swing.JLabel();
         lblError = new javax.swing.JLabel();
         correoSesionLabel = new javax.swing.JLabel();
@@ -607,8 +606,6 @@ public class AdminForm extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane9.setViewportView(lstAnuncios);
-
         javax.swing.GroupLayout panelEditarPerfilLayout = new javax.swing.GroupLayout(panelEditarPerfil);
         panelEditarPerfil.setLayout(panelEditarPerfilLayout);
         panelEditarPerfilLayout.setHorizontalGroup(
@@ -616,25 +613,25 @@ public class AdminForm extends javax.swing.JFrame {
             .addGroup(panelEditarPerfilLayout.createSequentialGroup()
                 .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btnInformacionAnuncio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnEliminarAnuncio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnModificarAnuncio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(lblBuscarMunicipio))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                                .addComponent(lstBuscarMunicipio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBuscarMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3)))
+                        .addGap(32, 32, 32)
+                        .addComponent(lstAnuncios, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelEditarPerfilLayout.createSequentialGroup()
-                        .addGap(236, 236, 236)
+                        .addGap(180, 180, 180)
                         .addComponent(btnMirarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19)
+                .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnInformacionAnuncio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarAnuncio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnModificarAnuncio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblBuscarMunicipio))
+                .addGap(18, 18, 18)
+                .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelEditarPerfilLayout.createSequentialGroup()
+                        .addComponent(lstBuscarMunicipio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscarMunicipio, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
         panelEditarPerfilLayout.setVerticalGroup(
@@ -642,7 +639,7 @@ public class AdminForm extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarPerfilLayout.createSequentialGroup()
                 .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarPerfilLayout.createSequentialGroup()
+                    .addGroup(panelEditarPerfilLayout.createSequentialGroup()
                         .addGroup(panelEditarPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBuscarMunicipio)
                             .addComponent(lblBuscarMunicipio)
@@ -658,11 +655,11 @@ public class AdminForm extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarPerfilLayout.createSequentialGroup()
                                 .addGap(17, 17, 17)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarPerfilLayout.createSequentialGroup()
+                    .addGroup(panelEditarPerfilLayout.createSequentialGroup()
                         .addComponent(btnMirarAnuncio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(61, 61, 61))
+                        .addComponent(lstAnuncios, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(41, 41, 41))
         );
 
         lblOperarAnuncio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -945,7 +942,10 @@ public class AdminForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnunciosPublicadosActionPerformed
 
     private void btnMirarAnuncioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMirarAnuncioActionPerformed
-        // TODO add your handling code here:
+        lstAnuncios.removeAll();
+        for (CatalogoAnuncios catalogo : inmobiliaria.getCatalogo())
+            for(Anuncio a: catalogo.getAnuncios()) 
+                lstAnuncios.add(a.toString());
     }//GEN-LAST:event_btnMirarAnuncioActionPerformed
 
     private void btnEliminarAnuncioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAnuncioActionPerformed
@@ -1154,7 +1154,6 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField6;
@@ -1172,7 +1171,7 @@ public class AdminForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblOperarAnuncio;
     private javax.swing.JLabel lblOperarUsuario;
-    private javax.swing.JList<String> lstAnuncios;
+    private java.awt.List lstAnuncios;
     private java.awt.List lstAnunciosPublicados;
     private java.awt.List lstAnunciosUsuario;
     private javax.swing.JComboBox<String> lstBuscarMunicipio;

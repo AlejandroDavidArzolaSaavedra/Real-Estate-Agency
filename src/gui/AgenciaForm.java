@@ -597,6 +597,7 @@ public class AgenciaForm extends javax.swing.JFrame {
                 lblError.setText("No se puede iniciar sesión con esos datos.");
             }
         }
+        file.saveToFileAdministradores(inmobiliaria);
     }//GEN-LAST:event_btnIdentificarseActionPerformed
 
     public static void main(String args[]) {
