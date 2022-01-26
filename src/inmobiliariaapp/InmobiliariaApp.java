@@ -13,22 +13,13 @@ public class InmobiliariaApp {
 
     public static void main(String[] args) {
         Inmobiliaria inmobiliaria = new Inmobiliaria();
-        //AgenciaForm agenciaForm = new AgenciaForm();
-        //agenciaForm.setLocationRelativeTo(null);
-        //agenciaForm.setVisible(true);
-        //agenciaForm.inmobiliaria = inmobiliaria;
-        inmobiliaria.addCliente(new Cliente("asd","",";",""));
+        AgenciaForm agenciaForm = new AgenciaForm();
+        agenciaForm.setLocationRelativeTo(null);
+        agenciaForm.setVisible(true);
+        agenciaForm.inmobiliaria = inmobiliaria;
         
-        inmobiliaria.addCliente(new Cliente("asd","asdasd",";aasd",""));
-        
-        inmobiliaria.addCliente(new Cliente("asda","asdasd","asddsa;",""));
-        
-        inmobiliaria.addCliente(new Cliente("wwww","",";",""));
-        Administrador pepe = new Administrador("wwww","");
-        inmobiliaria.addAdministrador(pepe);
-        
-        //AgenciaFile file = new AgenciaFile();
-        //file.loadFromFile(inmobiliaria);
-        //agenciaForm.file = file;
+        AgenciaFile file = new AgenciaFile();
+        file.loadFromFile(inmobiliaria);
+        agenciaForm.file = file;
     }
 }

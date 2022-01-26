@@ -10,8 +10,8 @@ public class Cliente {
     private String apellido;
     private String correo;
     private String password;
-    private CatalogoAnuncios anuncios = new CatalogoAnuncios();
     private List<Mensaje> from = new ArrayList<>();
+    private ArrayList<Anuncio> anuncios = new ArrayList<>();
     
     /**
      * Constructor del cliente
@@ -38,8 +38,8 @@ public class Cliente {
         this.apellido = apellido;
         this.correo = correo;
         this.password = "";
-        this.anuncios = null;
-        this.from = null;
+        this.anuncios = new ArrayList<Anuncio>();
+        this.from = new ArrayList<>();
     }
     
     /**
@@ -83,11 +83,11 @@ public class Cliente {
     }
     
     /**
-     * Getter del catalogo de anuncios del cliente
-     * @return catalogo de anuncios del cliente
+     * Getter de los anuncios del cliente
+     * @return anuncios del cliente
      */
-    public CatalogoAnuncios getAnuncios() {
-        return anuncios;
+    public ArrayList<Anuncio> getAnuncios() {
+        return this.anuncios;
     }
     
     /**
@@ -123,11 +123,15 @@ public class Cliente {
     }
     
     /**
-     * Setter del catalogo de anuncios del cliente
-     * @param anuncios catalogo de anuncios del cliente
+     * Setter de los anuncios del cliente
+     * @param anuncios lista de anuncios del cliente
      */
-    public void setAnuncios(CatalogoAnuncios anuncios) {
+    public void setAnunciosFavoritos(ArrayList<Anuncio> anuncios) {
         this.anuncios = anuncios;
+    }
+    
+    public void addAnuncio(Anuncio a) {
+        this.anuncios.add(a);
     }
 
     /**
