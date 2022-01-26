@@ -71,7 +71,7 @@ public class AgenciaForm extends javax.swing.JFrame {
         lblCodigo = new javax.swing.JLabel();
         btnIdentificarse = new javax.swing.JButton();
         lblcontra = new javax.swing.JLabel();
-        txtContra = new javax.swing.JTextField();
+        txtContra = new javax.swing.JPasswordField();
         btnderecha = new javax.swing.JButton();
         lblFotos = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
@@ -292,7 +292,7 @@ public class AgenciaForm extends javax.swing.JFrame {
                         .addComponent(btnRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblBienvenidosAplicacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnVerificarSesion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addGap(0, 16, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -307,9 +307,9 @@ public class AgenciaForm extends javax.swing.JFrame {
                             .addComponent(lblcontra)
                             .addComponent(lblCodigo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(txtContra))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -451,7 +451,7 @@ public class AgenciaForm extends javax.swing.JFrame {
     public void longitud() {
         contador_tope = 0;
         inmobiliaria.getClientes().forEach((clientes) -> {
-            clientes.getAnuncios().getAnunciosList().forEach((_item) -> {
+            clientes.getAnuncios().forEach((_item) -> {
                 contador_tope++;
             });
         });
@@ -566,7 +566,7 @@ public class AgenciaForm extends javax.swing.JFrame {
     }//GEN-LAST:event_lblGitJuanKeyPressed
 
     private void btnVerificarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarSesionActionPerformed
-        
+
         txtCodigo.setVisible(true);
         lblCodigo.setVisible(true);
         txtContra.setVisible(true);
@@ -575,7 +575,28 @@ public class AgenciaForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerificarSesionActionPerformed
 
     private void btnIdentificarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIdentificarseActionPerformed
-        // TODO add your handling code here:
+        boolean encontrado = false;
+
+        //busco el administrador que tenga ese código y contraseña
+        for (int i = 0; i < inmobiliaria.getAdministradores().size(); i++) {
+
+            //si el correo y la contraseña es correcto ingresa en la aplicación del cliente
+            if (inmobiliaria.getAdministradores().get(i).getCodigo().equals(txtCodigo.getText()) && inmobiliaria.getAdministradores().get(i).getPassword().equals(txtContra.getText())) {
+                encontrado = true;
+                AdminForm adminForm = new AdminForm();
+                adminForm.setLocationRelativeTo(null);
+                adminForm.setVisible(true);
+                this.setVisible(false);
+                //pasa el fichero y la inmobiliaria al formulario de registro
+                adminForm.file = file;
+                adminForm.inmobiliaria = inmobiliaria;
+                adminForm.administrador = inmobiliaria.getAdministradores().get(i);
+                adminForm.setTextSesion();
+            }
+            if (!encontrado) {
+                lblError.setText("No se puede iniciar sesión con esos datos.");
+            }
+        }
     }//GEN-LAST:event_btnIdentificarseActionPerformed
 
     public static void main(String args[]) {
@@ -619,7 +640,7 @@ public class AgenciaForm extends javax.swing.JFrame {
     private javax.swing.JPanel panelContraYCorreo;
     private java.awt.PopupMenu popupMenu1;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtContra;
+    private javax.swing.JPasswordField txtContra;
     private java.awt.TextField txtCorreo;
     private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables

@@ -65,8 +65,18 @@ public class CatalogoAnuncios {
                 anuncioAux = anuncio;
             }
         }
-        anuncios.remove(anuncioAux);
+        anuncios.remove(anunciosRemove);
     }
+    
+        /**
+     * Metodo auxiliar para añadir anuncios al cliente
+     *
+     * @param anuncios anuncio a añadir
+     */
+    public void removeAnuncio(int i) {
+        anuncios.remove(i);
+    }
+
 
     /**
      * Getter de la lista de anuncios del cliente
@@ -89,4 +99,24 @@ public class CatalogoAnuncios {
                 & anunciosVisitados.getInmueble().getDireccion().getZipCode() == anuncioNuevo.getInmueble().getDireccion().getZipCode()
                 & anunciosVisitados.getInmueble().getDireccion().getMunicipio().equals(anuncioNuevo.getInmueble().getDireccion().getMunicipio())));
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CatalogoAnuncios other = (CatalogoAnuncios) obj;
+        if (this.tipoCatalogo != other.tipoCatalogo) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

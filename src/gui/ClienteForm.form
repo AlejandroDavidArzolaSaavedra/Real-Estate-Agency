@@ -96,7 +96,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel" min="-2" pref="630" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Component id="jPanel" min="-2" pref="630" max="-2" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -172,8 +175,8 @@
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                  <Component id="tabEditarPerfil" min="-2" pref="462" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="tabEditarPerfil" min="-2" pref="481" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -219,7 +222,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="23" max="32767" attributes="0"/>
+                          <EmptySpace pref="25" max="32767" attributes="0"/>
                           <Component id="buscarInmueblePanel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
@@ -232,7 +235,7 @@
                           <Component id="infoBuscarInmuebleLabel" min="-2" pref="33" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buscarInmueblePanel" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -301,26 +304,22 @@
                                   </Group>
                               </Group>
                               <EmptySpace pref="40" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Component id="InmueblesEncontradosLabel" min="-2" pref="217" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jButton1" min="-2" pref="206" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                          <Component id="InmueblesEncontradosLabel" min="-2" pref="217" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jButton1" min="-2" pref="206" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="inmueblesEncontradosList" min="-2" pref="614" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jScrollPane3" min="-2" pref="463" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="informacionDelInmuebleLabel" min="-2" pref="232" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="inmueblesEncontradosList" min="-2" pref="614" max="-2" attributes="0"/>
+                                  <Component id="informacionDelInmuebleLabel" min="-2" pref="287" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           </Group>
@@ -331,30 +330,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="InmueblesEncontradosLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="inmueblesEncontradosList" min="-2" pref="131" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="informacionDelInmuebleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jScrollPane3" max="32767" attributes="0"/>
-                                              <Component id="jScrollPane7" min="-2" pref="84" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
@@ -403,8 +378,28 @@
                                           </Group>
                                       </Group>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InmueblesEncontradosLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="inmueblesEncontradosList" min="-2" pref="131" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                              <Component id="informacionDelInmuebleLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jScrollPane3" min="-2" pref="131" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
                               </Group>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace pref="26" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -557,12 +552,12 @@
                     <Component class="javax.swing.JLabel" name="informacionDelInmuebleLabel">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Dialog" size="18" style="1"/>
+                          <Font name="Dialog" size="14" style="1"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Informacion del inmueble"/>
+                        <Property name="text" type="java.lang.String" value="Informacion detallada del inmueble"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblMensaje">
@@ -687,32 +682,6 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane7">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="jTextArea3">
-                          <Properties>
-                            <Property name="columns" type="int" value="20"/>
-                            <Property name="rows" type="int" value="5"/>
-                          </Properties>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                    <Component class="javax.swing.JLabel" name="jLabel7">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Dialog" size="18" style="1"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Informacion del Anuncio"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel8">
                       <Properties>
@@ -848,10 +817,10 @@
                                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="rbPrecioMensual" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace pref="74" max="32767" attributes="0"/>
-                                              <Component id="rbPrecioTotal" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="rbAlquiler" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="rbVenta" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                               <Component id="btnPublicarAnuncio" min="-2" pref="138" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
@@ -894,7 +863,7 @@
                                               </Group>
                                           </Group>
                                           <Group type="102" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="91" max="32767" attributes="0"/>
                                               <Component id="lblTituloAnuncio" min="-2" pref="111" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="txtTituloAnuncio" min="-2" pref="266" max="-2" attributes="0"/>
@@ -980,8 +949,8 @@
                                       </Group>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="btnPublicarAnuncio" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                                          <Component id="rbPrecioTotal" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rbPrecioMensual" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rbVenta" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rbAlquiler" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel1" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1037,25 +1006,6 @@
                         <Property name="text" type="java.lang.String" value="Superficie m2 :"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="cbtipoInmueble">
-                      <Properties>
-                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="5">
-                            <StringItem index="0" value="..."/>
-                            <StringItem index="1" value="Piso"/>
-                            <StringItem index="2" value="Casa"/>
-                            <StringItem index="3" value="Chalet"/>
-                            <StringItem index="4" value="Apartamento"/>
-                          </StringArray>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbtipoInmuebleActionPerformed"/>
-                      </Events>
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                      </AuxValues>
-                    </Component>
                     <Component class="javax.swing.JComboBox" name="cbNumHabitaciones">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -1075,6 +1025,25 @@
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbNumHabitacionesActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="cbtipoInmueble">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="5">
+                            <StringItem index="0" value="..."/>
+                            <StringItem index="1" value="Piso"/>
+                            <StringItem index="2" value="Casa"/>
+                            <StringItem index="3" value="Chalet"/>
+                            <StringItem index="4" value="Apartamento"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbtipoInmuebleActionPerformed"/>
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1288,7 +1257,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JRadioButton" name="rbPrecioMensual">
+                    <Component class="javax.swing.JRadioButton" name="rbAlquiler">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="38" green="79" red="35" type="rgb"/>
@@ -1299,15 +1268,15 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Mensual"/>
+                        <Property name="text" type="java.lang.String" value="Alquiler"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rbPrecioMensualMouseClicked"/>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbPrecioMensualActionPerformed"/>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rbPrecioMensualKeyPressed"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rbAlquilerMouseClicked"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbAlquilerActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rbAlquilerKeyPressed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="rbPrecioTotal">
+                    <Component class="javax.swing.JRadioButton" name="rbVenta">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="38" green="79" red="35" type="rgb"/>
@@ -1318,12 +1287,12 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Total"/>
+                        <Property name="text" type="java.lang.String" value="Venta"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rbPrecioTotalMouseClicked"/>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbPrecioTotalActionPerformed"/>
-                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rbPrecioTotalKeyPressed"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rbVentaMouseClicked"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbVentaActionPerformed"/>
+                        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rbVentaKeyPressed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -1331,7 +1300,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Seleccione el tipo de precio"/>
+                        <Property name="text" type="java.lang.String" value="Seleccione el tipo de operaci&#xf3;n"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblInfoDireccion">
@@ -1355,20 +1324,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Informacion del Inmueble"/>
                       </Properties>
-                    </Component>
-                    <Component class="java.awt.TextField" name="txtPrecio">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Dialog" size="18" style="0"/>
-                        </Property>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="66" green="66" red="66" type="rgb"/>
-                        </Property>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPrecioActionPerformed"/>
-                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPrecioKeyReleased"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPrecio">
                       <Properties>
@@ -1418,17 +1373,26 @@
                         <Property name="text" type="java.lang.String" value="Descripcion del Anuncio"/>
                       </Properties>
                     </Component>
+                    <Component class="java.awt.TextField" name="txtPrecio">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Dialog" size="18" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="66" green="66" red="66" type="rgb"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPrecioActionPerformed"/>
+                        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPrecioKeyReleased"/>
+                      </Events>
+                    </Component>
                     <Component class="javax.swing.JLabel" name="lblTituloAnuncio">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="TItulo del Anuncio:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtTituloAnuncio">
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="lblNumeroBa&#xf1;os">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Numero de ba&#xf1;os:"/>
-                      </Properties>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cbNumeroBa&#xf1;os">
                       <Properties>
@@ -1454,9 +1418,9 @@
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblEstadoInmueble">
+                    <Component class="javax.swing.JLabel" name="lblNumeroBa&#xf1;os">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Estado del Inmueble:"/>
+                        <Property name="text" type="java.lang.String" value="Numero de ba&#xf1;os:"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JComboBox" name="cbEstadoInmueble">
@@ -1477,6 +1441,11 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="lblEstadoInmueble">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Estado del Inmueble:"/>
+                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1574,13 +1543,13 @@
                                   <Component id="historialMensajesTextArea" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="131" max="32767" attributes="0"/>
+                          <EmptySpace pref="149" max="32767" attributes="0"/>
                       </Group>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                               <Component id="historialMensajesPanel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="37" max="32767" attributes="0"/>
+                              <EmptySpace pref="54" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

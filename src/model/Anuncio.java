@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 /**
  * Clase para representar los anuncios del inmueble
  */
@@ -173,7 +175,27 @@ public class Anuncio {
 
     @Override
     public String toString() {
-        return "Anuncio{" + "titulo=" + titulo + ", descripcion=" + descripcion + ", foto=" + foto + ", precio=" + precio + ", tipoOperacion=" + tipoOperacion + ", inmueble=" + inmueble + ", coordinador=" + coordinador + '}';
+        return "titulo=" + titulo + ", precio=" + precio + ", tipoOperacion=" + tipoOperacion;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Anuncio other = (Anuncio) obj;
+        if (!Objects.equals(this.inmueble, other.inmueble)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 
 }

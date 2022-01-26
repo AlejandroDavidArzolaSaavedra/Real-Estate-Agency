@@ -144,7 +144,7 @@
                       <Component id="correoSesionLabel" min="-2" pref="163" max="-2" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="salirSesionLabel" min="-2" pref="97" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="441" max="32767" attributes="0"/>
                           <Component id="lblAgencia" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -225,14 +225,14 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                  <Component id="buscarInmueblePanel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="buscarInmueblePanel" min="-2" pref="1076" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="471" max="-2" attributes="0"/>
                                   <Component id="lblListadoUsuarios" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="48" max="32767" attributes="0"/>
+                          <EmptySpace pref="102" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -243,7 +243,7 @@
                           <Component id="lblListadoUsuarios" min="-2" pref="33" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="buscarInmueblePanel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="86" max="32767" attributes="0"/>
+                          <EmptySpace pref="91" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -262,66 +262,62 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane5" min="-2" pref="355" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane6" min="-2" pref="209" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane10" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="594" max="-2" attributes="0"/>
-                                      <Component id="lblAnuncioUsuario" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                                      <Component id="lblInformacionInmueble" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
                                       <Component id="btnMirarUsuarios" min="-2" pref="157" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="lblBuscarInmueble" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lstUsuarios" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="txtBuscarNombre" min="-2" pref="138" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="btnBuscar" min="-2" pref="88" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblAnuncioUsuario" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lstAnunciosUsuario" min="-2" pref="392" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblInformacionInmueble" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane10" min="-2" pref="211" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="122" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblBuscarInmueble" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtBuscarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnMirarUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblAnuncioUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblInformacionInmueble" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jScrollPane6" pref="0" max="32767" attributes="0"/>
-                                          <Component id="jScrollPane10" pref="125" max="32767" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jScrollPane5" pref="135" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lstUsuarios" pref="125" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane10" pref="125" max="32767" attributes="0"/>
+                                  <Component id="lstAnunciosUsuario" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace pref="32" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -364,6 +360,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Buscar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblBuscarInmueble">
                       <Properties>
@@ -375,44 +374,26 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarNombreActionPerformed"/>
                       </Events>
                     </Component>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane5">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JList" name="lstUsuarios">
-                          <Properties>
-                            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                              <StringArray count="0"/>
-                            </Property>
-                          </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                          </AuxValues>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane6">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JList" name="lstAnunciosUsuarios">
-                          <Properties>
-                            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                              <StringArray count="0"/>
-                            </Property>
-                          </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                          </AuxValues>
-                        </Component>
-                      </SubComponents>
-                    </Container>
+                    <Component class="java.awt.List" name="lstUsuarios">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="33" green="33" red="33" type="rgb"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lstUsuariosActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="java.awt.List" name="lstAnunciosUsuario">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="33" green="33" red="33" type="rgb"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lstAnunciosUsuarioActionPerformed"/>
+                      </Events>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Component class="javax.swing.JLabel" name="lblListadoUsuarios">
@@ -440,7 +421,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
                           <Component id="historialMensajesPanel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="39" max="32767" attributes="0"/>
+                          <EmptySpace pref="38" max="32767" attributes="0"/>
                           <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                       </Group>
@@ -466,7 +447,7 @@
                                   <Component id="historialMensajesPanel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="30" max="32767" attributes="0"/>
+                          <EmptySpace pref="37" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -486,30 +467,32 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="140" max="32767" attributes="0"/>
+                              <EmptySpace pref="114" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jScrollPane8" min="-2" pref="264" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="btnAnunciosPendientes" min="-2" pref="219" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                                   </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnDenegarAnuncio" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnAceptarAnuncio" min="-2" pref="147" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="btnAnunciosPublicados" min="-2" pref="219" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lstPublicacionesPendientes" min="-2" pref="315" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnAceptarAnuncio" pref="147" max="32767" attributes="0"/>
+                                  <Component id="btnDenegarAnuncio" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="btnAnunciosPublicados" min="-2" pref="219" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                      <Component id="lstAnunciosPublicados" min="-2" pref="266" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -518,24 +501,19 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="btnAnunciosPublicados" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnAceptarAnuncio" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="btnDenegarAnuncio" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane7" min="-2" pref="169" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="btnAnunciosPublicados" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnAceptarAnuncio" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnAnunciosPendientes" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane8" min="-2" pref="177" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="btnAnunciosPendientes" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="48" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lstPublicacionesPendientes" pref="169" max="32767" attributes="0"/>
+                                  <Component id="btnDenegarAnuncio" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lstAnunciosPublicados" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="56" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -543,7 +521,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JButton" name="btnAnunciosPendientes">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Mirar Publicaciones pendientes"/>
+                        <Property name="text" type="java.lang.String" value="Mostrar Publicaciones pendientes"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnunciosPendientesActionPerformed"/>
@@ -553,6 +531,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Aceptar Publicacion"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAceptarAnuncioActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnDenegarAnuncio">
                       <Properties>
@@ -570,44 +551,23 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnunciosPublicadosActionPerformed"/>
                       </Events>
                     </Component>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane7">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JList" name="lstAnunciosPublicados">
-                          <Properties>
-                            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                              <StringArray count="0"/>
-                            </Property>
-                          </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                          </AuxValues>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane8">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JList" name="lstAnunciosPendientes">
-                          <Properties>
-                            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                              <StringArray count="0"/>
-                            </Property>
-                          </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                          </AuxValues>
-                        </Component>
-                      </SubComponents>
-                    </Container>
+                    <Component class="java.awt.List" name="lstPublicacionesPendientes">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="33" green="33" red="33" type="rgb"/>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lstPublicacionesPendientesActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="java.awt.List" name="lstAnunciosPublicados">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="33" green="33" red="33" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane4">
@@ -697,22 +657,23 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
+                                      <Component id="btnUsuariosRegistrados" min="-2" pref="157" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane12" min="-2" pref="248" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                                      <Component id="lstUsuariosRegistrados" min="-2" pref="279" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="btnInformacionUsuario" pref="167" max="32767" attributes="0"/>
                                                   <Component id="btnEliminarUsuario" max="32767" attributes="0"/>
-                                                  <Component id="btnModificarUsuario" max="32767" attributes="0"/>
+                                                  <Component id="btnModificarUsuario" pref="167" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jScrollPane2" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                                               <Component id="lblBuscarNombre" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="txtNombre" min="-2" pref="206" max="-2" attributes="0"/>
@@ -720,10 +681,6 @@
                                               <Component id="btnBuscarUsuarios" min="-2" pref="88" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
-                                      <Component id="btnUsuariosRegistrados" min="-2" pref="157" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="89" max="32767" attributes="0"/>
@@ -735,35 +692,22 @@
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace pref="34" max="32767" attributes="0"/>
                               <Component id="btnUsuariosRegistrados" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="btnBuscarUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblBuscarNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                              <Component id="jScrollPane2" min="-2" pref="141" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                              <Component id="btnEliminarUsuario" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="btnInformacionUsuario" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="btnModificarUsuario" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Component id="btnEliminarUsuario" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                                      <Component id="btnModificarUsuario" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jScrollPane12" min="-2" pref="179" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lstUsuariosRegistrados" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -781,11 +725,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Eliminar Usuario"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnInformacionUsuario">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Informacion del usuario"/>
-                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarUsuarioActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNombre">
                     </Component>
@@ -793,27 +735,15 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Buscar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarUsuariosActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblBuscarNombre">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Buscar por nombre: "/>
                       </Properties>
                     </Component>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="txtInfoUsuario">
-                          <Properties>
-                            <Property name="columns" type="int" value="20"/>
-                            <Property name="rows" type="int" value="5"/>
-                          </Properties>
-                        </Component>
-                      </SubComponents>
-                    </Container>
                     <Component class="javax.swing.JButton" name="btnModificarUsuario">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Modificar Usuario"/>
@@ -822,25 +752,13 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarUsuarioActionPerformed"/>
                       </Events>
                     </Component>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane12">
-                      <AuxValues>
-                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                      </AuxValues>
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-                      <SubComponents>
-                        <Component class="javax.swing.JList" name="lstUsuariosRegistrados">
-                          <Properties>
-                            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                              <StringArray count="0"/>
-                            </Property>
-                          </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                          </AuxValues>
-                        </Component>
-                      </SubComponents>
-                    </Container>
+                    <Component class="java.awt.List" name="lstUsuariosRegistrados">
+                      <Properties>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="33" green="33" red="33" type="rgb"/>
+                        </Property>
+                      </Properties>
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Component class="javax.swing.JLabel" name="infoBuscarFotoErorr">

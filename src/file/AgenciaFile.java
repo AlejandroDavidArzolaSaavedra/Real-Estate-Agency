@@ -29,7 +29,7 @@ public class AgenciaFile {
                 if (inmobiliaria.getClientes().get(j) instanceof Cliente) {
                     client = (Cliente) inmobiliaria.getClientes().get(j);
                     // se utilzará como separador el carácter / para cada dato del fichero
-                    pw.write(client.getNombre() + "/" + client.getApellido() + "/" + client.getCorreo() + "/" + client.getPassword() + "/\n");
+                    pw.write(client.getNombre() + "#" + client.getApellido() + "#" + client.getCorreo() + "#" + client.getPassword() + "#" + "\n");
                     //guardo los anuncios de los clientes
                     Anuncio anuncio = null;
                     pw.write(inmobiliaria.getClientes().get(j).getAnuncios().size() + "\n");
@@ -37,9 +37,9 @@ public class AgenciaFile {
                     for (k = 0; k < client.getAnuncios().size(); k++) {
                         if (client.getAnuncios().get(k) instanceof Anuncio) {
                             anuncio = (Anuncio) client.getAnuncios().get(k);
-                            pw.write(anuncio.getTitulo() + "/" + anuncio.getDescripcion() + "/" + anuncio.getFoto() + "/" + anuncio.getPrecio() + anuncio.getTipoOperacion() + "/" + anuncio.getInmueble().getTipoInmueble() + "/" + anuncio.getInmueble().getSuperficie() + "/" + anuncio.getInmueble().getTipoEstadoInmueble() + "/" + anuncio.getInmueble().getNumeroHabitaciones() + "/" + anuncio.getInmueble().getNumeroDeWc()
-                                    + "/" + anuncio.getInmueble().getDireccion().getCalle() + "/" + anuncio.getInmueble().getDireccion().getPiso() + "/" + anuncio.getInmueble().getDireccion().getMunicipio() + "/" + anuncio.getInmueble().getDireccion().getNumero() + "/" + anuncio.getInmueble().getDireccion().getZipCode()
-                                    + "/" + anuncio.getCoordinador().getCodigo() + "/" + anuncio.getCoordinador().getPassword() + "/\n");
+                            pw.write(anuncio.getTitulo() + "#" + anuncio.getDescripcion() + "#" + anuncio.getFoto() + "#" + anuncio.getPrecio() + "#" + anuncio.getTipoOperacion() + "#" + anuncio.getInmueble().getTipoInmueble() + "#" + anuncio.getInmueble().getSuperficie() + "#" + anuncio.getInmueble().getTipoEstadoInmueble() + "#" + anuncio.getInmueble().getNumeroHabitaciones() + "#" + anuncio.getInmueble().getNumeroDeWc()
+                                    + "#" + anuncio.getInmueble().getDireccion().getCalle() + "#" + anuncio.getInmueble().getDireccion().getPiso() + "#" + anuncio.getInmueble().getDireccion().getMunicipio() + "#" + anuncio.getInmueble().getDireccion().getNumero() + "#" + anuncio.getInmueble().getDireccion().getZipCode()
+                                    + "#" + anuncio.getCoordinador().getCodigo() + "#" + anuncio.getCoordinador().getPassword() + "#" + "\n");
                         }
                     }
                 }
@@ -72,7 +72,7 @@ public class AgenciaFile {
                 pw.write(mensajes.size() + "\n");
                 for (k = 0; k < mensajes.size(); k++) {
                     Mensaje mensaje = mensajes.get(k);
-                    pw.write(mensaje.getFrom().getNombre() + "/" + mensaje.getFrom().getApellido() + "/" + mensaje.getFrom().getCorreo() + "/" + mensaje.getMensaje() + "/\n");
+                    pw.write(mensaje.getFrom().getNombre() + "#" + mensaje.getFrom().getApellido() + "#" + mensaje.getFrom().getCorreo() + "#" + mensaje.getMensaje() + "#" + "\n");
                 }
             }
         } catch (Exception e) {
@@ -99,7 +99,7 @@ public class AgenciaFile {
             Administrador admin = null;
             for (j = 0; j < inmobiliaria.getAdministradores().size(); j++) {
                 admin = inmobiliaria.getAdministradores().get(j);
-                pw.write(admin.getCodigo() + "/" + admin.getPassword() + "/\n");
+                pw.write(admin.getCodigo() + "#" + admin.getPassword() + "#" + "\n");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -128,7 +128,7 @@ public class AgenciaFile {
                 if (inmobiliaria.getCatalogo().get(j) instanceof CatalogoAnuncios) {
                     catalogo = (CatalogoAnuncios) inmobiliaria.getCatalogo().get(j);
                     // se utilzará como separador el carácter / para cada dato del fichero
-                    pw.write(catalogo.getTipoCatalogo() + "/\n");
+                    pw.write(catalogo.getTipoCatalogo() + "#" + "\n");
 
                     //guardo los anuncios del catálogo
                     Anuncio anuncio = null;
@@ -137,9 +137,9 @@ public class AgenciaFile {
                     for (k = 0; k < catalogo.getAnuncios().size(); k++) {
                         if (catalogo.getAnuncios().get(k) instanceof Anuncio) {
                             anuncio = (Anuncio) catalogo.getAnuncios().get(k);
-                            pw.write(anuncio.getTitulo() + "/" + anuncio.getDescripcion() + "/" + anuncio.getFoto() + "/" + anuncio.getPrecio() + anuncio.getTipoOperacion() + "/" + anuncio.getInmueble().getTipoInmueble() + "/" + anuncio.getInmueble().getSuperficie() + "/" + anuncio.getInmueble().getTipoEstadoInmueble() + "/" + anuncio.getInmueble().getNumeroHabitaciones() + "/" + anuncio.getInmueble().getNumeroDeWc()
-                                    + "/" + anuncio.getInmueble().getDireccion().getCalle() + "/" + anuncio.getInmueble().getDireccion().getPiso() + "/" + anuncio.getInmueble().getDireccion().getMunicipio() + "/" + anuncio.getInmueble().getDireccion().getNumero() + "/" + anuncio.getInmueble().getDireccion().getZipCode()
-                                    + "/" + anuncio.getCoordinador().getCodigo() + "/" + anuncio.getCoordinador().getPassword() + "/\n");
+                            pw.write(anuncio.getTitulo() + "#" + anuncio.getDescripcion() + "#" + anuncio.getFoto() + "#" + anuncio.getPrecio() + "#" + anuncio.getTipoOperacion() + "#" + anuncio.getInmueble().getTipoInmueble() + "#" + anuncio.getInmueble().getSuperficie() + "#" + anuncio.getInmueble().getTipoEstadoInmueble() + "#" + anuncio.getInmueble().getNumeroHabitaciones() + "#" + anuncio.getInmueble().getNumeroDeWc()
+                                    + "#" + anuncio.getInmueble().getDireccion().getCalle() + "#" + anuncio.getInmueble().getDireccion().getPiso() + "#" + anuncio.getInmueble().getDireccion().getMunicipio() + "#" + anuncio.getInmueble().getDireccion().getNumero() + "#" + anuncio.getInmueble().getDireccion().getZipCode()
+                                    + "#" + anuncio.getCoordinador().getCodigo() + "#" + anuncio.getCoordinador().getPassword() + "#" + "\n");
                         }
                     }
                 }
@@ -164,15 +164,102 @@ public class AgenciaFile {
             int i, n = s.nextInt();
             for (i = 0; i < n; i++) {
                 s.nextLine();
-                s.useDelimiter("/");
+                s.useDelimiter("#");
                 Cliente cliente = new Cliente(s.next(), s.next(), s.next(), s.next());
 
                 s.nextLine();
                 s.useDelimiter("");
                 int j, m = s.nextInt();
+
                 for (j = 0; j < m; j++) {
                     s.nextLine();
-                    s.useDelimiter("/");
+                    s.useDelimiter("#");
+                    String titulo = s.next();
+                    String descripcion = s.next();
+                    String foto = s.next();
+                    int precio = Integer.parseInt(s.next());
+                    String tipoOp = s.next();
+                    String tipoInm = s.next();
+                    Double superficie = Double.parseDouble(s.next());
+                    String tipoEstadoInm = s.next();
+                    int numeroHabitaciones = Integer.parseInt(s.next());
+                    int numeroDeWc = Integer.parseInt(s.next());
+
+                    Direccion direccion = new Direccion(s.next(), s.next(), s.next(), Integer.parseInt(s.next()), Integer.parseInt(s.next()));
+
+                    //cargo los enumerados
+                    TipoEstadoInmueble tipoEstadoInmueble = null;
+                    if (tipoEstadoInm.equals("NUEVAOBRA")) {
+                        tipoEstadoInmueble = TipoEstadoInmueble.NUEVAOBRA;
+                    } else if (tipoEstadoInm.equals("BUENESTADO")) {
+                        tipoEstadoInmueble = TipoEstadoInmueble.BUENESTADO;
+                    } else if (tipoEstadoInm.equals("PENDIENTEREFORMAR")) {
+                        tipoEstadoInmueble = TipoEstadoInmueble.PENDIENTEREFORMAR;
+                    }
+
+                    TipoInmueble tipoInmueble = null;
+                    if (tipoInm.equals("PISO")) {
+                        tipoInmueble = TipoInmueble.PISO;
+                    } else if (tipoInm.equals("CASA")) {
+                        tipoInmueble = TipoInmueble.CASA;
+                    } else if (tipoInm.equals("CHALET")) {
+                        tipoInmueble = TipoInmueble.CHALET;
+                    } else if (tipoInm.equals("APARTAMENTO")) {
+                        tipoInmueble = TipoInmueble.APARTAMENTO;
+                    }
+                    TipoOperacion tipoOperacion = null;
+                    if (tipoOp.equals("VENTA")) {
+                        tipoOperacion = TipoOperacion.VENTA;
+                    } else {
+                        tipoOperacion = TipoOperacion.ALQUILER;
+                    }
+                    Administrador coordinador = new Administrador(s.next(), s.next());
+
+                    Inmueble inmueble = new Inmueble(tipoInmueble, superficie, numeroHabitaciones, numeroDeWc, tipoEstadoInmueble, direccion);
+
+                    cliente.addAnuncios(new Anuncio(inmueble, precio, foto, titulo, descripcion, tipoOperacion, coordinador));
+                    s.useDelimiter("");
+                }
+                //añado los clientes a la lista
+                inmobiliaria.addCliente(cliente);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //cargo los catálogos de anuncios
+        try {
+            Scanner s = new Scanner(new File("Catalogo.txt"));
+            int i, n = s.nextInt();
+
+            for (i = 0; i < n; i++) {
+                s.nextLine();
+                s.useDelimiter("#");
+                String tipoCat = s.next();
+                TipoCatalogo tipoCatalogo = null;
+                switch (tipoCat) {
+                    case "PUBLICADOS":
+                        tipoCatalogo = TipoCatalogo.PUBLICADOS;
+                        break;
+                    case "PENDIENTES":
+                        tipoCatalogo = TipoCatalogo.PENDIENTES;
+                        break;
+                    case "ELIMINADOS":
+                        tipoCatalogo = TipoCatalogo.ELIMINADOS;
+                        break;
+                    default:
+                        break;
+                }
+
+                CatalogoAnuncios c = new CatalogoAnuncios(tipoCatalogo);
+
+                s.nextLine();
+                s.useDelimiter("");
+                int j, m = s.nextInt();
+                System.out.println(m);
+                for (j = 0; j < m; j++) {
+                    s.nextLine();
+                    s.useDelimiter("#");
                     String titulo = s.next();
                     String descripcion = s.next();
                     String foto = s.next();
@@ -215,12 +302,12 @@ public class AgenciaFile {
 
                     Inmueble inmueble = new Inmueble(tipoInmueble, superficie, numeroHabitaciones, numeroDeWc, tipoEstadoInmueble, direccion);
 
-                    cliente.getAnuncios().add(new Anuncio(inmueble, precio, foto, titulo, descripcion, tipoOperacion, coordinador));
+                    c.addAnuncios(new Anuncio(inmueble, precio, foto, titulo, descripcion, tipoOperacion, coordinador));
                     s.useDelimiter("");
                 }
-                //añado los clientes a la lista
-                inmobiliaria.addCliente(cliente);
+                inmobiliaria.addCatalogo(c);
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -232,7 +319,7 @@ public class AgenciaFile {
             int i, n = s.nextInt();
             for (i = 0; i < n; i++) {
                 s.nextLine();
-                s.useDelimiter("/");
+                s.useDelimiter("#");
                 Administrador administrador = new Administrador(s.next(), s.next());
                 s.nextLine();
                 s.useDelimiter("");
@@ -254,90 +341,13 @@ public class AgenciaFile {
                     int n = t.nextInt();
                     t.nextLine();
                     for (j = 0; j < n; j++) {
-                        t.useDelimiter("/");
+                        t.useDelimiter("#");
                         Cliente c = new Cliente(t.next(), t.next(), t.next());
                         Mensaje m = new Mensaje(c, t.next());
                         cliente.enviarMensaje(m);
                         t.nextLine();
                     }
                 }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        //cargo los catálogos de anuncios
-        try {
-            Scanner s = new Scanner(new File("Catalogos.txt"));
-            int i, n = s.nextInt();
-            ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>(); //contendrá los anuncios del catálogo
-
-            for (i = 0; i < n; i++) {
-                s.nextLine();
-                s.useDelimiter("/");
-                String tipoCat = s.next();
-                TipoCatalogo tipoCatalogo = null;
-                if (tipoCat.equals("PUBLICADOS")) {
-                    tipoCatalogo = TipoCatalogo.PUBLICADOS;
-                } else if (tipoCat.equals("PENDIENTES")) {
-                    tipoCatalogo = TipoCatalogo.PENDIENTES;
-                } else if (tipoCat.equals("ELIMINADOS")) {
-                    tipoCatalogo = TipoCatalogo.ELIMINADOS;
-                }
-
-                s.nextLine();
-                s.useDelimiter("");
-                int j, m = s.nextInt();
-                for (j = 0; j < m; j++) {
-                    s.nextLine();
-                    s.useDelimiter("/");
-                    String titulo = s.next();
-                    String descripcion = s.next();
-                    String foto = s.next();
-                    int precio = Integer.parseInt(s.next());
-                    String tipoOp = s.next();
-                    String tipoInm = s.next();
-                    Double superficie = Double.parseDouble(s.next());
-                    String tipoEstadoInm = s.next();
-                    int numeroHabitaciones = Integer.parseInt(s.next());
-                    int numeroDeWc = Integer.parseInt(s.next());
-                    Direccion direccion = new Direccion(s.next(), s.next(), s.next(), Integer.parseInt(s.next()), Integer.parseInt(s.next()));
-                    Administrador coordinador = new Administrador(s.next(), s.next());
-
-                    //cargo los enumerados
-                    TipoEstadoInmueble tipoEstadoInmueble = null;
-                    if (tipoEstadoInm.equals("NUEVAOBRA")) {
-                        tipoEstadoInmueble = TipoEstadoInmueble.NUEVAOBRA;
-                    } else if (tipoEstadoInm.equals("BUENESTADO")) {
-                        tipoEstadoInmueble = TipoEstadoInmueble.BUENESTADO;
-                    } else if (tipoEstadoInm.equals("PENDIENTEREFORMAR")) {
-                        tipoEstadoInmueble = TipoEstadoInmueble.PENDIENTEREFORMAR;
-                    }
-
-                    TipoInmueble tipoInmueble = null;
-                    if (tipoInm.equals("PISO")) {
-                        tipoInmueble = TipoInmueble.PISO;
-                    } else if (tipoInm.equals("CASA")) {
-                        tipoInmueble = TipoInmueble.CASA;
-                    } else if (tipoInm.equals("CHALET")) {
-                        tipoInmueble = TipoInmueble.CHALET;
-                    } else if (tipoInm.equals("APARTAMENTO")) {
-                        tipoInmueble = TipoInmueble.APARTAMENTO;
-                    }
-                    TipoOperacion tipoOperacion = null;
-                    if (tipoOp.equals("VENTA")) {
-                        tipoOperacion = TipoOperacion.VENTA;
-                    } else {
-                        tipoOperacion = TipoOperacion.ALQUILER;
-                    }
-
-                    Inmueble inmueble = new Inmueble(tipoInmueble, superficie, numeroHabitaciones, numeroDeWc, tipoEstadoInmueble, direccion);
-
-                    anuncios.add(new Anuncio(inmueble, precio, foto, titulo, descripcion, tipoOperacion, coordinador));
-                    s.useDelimiter("");
-                }
-                //añado el catálogo
-                inmobiliaria.addCatalogo(new CatalogoAnuncios(tipoCatalogo, anuncios));
             }
         } catch (Exception e) {
             e.printStackTrace();

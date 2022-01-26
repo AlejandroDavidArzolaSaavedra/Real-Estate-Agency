@@ -1,9 +1,12 @@
 package model;
 
+import java.util.Objects;
+
 /**
  * Clase para representar el inmueble de los anuncios
  */
 public class Inmueble {
+
     private TipoInmueble tipoInmueble;
     private Double superficie;
     private TipoEstadoInmueble tipoEstadoInmueble;
@@ -106,4 +109,38 @@ public class Inmueble {
                 + ", numeroHabitaciones = " + this.numeroHabitaciones
                 + ", numeroBaños =" + this.numeroDeWc;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Inmueble other = (Inmueble) obj;
+        if (this.numeroHabitaciones != other.numeroHabitaciones) {
+            return false;
+        }
+        if (this.numeroDeWc != other.numeroDeWc) {
+            return false;
+        }
+        if (this.tipoInmueble != other.tipoInmueble) {
+            return false;
+        }
+        if (!Objects.equals(this.superficie, other.superficie)) {
+            return false;
+        }
+        if (this.tipoEstadoInmueble != other.tipoEstadoInmueble) {
+            return false;
+        }
+        if (!Objects.equals(this.direccion, other.direccion)) {
+            return false;
+        }
+        return true;
+    }
+
 }

@@ -237,7 +237,7 @@ public class ModificarAnuncioForm extends javax.swing.JFrame {
                 .addGroup(panelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoPostal)
                     .addComponent(txCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(panelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumeroInmueble)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -252,6 +252,7 @@ public class ModificarAnuncioForm extends javax.swing.JFrame {
         lblInfoDireccion.setForeground(new java.awt.Color(255, 255, 255));
         lblInfoDireccion.setText("Informacion de la direccion");
 
+        lblTituloAnuncio.setForeground(new java.awt.Color(255, 255, 255));
         lblTituloAnuncio.setText("TItulo del Anuncio:");
 
         txtTituloAnuncio.addActionListener(new java.awt.event.ActionListener() {
@@ -261,6 +262,7 @@ public class ModificarAnuncioForm extends javax.swing.JFrame {
         });
 
         lblDescripcionAnuncio.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lblDescripcionAnuncio.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcionAnuncio.setText("Descripcion del Anuncio");
 
         txtAreaDescripcionAnuncio.setColumns(20);
@@ -278,6 +280,7 @@ public class ModificarAnuncioForm extends javax.swing.JFrame {
             }
         });
 
+        lblNumBaños.setForeground(new java.awt.Color(255, 255, 255));
         lblNumBaños.setText("Numero de baños:");
 
         cbNumBaños.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
@@ -287,6 +290,7 @@ public class ModificarAnuncioForm extends javax.swing.JFrame {
             }
         });
 
+        lblEstadoInmueble.setForeground(new java.awt.Color(255, 255, 255));
         lblEstadoInmueble.setText("Estado del Inmueble:");
 
         cbEstadoInmueble.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Buen estado", "Pendiente de reformar", "Nueva Obra" }));
@@ -474,7 +478,7 @@ public class ModificarAnuncioForm extends javax.swing.JFrame {
                             .addComponent(txtSuperficie1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSuperficie1)))
                     .addGroup(pFormularioLayout.createSequentialGroup()
-                        .addComponent(panelAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panelAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addGroup(pFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

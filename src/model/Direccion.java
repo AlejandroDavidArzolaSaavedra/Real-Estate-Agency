@@ -1,4 +1,7 @@
 package model;
+
+import java.util.Objects;
+
 /**
  * Clase  que representa la direccion del inmueble a arrendar o vender
  */
@@ -73,4 +76,36 @@ public class Direccion {
     public String toString() {
         return this.calle + ", piso=" + this.piso + ", municipio=" + this.municipio + ", numero=" + this.numero + ", zipCode=" + this.zipCode;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Direccion other = (Direccion) obj;
+        if (this.numero != other.numero) {
+            return false;
+        }
+        if (this.zipCode != other.zipCode) {
+            return false;
+        }
+        if (!Objects.equals(this.calle, other.calle)) {
+            return false;
+        }
+        if (!Objects.equals(this.piso, other.piso)) {
+            return false;
+        }
+        if (!Objects.equals(this.municipio, other.municipio)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 }

@@ -1,23 +1,14 @@
 package gui;
 
 import file.AgenciaFile;
-import java.awt.Color;
 import java.awt.Image;
-import java.io.PrintStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import model.Anuncio;
-import model.CatalogoAnuncios;
-import model.Mensaje;
-import model.Cliente;
-import model.Inmobiliaria;
-import model.Inmueble;
-import model.TipoInmueble;
-import model.Direccion;
+import model.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,7 +40,7 @@ public class ClienteForm extends javax.swing.JFrame {
     List<Anuncio> getListAnunciosAlquilados(List<Anuncio> inmuebles) {
         List<Anuncio> anunciosPorPrecio = new ArrayList<>();
 
-        inmuebles.stream().filter((anuncios) -> (anuncios.getPrecio().getTipo().equals("Alquiler"))).forEachOrdered((anuncios) -> {
+        inmuebles.stream().filter((anuncios) -> (anuncios.getTipoOperacion().equals("ALQUILER"))).forEachOrdered((anuncios) -> {
             anunciosPorPrecio.add(anuncios);
         });
         return anunciosPorPrecio;
@@ -58,7 +49,7 @@ public class ClienteForm extends javax.swing.JFrame {
     List<Anuncio> getListAnunciosVendidos(List<Anuncio> inmuebles) {
         List<Anuncio> anunciosPorPrecio = new ArrayList<>();
 
-        inmuebles.stream().filter((anuncios) -> (anuncios.getPrecio().getTipo().equals("Venta"))).forEachOrdered((anuncios) -> {
+        inmuebles.stream().filter((anuncios) -> (anuncios.getTipoOperacion().equals("VENTA"))).forEachOrdered((anuncios) -> {
             anunciosPorPrecio.add(anuncios);
             System.out.println("Good");
         });
@@ -68,8 +59,8 @@ public class ClienteForm extends javax.swing.JFrame {
     List<Anuncio> getListAnunciosEntrePrecio(int precioDesde, int precioHasta) {
         List<Anuncio> anunciosPorPrecio = new ArrayList<>();
 
-        listaAnunciosTotales().stream().filter((anuncios) -> (anuncios.getPrecio().getPrecio() >= precioDesde
-                && anuncios.getPrecio().getPrecio() >= precioHasta)).forEachOrdered((anuncios) -> {
+        listaAnunciosTotales().stream().filter((anuncios) -> (anuncios.getPrecio() >= precioDesde
+                && anuncios.getPrecio() >= precioHasta)).forEachOrdered((anuncios) -> {
             anunciosPorPrecio.add(anuncios);
         });
         return anunciosPorPrecio;
@@ -78,7 +69,7 @@ public class ClienteForm extends javax.swing.JFrame {
     List<Anuncio> getListAnunciosPorMunicipio(String municipio) {
         List<Anuncio> anunciosPorMunicipio = new ArrayList<>();
 
-        listaAnunciosTotales().stream().filter((anuncios) -> (anuncios.getDireccion().getMunicipio().equals(municipio))).forEachOrdered((anuncios) -> {
+        listaAnunciosTotales().stream().filter((anuncios) -> (anuncios.getInmueble().getDireccion().getMunicipio().equals(municipio))).forEachOrdered((anuncios) -> {
             anunciosPorMunicipio.add(anuncios);
         });
         return anunciosPorMunicipio;
@@ -87,18 +78,18 @@ public class ClienteForm extends javax.swing.JFrame {
     void showClient(String c) {
         String mensaje = "";
         infoContactoTextArea.removeAll();
-        for (Mensajeria mensajes : cliente.getFrom()) {
+        for (Mensaje mensajes : cliente.getFrom()) {
             if (mensajes.getFrom().toString().equals(c)) {
                 mensaje += mensajes.getMensaje() + "\n----\n";
             }
         }
         infoContactoTextArea.setText(mensaje);
     }
- 
+
     ArrayList<Anuncio> listaAnunciosTotales() {
         ArrayList<Anuncio> anunciosTotales = new ArrayList<>();
         inmobiliaria.getClientes().forEach((clientes) -> {
-            for (Anuncio anuncios : clientes.getAnuncios().getAnunciosList()) {
+            for (Anuncio anuncios : clientes.getAnuncios()) {
                 anunciosTotales.add(anuncios);
             }
         });
@@ -107,10 +98,15 @@ public class ClienteForm extends javax.swing.JFrame {
 
     void showInmueble(Anuncio i) {
         infoInmuebleList1.removeAll();
-        infoInmuebleList1.setText(i.getInmueble().getTipoInmueble().toString() + "\n"
-                + "Superficie: " + i.getInmueble().getSuperficie().toString()
-                + "\n" + "Numero habitaciones:" + Integer.toString(i.getInmueble().getNumeroHabitaciones())
-                + "\n" + "Precio: " + i.getPrecio().getPrecio());
+        infoInmuebleList1.setText("Nombre: " + i.getTitulo()
+                + "\n" + "Descripción: " + i.getDescripcion()
+                + "\n" + "Precio: " + i.getPrecio()
+                + "\n" + "Tipo: " + i.getInmueble().getTipoInmueble().toString() 
+                + "\n" + "Superficie: " + i.getInmueble().getSuperficie().toString()
+                + "\n" + "Numero habitaciones: " + Integer.toString(i.getInmueble().getNumeroHabitaciones())
+                + "\n" + "Número de cuartos de baño: " + i.getInmueble().getNumeroDeWc()
+                + "\n" + "Estado inmueble: " + i.getInmueble().getTipoEstadoInmueble().toString()
+                + "\n" + "Direccion: " + i.getInmueble().getDireccion().toString());
     }
 
     void showAnunciosList() {
@@ -189,9 +185,6 @@ public class ClienteForm extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         txtMensaje = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         infoBuscarInmuebleLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -199,8 +192,8 @@ public class ClienteForm extends javax.swing.JFrame {
         lblTipoInmueble = new javax.swing.JLabel();
         lblNumeroHabitaciones = new javax.swing.JLabel();
         lblSuperficie = new javax.swing.JLabel();
-        cbtipoInmueble = new javax.swing.JComboBox<>();
         cbNumHabitaciones = new javax.swing.JComboBox<>();
+        cbtipoInmueble = new javax.swing.JComboBox<>();
         btnAdjuntarImagen = new javax.swing.JButton();
         txtSuperficie = new java.awt.TextField();
         lblFotoInmueble = new javax.swing.JLabel();
@@ -216,23 +209,23 @@ public class ClienteForm extends javax.swing.JFrame {
         txtNumero = new javax.swing.JTextField();
         pIsoLabel = new javax.swing.JLabel();
         txtPiso = new javax.swing.JTextField();
-        rbPrecioMensual = new javax.swing.JRadioButton();
-        rbPrecioTotal = new javax.swing.JRadioButton();
+        rbAlquiler = new javax.swing.JRadioButton();
+        rbVenta = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         lblInfoDireccion = new javax.swing.JLabel();
         lblInfoDelInmu = new javax.swing.JLabel();
-        txtPrecio = new java.awt.TextField();
         lblPrecio = new javax.swing.JLabel();
         btnPublicarAnuncio = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         txtAreaDescripcionAnuncio = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
+        txtPrecio = new java.awt.TextField();
         lblTituloAnuncio = new javax.swing.JLabel();
         txtTituloAnuncio = new javax.swing.JTextField();
-        lblNumeroBaños = new javax.swing.JLabel();
         cbNumeroBaños = new javax.swing.JComboBox<>();
-        lblEstadoInmueble = new javax.swing.JLabel();
+        lblNumeroBaños = new javax.swing.JLabel();
         cbEstadoInmueble = new javax.swing.JComboBox<>();
+        lblEstadoInmueble = new javax.swing.JLabel();
         infoBuscarFotoErorr = new javax.swing.JLabel();
         infoAñadirInmuebleLabel = new javax.swing.JLabel();
         lblErrorAñadirAnuncio = new javax.swing.JLabel();
@@ -398,9 +391,9 @@ public class ClienteForm extends javax.swing.JFrame {
         lblPreferencias.setForeground(new java.awt.Color(255, 255, 255));
         lblPreferencias.setText("Preferencias");
 
-        informacionDelInmuebleLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        informacionDelInmuebleLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         informacionDelInmuebleLabel.setForeground(new java.awt.Color(255, 255, 255));
-        informacionDelInmuebleLabel.setText("Informacion del inmueble");
+        informacionDelInmuebleLabel.setText("Informacion detallada del inmueble");
 
         lblMensaje.setForeground(new java.awt.Color(255, 255, 255));
         lblMensaje.setText("Mensaje:");
@@ -453,14 +446,6 @@ public class ClienteForm extends javax.swing.JFrame {
             }
         });
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane7.setViewportView(jTextArea3);
-
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Informacion del Anuncio");
-
         jLabel8.setText("FOTO");
 
         javax.swing.GroupLayout buscarInmueblePanelLayout = new javax.swing.GroupLayout(buscarInmueblePanel);
@@ -507,23 +492,19 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(alquilerRadioButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buscarInmueblePanelLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(InmueblesEncontradosLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)
-                        .addComponent(jLabel8))
-                    .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
-                        .addComponent(informacionDelInmuebleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7))
-                    .addComponent(inmueblesEncontradosList, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buscarInmueblePanelLayout.createSequentialGroup()
+                            .addGap(12, 12, 12)
+                            .addComponent(InmueblesEncontradosLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inmueblesEncontradosList, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(65, 65, 65)
+                            .addComponent(jLabel8)))
+                    .addComponent(informacionDelInmuebleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
         );
         buscarInmueblePanelLayout.setVerticalGroup(
@@ -531,24 +512,6 @@ public class ClienteForm extends javax.swing.JFrame {
             .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
-                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addComponent(InmueblesEncontradosLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inmueblesEncontradosList, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(4, 4, 4)
-                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(informacionDelInmuebleLabel)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane3)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buscarInmueblePanelLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(39, 39, 39))))
                     .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
                         .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
@@ -584,8 +547,23 @@ public class ClienteForm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(realizarBusquedaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(contactarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                                    .addComponent(contactarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
+                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addComponent(InmueblesEncontradosLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(inmueblesEncontradosList, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(buscarInmueblePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
+                                .addGap(95, 95, 95)
+                                .addComponent(jLabel8))
+                            .addGroup(buscarInmueblePanelLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(informacionDelInmuebleLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         infoBuscarInmuebleLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -600,7 +578,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addComponent(infoBuscarInmuebleLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBuscarInmuebleLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(buscarInmueblePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34))
         );
@@ -611,7 +589,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addComponent(infoBuscarInmuebleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buscarInmueblePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
+                .addContainerGap())
         );
 
         tabEditarPerfil.addTab("Buscar Inmueble", panelBuscarInmueble);
@@ -631,17 +609,17 @@ public class ClienteForm extends javax.swing.JFrame {
         lblSuperficie.setForeground(new java.awt.Color(255, 255, 255));
         lblSuperficie.setText("Superficie m2 :");
 
-        cbtipoInmueble.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Piso", "Casa", "Chalet", "Apartamento" }));
-        cbtipoInmueble.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbtipoInmuebleActionPerformed(evt);
-            }
-        });
-
         cbNumHabitaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
         cbNumHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbNumHabitacionesActionPerformed(evt);
+            }
+        });
+
+        cbtipoInmueble.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Piso", "Casa", "Chalet", "Apartamento" }));
+        cbtipoInmueble.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbtipoInmuebleActionPerformed(evt);
             }
         });
 
@@ -782,7 +760,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addGroup(panelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodigoPostal)
                     .addComponent(txCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(panelAñadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNumeroInmueble)
                     .addComponent(txtNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -793,48 +771,48 @@ public class ClienteForm extends javax.swing.JFrame {
                 .addGap(32, 32, 32))
         );
 
-        rbPrecioMensual.setBackground(new java.awt.Color(53, 121, 56));
-        precioButtonGroup.add(rbPrecioMensual);
-        rbPrecioMensual.setForeground(new java.awt.Color(255, 255, 255));
-        rbPrecioMensual.setText("Mensual");
-        rbPrecioMensual.addMouseListener(new java.awt.event.MouseAdapter() {
+        rbAlquiler.setBackground(new java.awt.Color(53, 121, 56));
+        precioButtonGroup.add(rbAlquiler);
+        rbAlquiler.setForeground(new java.awt.Color(255, 255, 255));
+        rbAlquiler.setText("Alquiler");
+        rbAlquiler.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbPrecioMensualMouseClicked(evt);
+                rbAlquilerMouseClicked(evt);
             }
         });
-        rbPrecioMensual.addActionListener(new java.awt.event.ActionListener() {
+        rbAlquiler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbPrecioMensualActionPerformed(evt);
+                rbAlquilerActionPerformed(evt);
             }
         });
-        rbPrecioMensual.addKeyListener(new java.awt.event.KeyAdapter() {
+        rbAlquiler.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                rbPrecioMensualKeyPressed(evt);
+                rbAlquilerKeyPressed(evt);
             }
         });
 
-        rbPrecioTotal.setBackground(new java.awt.Color(53, 121, 56));
-        precioButtonGroup.add(rbPrecioTotal);
-        rbPrecioTotal.setForeground(new java.awt.Color(255, 255, 255));
-        rbPrecioTotal.setText("Total");
-        rbPrecioTotal.addMouseListener(new java.awt.event.MouseAdapter() {
+        rbVenta.setBackground(new java.awt.Color(53, 121, 56));
+        precioButtonGroup.add(rbVenta);
+        rbVenta.setForeground(new java.awt.Color(255, 255, 255));
+        rbVenta.setText("Venta");
+        rbVenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbPrecioTotalMouseClicked(evt);
+                rbVentaMouseClicked(evt);
             }
         });
-        rbPrecioTotal.addActionListener(new java.awt.event.ActionListener() {
+        rbVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbPrecioTotalActionPerformed(evt);
+                rbVentaActionPerformed(evt);
             }
         });
-        rbPrecioTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+        rbVenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                rbPrecioTotalKeyPressed(evt);
+                rbVentaKeyPressed(evt);
             }
         });
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Seleccione el tipo de precio");
+        jLabel1.setText("Seleccione el tipo de operación");
 
         lblInfoDireccion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblInfoDireccion.setForeground(new java.awt.Color(255, 255, 255));
@@ -843,19 +821,6 @@ public class ClienteForm extends javax.swing.JFrame {
         lblInfoDelInmu.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         lblInfoDelInmu.setForeground(new java.awt.Color(255, 255, 255));
         lblInfoDelInmu.setText("Informacion del Inmueble");
-
-        txtPrecio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtPrecio.setForeground(new java.awt.Color(102, 102, 102));
-        txtPrecio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPrecioActionPerformed(evt);
-            }
-        });
-        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtPrecioKeyReleased(evt);
-            }
-        });
 
         lblPrecio.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(255, 255, 255));
@@ -877,9 +842,20 @@ public class ClienteForm extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("Descripcion del Anuncio");
 
-        lblTituloAnuncio.setText("TItulo del Anuncio:");
+        txtPrecio.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtPrecio.setForeground(new java.awt.Color(102, 102, 102));
+        txtPrecio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecioActionPerformed(evt);
+            }
+        });
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyReleased(evt);
+            }
+        });
 
-        lblNumeroBaños.setText("Numero de baños:");
+        lblTituloAnuncio.setText("TItulo del Anuncio:");
 
         cbNumeroBaños.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "1", "2", "3", "4", "5", "6", "7", "8", "9" }));
         cbNumeroBaños.addActionListener(new java.awt.event.ActionListener() {
@@ -888,7 +864,7 @@ public class ClienteForm extends javax.swing.JFrame {
             }
         });
 
-        lblEstadoInmueble.setText("Estado del Inmueble:");
+        lblNumeroBaños.setText("Numero de baños:");
 
         cbEstadoInmueble.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Buen estado", "Pendiente a reformar", "Nueva obra", " " }));
         cbEstadoInmueble.addActionListener(new java.awt.event.ActionListener() {
@@ -896,6 +872,8 @@ public class ClienteForm extends javax.swing.JFrame {
                 cbEstadoInmuebleActionPerformed(evt);
             }
         });
+
+        lblEstadoInmueble.setText("Estado del Inmueble:");
 
         javax.swing.GroupLayout panelAñadirAnuncioLayout = new javax.swing.GroupLayout(panelAñadirAnuncio);
         panelAñadirAnuncio.setLayout(panelAñadirAnuncioLayout);
@@ -938,10 +916,10 @@ public class ClienteForm extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rbPrecioMensual)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                                .addComponent(rbPrecioTotal)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rbAlquiler)
+                                .addGap(18, 18, 18)
+                                .addComponent(rbVenta)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnPublicarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
                                 .addComponent(btnAdjuntarImagen)
@@ -972,7 +950,7 @@ public class ClienteForm extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 91, Short.MAX_VALUE)
                                 .addComponent(lblTituloAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtTituloAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1000,7 +978,7 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(panelAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(panelAñadir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblInfoDelInmu)
                                 .addGap(4, 4, 4)
@@ -1036,8 +1014,8 @@ public class ClienteForm extends javax.swing.JFrame {
                                         .addGap(52, 52, 52)))))
                         .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnPublicarAnuncio, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbPrecioTotal)
-                            .addComponent(rbPrecioMensual)
+                            .addComponent(rbVenta)
+                            .addComponent(rbAlquiler)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelAñadirAnuncioLayout.createSequentialGroup()
                         .addGap(257, 257, 257)
@@ -1048,7 +1026,7 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addGroup(panelAñadirAnuncioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtSuperficie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSuperficie))))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         infoBuscarFotoErorr.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -1196,12 +1174,12 @@ public class ClienteForm extends javax.swing.JFrame {
                     .addGroup(panelHistorialLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(historialMensajesTextArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(149, Short.MAX_VALUE))
             .addGroup(panelHistorialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panelHistorialLayout.createSequentialGroup()
                     .addGap(72, 72, 72)
                     .addComponent(historialMensajesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(37, Short.MAX_VALUE)))
+                    .addContainerGap(54, Short.MAX_VALUE)))
         );
 
         tabEditarPerfil.addTab("Historial de Mensajes", panelHistorial);
@@ -1445,8 +1423,8 @@ public class ClienteForm extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblLogo)))
                 .addGap(11, 11, 11)
-                .addComponent(tabEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addComponent(tabEditarPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1457,7 +1435,9 @@ public class ClienteForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -1467,7 +1447,7 @@ public class ClienteForm extends javax.swing.JFrame {
         boolean realizado = true;
         for (int i = 0; i < inmobiliaria.getClientes().size(); i++) {
             if (inmobiliaria.getClientes().get(i).getCorreo().equals(cliente.getCorreo())) {
-                if (txtCorreo.getText().contains("/") || txtApellidos.getText().contains("/") || txtCorreo.getText().contains("/") || txtPasswordActual.getText().contains("/")) {
+                if (txtCorreo.getText().contains("#") || txtApellidos.getText().contains("#") || txtPasswordActual.getText().contains("#")) {
                     lblError.setText("Hay un caracter no permitido");
                 } else {
                     if (!inmobiliaria.getClientes().get(i).getPassword().equals(txtPasswordActual.getText())) {
@@ -1515,7 +1495,7 @@ public class ClienteForm extends javax.swing.JFrame {
                 }
             }
         }
-        file.saveToFile(inmobiliaria);
+        file.saveToFileClientes(inmobiliaria);
     }//GEN-LAST:event_btnRealizarCambiosActionPerformed
 
     private void compraRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compraRadioButtonActionPerformed
@@ -1545,8 +1525,8 @@ public class ClienteForm extends javax.swing.JFrame {
     void showInmuebleList() {
         int i;
         inmueblesEncontradosList.removeAll();
-        for (i = 0; i < inmobiliaria.getCatalogo().getAnunciosList().size(); i++) {
-            inmueblesEncontradosList.add(inmobiliaria.getCatalogo().getAnunciosList().get(i).toString());
+        for (i = 0; i < inmobiliaria.getCatalogo().size(); i++) {
+            inmueblesEncontradosList.add(inmobiliaria.getCatalogo().get(i).toString());
         }
     }
 
@@ -1582,7 +1562,7 @@ public class ClienteForm extends javax.swing.JFrame {
     public Cliente busquedadCliente(String cadena) {
         Cliente clienteBuscado = null;
         for (Cliente clientes : inmobiliaria.getClientes()) {
-            for (Anuncio anuncios : clientes.getAnuncios().getAnunciosList()) {
+            for (Anuncio anuncios : clientes.getAnuncios()) {
                 if (anuncios.toString().equals(cadena)) {
                     clienteBuscado = clientes;
                 }
@@ -1676,7 +1656,7 @@ public class ClienteForm extends javax.swing.JFrame {
         int i = 0;// La cantidad de anuncios que tengo como cliente
         for (int j = 0; j < inmobiliaria.getClientes().size(); j++) {
             if (inmobiliaria.getClientes().get(j).getCorreo().equals(cliente.getCorreo())) {
-                i = inmobiliaria.getClientes().get(j).getAnuncios().getAnunciosList().size();
+                i = inmobiliaria.getClientes().get(j).getAnuncios().size();
             }
 
         }
@@ -1688,7 +1668,7 @@ public class ClienteForm extends javax.swing.JFrame {
     public void longitud() {
         contador_tope = 0;
         for (Cliente clientes : inmobiliaria.getClientes()) {
-            for (Anuncio anuncios : clientes.getAnuncios().getAnunciosList()) {
+            for (Anuncio anuncios : clientes.getAnuncios()) {
                 contador_tope++;
             }
         }
@@ -1713,11 +1693,11 @@ public class ClienteForm extends javax.swing.JFrame {
 
     public boolean comprobar(Anuncio anuncioNuevo) {
         for (Cliente clientes : inmobiliaria.getClientes()) {
-            for (Anuncio anuncios : clientes.getAnuncios().getAnunciosList()) {
-                if (anuncios.getDireccion().getCalle().equals(anuncioNuevo.getDireccion().getCalle())
-                        & anuncios.getDireccion().getNumero() == anuncioNuevo.getDireccion().getNumero()
-                        & anuncios.getDireccion().getZipCode() == anuncioNuevo.getDireccion().getZipCode()
-                        & anuncios.getDireccion().getMunicipio().equals(anuncioNuevo.getDireccion().getMunicipio())) {
+            for (Anuncio anuncios : clientes.getAnuncios()) {
+                if (anuncios.getInmueble().getDireccion().getCalle().equals(anuncioNuevo.getInmueble().getDireccion().getCalle())
+                        & anuncios.getInmueble().getDireccion().getNumero() == anuncioNuevo.getInmueble().getDireccion().getNumero()
+                        & anuncios.getInmueble().getDireccion().getZipCode() == anuncioNuevo.getInmueble().getDireccion().getZipCode()
+                        & anuncios.getInmueble().getDireccion().getMunicipio().equals(anuncioNuevo.getInmueble().getDireccion().getMunicipio())) {
                     return false;
                 }
             }
@@ -1729,42 +1709,73 @@ public class ClienteForm extends javax.swing.JFrame {
         for (int i = 0; i < inmobiliaria.getClientes().size(); i++) {
             if (inmobiliaria.getClientes().get(i).getCorreo().equals(cliente.getCorreo())) {
                 Inmueble inmueble = null;
+                TipoInmueble tipoInmueble = null;
                 switch (cbtipoInmueble.getSelectedItem().toString()) {
                     case "Piso":
-                        inmueble = new Inmueble(TipologiaInmueble.PISO, Double.parseDouble(txtSuperficie.getText()), Integer.parseInt(cbNumHabitaciones.getSelectedItem().toString()));
-                        break;
-                    case "Casa":
-                        inmueble = new Inmueble(TipologiaInmueble.CASA, Double.parseDouble(txtSuperficie.getText()), Integer.parseInt(cbNumHabitaciones.getSelectedItem().toString()));
+                        tipoInmueble = TipoInmueble.PISO;
                         break;
                     case "Chalet":
-                        inmueble = new Inmueble(TipologiaInmueble.CHALET, Double.parseDouble(txtSuperficie.getText()), Integer.parseInt(cbNumHabitaciones.getSelectedItem().toString()));
+                        tipoInmueble = TipoInmueble.CHALET;
                         break;
                     case "Apartamento":
-                        inmueble = new Inmueble(TipologiaInmueble.APARTAMENTO, Double.parseDouble(txtSuperficie.getText()), Integer.parseInt(cbNumHabitaciones.getSelectedItem().toString()));
+                        tipoInmueble = TipoInmueble.APARTAMENTO;
                         break;
                     default:
+                        tipoInmueble = TipoInmueble.CASA;
+                        break;
+                }
+
+                TipoEstadoInmueble tipoEstadoInmueble = null;
+
+                switch (cbEstadoInmueble.getSelectedItem().toString()) {
+                    case "Pendiente a reformar":
+                        tipoEstadoInmueble = TipoEstadoInmueble.PENDIENTEREFORMAR;
+                        break;
+                    case "Nueva obra":
+                        tipoEstadoInmueble = TipoEstadoInmueble.NUEVAOBRA;
+                        break;
+                    default:
+                        tipoEstadoInmueble = TipoEstadoInmueble.BUENESTADO;
                         break;
                 }
 
                 Direccion d = new Direccion(txtCalle.getText(), txtPiso.getText(), cbMunicipio.getSelectedItem().toString(), Integer.parseInt(txtNumero.getText()), Integer.parseInt(txCodigoPostal.getText()));
 
-                Precio p = null;
-                if (rbPrecioMensual.isSelected()) {
-                    p = new PrecioAlquiler(Integer.parseInt(txtPrecio.getText()));
+                inmueble = new Inmueble(tipoInmueble, Double.parseDouble(txtSuperficie.getText()), Integer.parseInt(cbNumHabitaciones.getSelectedItem().toString()), Integer.parseInt(cbNumeroBaños.getSelectedItem().toString()), tipoEstadoInmueble, d);
+
+                TipoOperacion tipoOperacion = null;
+
+                if (rbAlquiler.isSelected()) {
+                    tipoOperacion = TipoOperacion.ALQUILER;
                 } else {
-                    p = new PrecioVenta(Integer.parseInt(txtPrecio.getText()));
-                }
-                Anuncio anuncio = new Anuncio(inmueble, d, p, txtFotoInmueble.getText());
-                if (comprobar(anuncio)) {
-                    inmobiliaria.getClientes().get(i).getAnuncios().addAnuncios(anuncio);
-                    lblErrorAñadirAnuncio.setForeground(Color.green);
-                    lblErrorAñadirAnuncio.setText("Se ha añadido el anuncio");
-                } else {
-                    lblErrorAñadirAnuncio.setForeground(Color.red);
-                    lblErrorAñadirAnuncio.setText("Ya existe el anuncio");
+                    tipoOperacion = TipoOperacion.VENTA;
                 }
 
-                file.saveToFile(inmobiliaria);
+                Anuncio a = new Anuncio(inmueble, Integer.parseInt(txtPrecio.getText()), txtFotoInmueble.getText(), txtTituloAnuncio.getText(), txtAreaDescripcionAnuncio.getText(), tipoOperacion);
+
+                boolean encontrado = false;
+
+                for (int j = 0; j < inmobiliaria.getCatalogo().size(); j++) {
+                    if (inmobiliaria.getCatalogo().get(j).getTipoCatalogo().equals(TipoCatalogo.PENDIENTES)) {
+                        //añado el anuncio al catálogo de pendientes
+                        inmobiliaria.getCatalogo().get(j).addAnuncios(a);
+                        encontrado = true;
+                    }
+                }
+                //guardo el anuncio en el catálogo
+                //si no está creado el catálogo lo creo
+
+                if (!encontrado) {
+                    CatalogoAnuncios catalogoAnuncios = new CatalogoAnuncios(TipoCatalogo.PENDIENTES);
+                    catalogoAnuncios.addAnuncios(a);
+                    inmobiliaria.addCatalogo(catalogoAnuncios);
+                }
+
+                // guardo el anuncio en el cliente
+                cliente.addAnuncios(a);
+
+                file.saveToFileClientes(inmobiliaria);
+                file.saveToFileCatalogo(inmobiliaria);
             }
         }
     }//GEN-LAST:event_btnPublicarAnuncioActionPerformed
@@ -1777,13 +1788,13 @@ public class ClienteForm extends javax.swing.JFrame {
         comprobarPublicarAnuncio();
     }//GEN-LAST:event_txtPisoActionPerformed
 
-    private void rbPrecioMensualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPrecioMensualActionPerformed
+    private void rbAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAlquilerActionPerformed
         comprobarPublicarAnuncio();
-    }//GEN-LAST:event_rbPrecioMensualActionPerformed
+    }//GEN-LAST:event_rbAlquilerActionPerformed
 
-    private void rbPrecioTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPrecioTotalActionPerformed
+    private void rbVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVentaActionPerformed
         comprobarPublicarAnuncio();
-    }//GEN-LAST:event_rbPrecioTotalActionPerformed
+    }//GEN-LAST:event_rbVentaActionPerformed
 
     private void txtRepetirPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRepetirPasswordActionPerformed
         // TODO add your handling code here:
@@ -1834,13 +1845,13 @@ public class ClienteForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecioKeyReleased
 
-    private void rbPrecioMensualKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rbPrecioMensualKeyPressed
+    private void rbAlquilerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rbAlquilerKeyPressed
         comprobarPublicarAnuncio();
-    }//GEN-LAST:event_rbPrecioMensualKeyPressed
+    }//GEN-LAST:event_rbAlquilerKeyPressed
 
-    private void rbPrecioTotalKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rbPrecioTotalKeyPressed
+    private void rbVentaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rbVentaKeyPressed
         comprobarPublicarAnuncio();
-    }//GEN-LAST:event_rbPrecioTotalKeyPressed
+    }//GEN-LAST:event_rbVentaKeyPressed
 
     private void historialMensajesTextAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historialMensajesTextAreaActionPerformed
         showClient(historialMensajesTextArea.getSelectedItem());
@@ -1871,13 +1882,13 @@ public class ClienteForm extends javax.swing.JFrame {
         comprobarPublicarAnuncio();
     }//GEN-LAST:event_txtPrecioActionPerformed
 
-    private void rbPrecioMensualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbPrecioMensualMouseClicked
+    private void rbAlquilerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbAlquilerMouseClicked
         comprobarPublicarAnuncio();
-    }//GEN-LAST:event_rbPrecioMensualMouseClicked
+    }//GEN-LAST:event_rbAlquilerMouseClicked
 
-    private void rbPrecioTotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbPrecioTotalMouseClicked
+    private void rbVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbVentaMouseClicked
         comprobarPublicarAnuncio();
-    }//GEN-LAST:event_rbPrecioTotalMouseClicked
+    }//GEN-LAST:event_rbVentaMouseClicked
 
     private void txtFotoInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFotoInmuebleActionPerformed
         // TODO add your handling code here:
@@ -1901,7 +1912,19 @@ public class ClienteForm extends javax.swing.JFrame {
     }//GEN-LAST:event_cbNumeroBañosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        List<Anuncio> anuncios = new ArrayList<>();
+
+        for (int j = 0; j < inmobiliaria.getCatalogo().size(); j++) {
+            if (inmobiliaria.getCatalogo().get(j).getTipoCatalogo().equals(TipoCatalogo.PENDIENTES)) {
+                anuncios = inmobiliaria.getCatalogo().get(j).getAnuncios();
+            }
+        }
+
+        inmueblesEncontradosList.removeAll();
+
+        for (Anuncio anuncio : anuncios) {
+            inmueblesEncontradosList.add(anuncio.toString());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cbEstadoInmuebleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadoInmuebleActionPerformed
@@ -1990,7 +2013,6 @@ public class ClienteForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel;
     private javax.swing.JPanel jPanel1;
@@ -2000,10 +2022,8 @@ public class ClienteForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lblAgencia;
     private javax.swing.JLabel lblCalle;
@@ -2045,8 +2065,8 @@ public class ClienteForm extends javax.swing.JFrame {
     private javax.swing.JLabel precioHastaLabel;
     private javax.swing.JTextField precioHastaTextField;
     private javax.swing.JRadioButton precioRadioButton;
-    private javax.swing.JRadioButton rbPrecioMensual;
-    private javax.swing.JRadioButton rbPrecioTotal;
+    private javax.swing.JRadioButton rbAlquiler;
+    private javax.swing.JRadioButton rbVenta;
     private javax.swing.JButton realizarBusquedaButton;
     private javax.swing.JLabel repetirContraseñaLabel;
     private javax.swing.JLabel salirIIcon;

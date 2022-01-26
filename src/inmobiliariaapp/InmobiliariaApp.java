@@ -1,9 +1,9 @@
 package inmobiliariaapp;
 import file.AgenciaFile;
 import gui.AgenciaForm;
-import model.Administrador;
-import model.Cliente;
 import model.Inmobiliaria;
+import model.Administrador;
+
 /**
  * Clase principal para arrancar el programa
  * @author JAD, ADAS
@@ -17,6 +17,8 @@ public class InmobiliariaApp {
         agenciaForm.setLocationRelativeTo(null);
         agenciaForm.setVisible(true);
         agenciaForm.inmobiliaria = inmobiliaria;
+
+        inmobiliaria.addAdministrador( new Administrador("admin", "admin"));
         
         AgenciaFile file = new AgenciaFile();
         file.loadFromFile(inmobiliaria);

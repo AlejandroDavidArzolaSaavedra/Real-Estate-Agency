@@ -1,6 +1,7 @@
 package gui;
 
 import file.AgenciaFile;
+import model.Administrador;
 import model.Cliente;
 import model.Inmobiliaria;
 
@@ -8,6 +9,8 @@ public class ModificarClienteForm extends javax.swing.JFrame {
 
     public Inmobiliaria inmobiliaria;
     public AgenciaFile file;
+    public Cliente cliente;
+    public Administrador administrador;
 
     public ModificarClienteForm() {
         initComponents();
@@ -69,7 +72,13 @@ public class ModificarClienteForm extends javax.swing.JFrame {
 
         lblPassword.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(255, 255, 255));
-        lblPassword.setText("Contraseña:");
+        lblPassword.setText("Contraseña nueva:");
+
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
 
         lblApellidos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         lblApellidos.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,21 +100,22 @@ public class ModificarClienteForm extends javax.swing.JFrame {
             pFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFormularioLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pFormularioLayout.createSequentialGroup()
-                        .addGroup(pFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblApellidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                            .addComponent(txtCorreo)
-                            .addComponent(txtPassword)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGroup(pFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblApellidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblPassword, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(txtCorreo)
+                    .addComponent(txtPassword)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(40, 40, 40))
+            .addGroup(pFormularioLayout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(btnActualizarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
         pFormularioLayout.setVerticalGroup(
             pFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,18 +151,17 @@ public class ModificarClienteForm extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(142, 142, 142)
                         .addComponent(lblFormularioRegistro))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(134, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -164,8 +173,9 @@ public class ModificarClienteForm extends javax.swing.JFrame {
                 .addComponent(lblFormularioRegistro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(lblError))
+                .addGap(18, 18, 18)
+                .addComponent(lblError)
+                .addGap(42, 42, 42))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -183,21 +193,76 @@ public class ModificarClienteForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        AgenciaForm agenciaForm = new AgenciaForm();
-        agenciaForm.inmobiliaria = inmobiliaria;
-        agenciaForm.file = file;
-        agenciaForm.setLocationRelativeTo(null);
-        agenciaForm.setVisible(true);
+        AdminForm adminForm = new AdminForm();
+        adminForm.inmobiliaria = inmobiliaria;
+        adminForm.file = file;
+        adminForm.administrador = administrador;
+        adminForm.setLocationRelativeTo(null);
+        adminForm.setVisible(true);
+        adminForm.setTextSesion();
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnActualizarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarUsuarioActionPerformed
+        boolean realizado = true;
+        for (int i = 0; i < inmobiliaria.getClientes().size(); i++) {
+            if (inmobiliaria.getClientes().get(i).getCorreo().equals(cliente.getCorreo())) {
+                if (txtCorreo.getText().contains("#") || txtApellidos.getText().contains("#") || txtPassword.getText().contains("#")) {
+                    lblError.setText("Hay un caracter no permitido");
+                } else {
+                    if (txtNombre.getText() != "" && txtNombre.getText().length() != 0) {
+                        inmobiliaria.getClientes().get(i).setNombre(txtNombre.getText());
+                    } else {
+                        lblError.setText("El nombre no puede estar vacío");
+                        realizado = false;
+                    }
+                    if (txtApellidos.getText() != "" && txtApellidos.getText().length() != 0) {
+                        inmobiliaria.getClientes().get(i).setApellido(txtApellidos.getText());
+                    } else {
+                        lblError.setText("Los apellidos no pueden estar vacíos");
+                        realizado = false;
+                    }
+                    if (txtPassword.getText() != "" && txtPassword.getText().length() != 0) {
+                        inmobiliaria.getClientes().get(i).setPassword(txtPassword.getText());
+                    } else {
+                        lblError.setText("La contraseña no puede estar vacía");
+                        realizado = false;
+                    }
+                    if (txtCorreo.getText().contains("@")) {
+                        if (txtCorreo.getText() != "" && txtCorreo.getText().length() != 0) {
+                            inmobiliaria.getClientes().get(i).setCorreo(txtCorreo.getText());
+                        } else {
+                            lblError.setText("El correo no puede estar vacío");
+                            realizado = false;
+                        }
+                    } else {
+                        lblError.setText("El correo no es correcto.");
+                        realizado = false;
+                    }
+                    if (realizado) {
+                        lblError.setText("Se han realizado los cambios correctamente.");
+                    }
+                }
+            }
+        }
 
+        file.saveToFileClientes(inmobiliaria);
     }//GEN-LAST:event_btnActualizarUsuarioActionPerformed
+
+    public void establecerDatos() {
+        txtNombre.setText(cliente.getNombre());
+        txtApellidos.setText(cliente.getApellido());
+        txtCorreo.setText(cliente.getCorreo());
+        txtPassword.setText(cliente.getPassword());
+    }
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

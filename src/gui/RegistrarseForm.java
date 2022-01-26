@@ -240,8 +240,8 @@ public class RegistrarseForm extends javax.swing.JFrame {
             lblError.setText("Las contraseñas no coinciden.");
         } else {
             Cliente client = new Cliente(txtNombre.getText(), txtApellidos.getText(), txtCorreo.getText(), txtPassword.getText());
-            // Tratamiento excepcion  caracter "/" no valido
-            if (txtNombre.getText().contains("/") || txtApellidos.getText().contains("/") || txtCorreo.getText().contains("/") || txtPassword.getText().contains("|")) {
+            // Tratamiento excepcion  caracter "#" no valido
+            if (txtNombre.getText().contains("#") || txtApellidos.getText().contains("#") || txtCorreo.getText().contains("#") || txtPassword.getText().contains("#")) {
                 lblError.setText("Hay un caracter no permitido");
                 // Tratamiento excepcion no introducir nigun valor    
             } else if (txtPassword.getText().equals("") || txtCorreo.getText().equals("")
