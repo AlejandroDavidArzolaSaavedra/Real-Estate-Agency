@@ -257,7 +257,7 @@ public class RegistrarseForm extends javax.swing.JFrame {
                 if (!inmobiliaria.getClientes().contains(client)) { // si el cliente no está registrado se registra
                     // Añadirlo al documento de texto
                     inmobiliaria.addCliente(client); // añado el nuevo usuario
-                    file.saveToFile(inmobiliaria); // guardo en el fichero los clientes registrados
+                    file.saveToFileClientes(inmobiliaria); // guardo en el fichero los clientes registrados
                     file.saveToFileMensaje(inmobiliaria);
                     lblError.setText("Registro correcto");
                 } else {

@@ -9,7 +9,6 @@ public class Inmobiliaria {
 
     private ArrayList<Cliente> clientes;
     private ArrayList<Administrador> administradores;
-    //private final CatalogoAnuncios catalogo;
     private ArrayList<CatalogoAnuncios> catalogo;
 
     /**
@@ -17,6 +16,7 @@ public class Inmobiliaria {
      */
     public Inmobiliaria() {
         this.clientes = new ArrayList<>();
+        this.administradores = new ArrayList<>();
         this.catalogo = new ArrayList<>();
     }
 
@@ -77,4 +77,7 @@ public class Inmobiliaria {
         clientes.remove(c);
     }
 
+    public void addCatalogo(CatalogoAnuncios ca) {
+        catalogo.add(ca);
+    }
 }

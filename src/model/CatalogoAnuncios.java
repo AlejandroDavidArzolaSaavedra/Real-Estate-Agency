@@ -10,8 +10,17 @@ import java.util.List;
 public class CatalogoAnuncios {
 
     private TipoCatalogo tipoCatalogo;
-    private final ArrayList<Anuncio> anuncios = new ArrayList<>();
+    private ArrayList<Anuncio> anuncios = new ArrayList<>();
 
+    public CatalogoAnuncios(TipoCatalogo tipoCatalogo) {
+        this.tipoCatalogo = tipoCatalogo;
+    }
+
+    public CatalogoAnuncios(TipoCatalogo tipoCatalogo, ArrayList<Anuncio> anuncios) {
+        this.tipoCatalogo = tipoCatalogo;
+        this.anuncios = anuncios;
+    }
+    
     /**
      * Getter de la lista de anuncios ordenados por precio
      *
@@ -64,7 +73,7 @@ public class CatalogoAnuncios {
      *
      * @return lista de anuncios del cliente
      */
-    public List<Anuncio> getAnunciosList() {
+    public List<Anuncio> getAnuncios() {
         return this.anuncios;
     }
 

@@ -1,3 +1,3 @@
 package model;
 
-public enum TipoCatalogo {Publicados, Pendientes, Eliminados}
+public enum TipoCatalogo {PUBLICADOS, PENDIENTES, ELIMINADOS}

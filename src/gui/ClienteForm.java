@@ -12,15 +12,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import model.Anuncio;
 import model.CatalogoAnuncios;
+import model.Mensaje;
 import model.Cliente;
 import model.Inmobiliaria;
 import model.Inmueble;
-import model.TipologiaInmueble;
+import model.TipoInmueble;
 import model.Direccion;
-import model.Precio;
-import model.PrecioAlquiler;
-import model.PrecioVenta;
-import model.Mensajeria;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -1595,7 +1592,7 @@ public class ClienteForm extends javax.swing.JFrame {
     }
 
     private void contactarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactarButtonActionPerformed
-        Mensajeria m = new Mensajeria(cliente, txtMensaje.getText());
+        Mensaje m = new Mensaje(cliente, txtMensaje.getText());
         // añadir mensaje al destinatario inmueblesEncontradosList
         // recorreindo el fichero y cuando encuentre a alguien con la misma direccion
         // signicia que se su correo y que lo puedo enviar
