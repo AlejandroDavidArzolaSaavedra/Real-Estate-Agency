@@ -3,6 +3,10 @@
 ## Description
 This application simulates the operation of a real estate agency, allowing administrators and clients to interact with property listings, perform buying/selling or rental operations, and manage messages between them.
 
+<p align="center">
+  <img width="600px"src="https://github.com/AlejandroDavidArzolaSaavedra/Real-Estate-Agency/assets/90756437/0855c807-430b-4d02-aba6-98e683fdc526">
+</p>
+
 # 👥 Development Team (Ctrl + Click to view profiles)
 
 [![GitHub](https://img.shields.io/badge/GitHub-Alejandro%20David%20Arzola%20Saavedra-blue?style=flat-square&logo=github)](https://github.com/AlejandroDavidArzolaSaavedra)
