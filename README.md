@@ -1,34 +1,38 @@
-# Inmobiliaria App 🏡
+<h1 align="center">Real Estate App 🏡</h1>
 
-## Descripción
-Esta aplicación simula el funcionamiento de una agencia inmobiliaria, permitiendo a administradores y clientes interactuar con anuncios de inmuebles, realizar operaciones de compra/venta o alquiler, y gestionar mensajes entre ellos.
+## Description
+This application simulates the operation of a real estate agency, allowing administrators and clients to interact with property listings, perform buying/selling or rental operations, and manage messages between them.
 
-## Estructura del Proyecto 📂
+# 👥 Development Team (Ctrl + Click to view profiles)
 
-Configuraciones relacionadas con el entorno de desarrollo NetBeans.
+[![GitHub](https://img.shields.io/badge/GitHub-Alejandro%20David%20Arzola%20Saavedra-blue?style=flat-square&logo=github)](https://github.com/AlejandroDavidArzolaSaavedra)
 
-#### Paquete `model`
-Clases que representan el modelo de datos.
+[![GitHub](https://img.shields.io/badge/GitHub-juancad-red?style=flat-square&logo=github)](https://github.com/juancad)
 
-- `Administrador.java`: Representa a los administradores.
-- `Anuncio.java`: Representa un anuncio de un inmueble.
-- `CatalogoAnuncios.java`: Representa el catálogo de anuncios de cada cliente.
-- `Cliente.java`: Representa a los clientes.
-- `Direccion.java`: Representa la dirección de un inmueble.
-- `Inmobiliaria.java`: Representa la agencia inmobiliaria.
-- `Inmueble.java`: Representa un inmueble en venta o alquiler.
-- `Mensaje.java`: Representa los mensajes entre clientes y administradores.
-- `TipoCatalogo.java`: Enumeración de tipos de catálogos de anuncios.
-- `TipoEstadoInmueble.java`: Enumeración de estados posibles de un inmueble.
-- `TipoInmueble.java`: Enumeración de tipos posibles de inmuebles.
-- `TipoOperacion.java`: Enumeración de tipos posibles de operaciones.
 
-## Uso
-La aplicación simula una agencia inmobiliaria con interfaces para administradores y clientes. Al ejecutar `InmobiliariaApp.java`, se abre la interfaz principal de la agencia.
+## Project Structure 📂
 
-## Colaboradores
-- **JAD**
-- **ADAS**
+Configurations related to the NetBeans development environment.
 
-## Fecha de Creación
-07/01/2021
+#### Package `model`
+Classes representing the data model.
+
+- `Administrador.java`: Represents administrators.
+- `Anuncio.java`: Represents a property listing.
+- `CatalogoAnuncios.java`: Represents the listing catalog for each client.
+- `Cliente.java`: Represents clients.
+- `Direccion.java`: Represents the address of a property.
+- `Inmobiliaria.java`: Represents the real estate agency.
+- `Inmueble.java`: Represents a property for sale or rent.
+- `Mensaje.java`: Represents messages between clients and administrators.
+- `TipoCatalogo.java`: Enumeration of types of listing catalogs.
+- `TipoEstadoInmueble.java`: Enumeration of possible states of a property.
+- `TipoInmueble.java`: Enumeration of possible types of properties.
+- `TipoOperacion.java`: Enumeration of possible types of operations.
+
+## Usage
+The application simulates a real estate agency with interfaces for administrators and clients. By running `InmobiliariaApp.java`, the main interface of the agency opens.
+
+# Contributions 🤝
+
+If you would like to contribute to this project, please create a fork and submit a pull request with your changes. We'd be happy to review your contributions!
