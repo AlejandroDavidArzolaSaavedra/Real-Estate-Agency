@@ -38,5 +38,5 @@ Classes representing the data model.
 The application simulates a real estate agency with interfaces for administrators and clients. By running `InmobiliariaApp.java`, the main interface of the agency opens.
 
 # Contributions 🤝
-
+<img align="left" width="200" height="200" src="https://raw.githubusercontent.com/AlejandroDavidArzolaSaavedra/AlejandroDavidArzolaSaavedra/main/octoSpiritual.png"></a>
 If you would like to contribute to this project, please create a fork and submit a pull request with your changes. We'd be happy to review your contributions!
