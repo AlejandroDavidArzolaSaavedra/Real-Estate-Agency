@@ -18,7 +18,13 @@ This application simulates the operation of a real estate agency, allowing admin
 
 Configurations related to the NetBeans development environment.
 
-## Usage
+## Use case 💪
+
+<p align="center">
+  <img width="600px" src="https://github.com/AlejandroDavidArzolaSaavedra/Real-Estate-Agency-App/assets/90756437/01e3313a-3bc2-4e3b-9b35-0e68812125a0"/>
+</p>
+
+## How to use
 The application simulates a real estate agency with interfaces for administrators and clients. By running `InmobiliariaApp.java`, the main interface of the agency opens.
 
 # Contributions 🤝
