@@ -2,11 +2,9 @@
 
 ## Description
 This application simulates the operation of a real estate agency, allowing administrators and clients to interact with property listings, perform buying/selling or rental operations, and manage messages between them.
-![Fotoram io](https://github.com/AlejandroDavidArzolaSaavedra/Real-Estate-Agency-App/assets/90756437/64b8fc4d-8d1f-490c-b543-eda4ef7319e3)
-
 
 <p align="center">
-  <img width="600px"src="https://github.com/AlejandroDavidArzolaSaavedra/Real-Estate-Agency/assets/90756437/0855c807-430b-4d02-aba6-98e683fdc526">
+  <img width="600px"src="https://github.com/AlejandroDavidArzolaSaavedra/Real-Estate-Agency-App/assets/90756437/333e820b-a3b3-4a2d-a67e-a6e721392a12">
 </p>
 
 # 👥 Development Team (Ctrl + Click to view profiles)
