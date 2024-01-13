@@ -1,43 +1,35 @@
-<h1 align="center">Structured Data and Programming Assignments💻</h1>
+<h1 align="center">Real Estate App 🏡</h1>
+
+## Description
+This application simulates the operation of a real estate agency, allowing administrators and clients to interact with property listings, perform buying/selling or rental operations, and manage messages between them.
+
 <p align="center">
-  <img width="500px" src="https://github.com/AlejandroDavidArzolaSaavedra/Data-Structures/assets/90756437/1642c491-d7bc-4fdb-ac29-f42f3287b72c">
+  <img width="600px"src="https://github.com/AlejandroDavidArzolaSaavedra/Real-Estate-Agency-App/assets/90756437/333e820b-a3b3-4a2d-a67e-a6e721392a12">
 </p>
-This project provided an overview of four programming assignments related to structured data and programming.
+
+# 👥 Development Team (Ctrl + Click to view profiles)
+
+[![GitHub](https://img.shields.io/badge/GitHub-Alejandro%20David%20Arzola%20Saavedra-blue?style=flat-square&logo=github)](https://github.com/AlejandroDavidArzolaSaavedra)
+
+[![GitHub](https://img.shields.io/badge/GitHub-juancad-red?style=flat-square&logo=github)](https://github.com/juancad)
 
 
-## Assignment 1: Linked List Container 📝
+## Uml class diagram 📈
 
-**Objective:** Developed a container class, `LinkedList`, to represent a collection of integers using a singly linked list.
+<p align="center">
+  <img width="600px" src="https://github.com/AlejandroDavidArzolaSaavedra/Real-Estate-Agency-App/assets/90756437/81119148-a812-4ead-bab2-b3cd9a95896f"/>
+</p>
 
-**Implementation:** Created a class with operations like insertion, extraction, searching, and more, using a linked list structure.
+## Use case 💪
 
-**Testing:** Performed tests to ensure the correct functioning of the container without using JUnit.
+<p align="center">
+  <img width="600px" src="https://github.com/AlejandroDavidArzolaSaavedra/Real-Estate-Agency-App/assets/90756437/01e3313a-3bc2-4e3b-9b35-0e68812125a0"/>
+</p>
 
-## Assignment 2: Binary Search Tree Container 📚
+## How to use
+The application simulates a real estate agency with interfaces for administrators and clients. By running `InmobiliariaApp.java`, the main interface of the agency opens.
 
-**Objective:** Developed a container class, `BinarySearchTree`, to represent a collection of integers using a binary search tree.
+# Contributions 🤝
 
-**Implementation:** Created a class with operations such as insertion, extraction, searching, and more, using a binary search tree structure.
-
-**Testing:** Developed a test class, `TestBinarySearchTree`, to check the correct functioning of the container without using JUnit. Conducted performance tests with specific requirements.
-
-## Assignment 3: Binary Search Tree Container (Advanced)🔄
-
-**Objective:** Extended the binary search tree container developed in Assignment 2. Focused on optimizing performance and conducting detailed performance tests.
-
-**Implementation:** Implemented a binary search tree using a dynamic memory structure. Performed various operations and measured the time complexity.
-
-**Testing:** Developed a test class, `TestBinarySearch`, to evaluate the container's performance and behavior under different scenarios. Performed detailed experiments and recorded results in an output file.
-
-## Assignment 4: B-Tree Container 🌳
-
-**Objective:** Developed a container class, `BTree`, to represent a collection of integers using a B-tree.
-
-**Implementation:** Implemented a B-tree with specified orders. Utilized provided helper classes for file manipulation and conversion. Conducted performance tests with various orders and sizes.
-
-**Testing:** Developed a test class, `TestBTree`, to ensure the correct functioning of the container. Performed performance tests using specific files and orders.
-
-## Conclusion 🎓
-
-<img align="left" width="100" height="100" src="https://github.com/AlejandroDavidArzolaSaavedra/Kata-Working-With-Sqlite/assets/90756437/f83020eb-76e4-4224-87e4-ae2a2d370b05g">
-These assignments progressively built on each other, covering fundamental data structures like linked lists and binary search trees, and advancing to more complex structures such as B-trees. Through the assignments, students gained hands-on experience in designing, implementing, and evaluating the performance of container classes for structured data.
+<img align="left" width="200" height="200" src="https://raw.githubusercontent.com/AlejandroDavidArzolaSaavedra/AlejandroDavidArzolaSaavedra/main/octoSpiritual.png"></a>
+If you would like to contribute to this project, please create a fork and submit a pull request with your changes. We'd be happy to review your contributions!
