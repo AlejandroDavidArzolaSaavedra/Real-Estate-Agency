@@ -1,6 +1,5 @@
 <h1 align="center">Real Estate App 🏡</h1>
 
-## Description
 This application simulates the operation of a real estate agency, allowing administrators and clients to interact with property listings, perform buying/selling or rental operations, and manage messages between them.
 
 <p align="center">
